@@ -7,14 +7,14 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
 
-Category.new(title:"Reading").save!
-Category.new(title:"Listening").save!
-Category.new(title:"Dyslexia").save!
-Category.new(title:"Concentration").save!
-Category.new(title:"Relaxation").save!
-Category.new(title:"Autism").save!
-Category.new(title:"Text-readers").save!
-Category.new(title:"Speech-Text").save!
+Category.new(name:"Reading").save!
+Category.new(name:"Listening").save!
+Category.new(name:"Dyslexia").save!
+Category.new(name:"Concentration").save!
+Category.new(name:"Relaxation").save!
+Category.new(name:"Autism").save!
+Category.new(name:"Text-readers").save!
+Category.new(name:"Speech-Text").save!
 
 10.times do
   user = User.create(
@@ -28,7 +28,7 @@ Category.new(title:"Speech-Text").save!
     name: Faker::Name.name,
     bio: "Hello I am a bio that is more than ten! This will be used to test our views.",
     location: Faker::Address.city,
-    username: Faker::Internet.username,
+    user_name: Faker::Internet.username,
     user_id: user.id
   )
   profile.save!
