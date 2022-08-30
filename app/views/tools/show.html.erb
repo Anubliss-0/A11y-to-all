@@ -8,6 +8,8 @@
   <li><%= @tool.title %></li>
 </ul>
 
+<%= link_to "Leave a review", new_tool_review_path(@tool) %>
+
 <% @reviews.each do |review| %>
   <p><%= review.content %></p>
 <% end %>

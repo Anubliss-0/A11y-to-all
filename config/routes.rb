@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   resources :profiles, only: [:create, :show, :update]
-  resources :tools
+  resources :tools do
+    resources :reviews, except: [:index, :show]
+  end
   resources :lists
   resources :bookmarks, only: [:create, :destroy]
   resources :profiles, only: [:show, :update]
