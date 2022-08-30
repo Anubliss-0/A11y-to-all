@@ -6,6 +6,6 @@ class Tool < ApplicationRecord
   has_many :lists, through: :bookmarks
   has_many :reviews
   validates :title, :description, :url, presence: true
-  validates :name, uniqueness: true
+  # validates :title, uniqueness: true
   validates :description, length: { minimum: 20 }
 end
