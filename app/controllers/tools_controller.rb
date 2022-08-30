@@ -7,6 +7,7 @@ class ToolsController < ApplicationController
 
   def show
     authorize @tool
+    @reviews = @tool.reviews
   end
 
   def new
@@ -34,6 +35,7 @@ class ToolsController < ApplicationController
   def update
     authorize @tool
     if @tool.update(tool_params)
+      flash[:notice] = "#{@tool.title} has been updated"
       redirect_to tool_path(@tool)
     else
       render :new
@@ -43,8 +45,10 @@ class ToolsController < ApplicationController
   def destroy
     authorize @tool
     @tool.destroy
+    flash[:notice] = "#{@tool.title} has been deleted"
     redirect_to tools_path
   end
+
 
   private
 

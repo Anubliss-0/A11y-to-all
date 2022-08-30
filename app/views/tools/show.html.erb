@@ -8,7 +8,12 @@
   <li><%= @tool.title %></li>
 </ul>
 
+<% @reviews.each do |review| %>
+  <p><%= review.content %></p>
+<% end %>
+
 <%= link_to "Back to index", tools_path %>
+<%# Add JS to create Confirmation box %>
 <%= button_to "Destroy this tool", @tool, method: :delete if policy(@tool).destroy? %>
 <% if policy(@tool).edit? %>
   <%= link_to "Edit This Tool", edit_tool_path(@tool) %>
