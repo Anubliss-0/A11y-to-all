@@ -1,6 +1,7 @@
 class ListsController < ApplicationController
   def new
     @list = List.new
+    @bookmark = Bookmark.new
     authorize @list
   end
 
@@ -8,8 +9,15 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     @list.user = current_user
     authorize @list
-    if @list.save?
-      redirect_to list_path(@list)
+    if @list.save
+      params[:list][:tool_ids].delete("")
+      tool_ids =  params[:list][:tool_ids]
+      tool_ids.each do |tool|
+        tool.to_i
+        @bookmark = Bookmark.new(tool_id: tool, list_id: @list.id)
+        @bookmark.save!
+      end
+    redirect_to list_path(@list)
     else
       render :new
     end
@@ -19,6 +27,7 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     authorize @list
     @bookmarks = Bookmark.all
+    @tools = Tool.all
     @bookmarks_needed = @bookmarks.select { |bookmark| bookmark.list_id == @list.id }
   end
 
@@ -52,9 +61,14 @@ class ListsController < ApplicationController
     user = current_user
     redirect_to "profiles/#{user.id}"
   end
+
   private
 
   def list_params
     params.require(:list).permit(:title)
+  end
+
+  def bookmark_params
+    params.require(:bookmark).permit(:tool_id)
   end
 end

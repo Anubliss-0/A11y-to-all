@@ -1,5 +1,7 @@
 <h1>Create a new list:</h1>
-  <%= simple_form_for [@list] do |f| %>
+  <%= simple_form_for @list do |f| %>
     <%= f.input :title %>
+    <%= f.association :tools %>
+<h2>Add a tool to your list:</h2>
     <%= f.button :submit, "Go", class: "btn btn-primary" %>
   <% end %>
