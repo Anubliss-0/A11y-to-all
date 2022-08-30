@@ -43,6 +43,7 @@ class ToolsController < ApplicationController
   def destroy
     authorize @tool
     @tool.destroy
+    redirect_to tools_path
   end
 
   private

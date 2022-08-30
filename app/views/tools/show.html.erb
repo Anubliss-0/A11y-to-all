@@ -1,0 +1,15 @@
+<h1><%= @tool.title %></h1>
+<ul>
+  <li><%= @tool.title %></li>
+  <li><%= @tool.description %></li>
+  <li><%= @tool.url %></li>
+  <li><%= @tool.rating %></li>
+  <li><%= @tool.user_id %></li>
+  <li><%= @tool.title %></li>
+</ul>
+
+<%= link_to "Back to index", tools_path %>
+<%= button_to "Destroy this tool", @tool, method: :delete if policy(@tool).destroy? %>
+<% if policy(@tool).edit? %>
+  <%= link_to "Edit This Tool", edit_tool_path(@tool) %>
+<% end %>

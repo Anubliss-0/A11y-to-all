@@ -1,0 +1,12 @@
+<h1>Update <%= @tool.title %></h1>
+<%= simple_form_for @tool do |f| %>
+<h2>What is the name of this tool?</h2>
+  <%= f.input :title %>
+  <h2>Write something about how this tool</h2>
+  <%# Perhaps here there can be an expandable box with more text
+  on what makes a good description? %>
+  <%= f.input :description %>
+  <h2>Enter the URL of this tool</h2>
+  <%= f.input :url %>
+  <%= f.button :submit %>
+<% end %>
