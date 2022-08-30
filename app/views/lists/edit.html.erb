@@ -1,5 +1,7 @@
 <h1>Edit this list:</h1>
-  <%= simple_form_for [@bookmarks_needed, @list] do |f| %>
+  <%= simple_form_for @list do |f| %>
     <%= f.input :title %>
+    <h2>Add tools to your list:</h2>
+    <%= f.association :tools %>
     <%= f.button :submit, "Go", class: "btn btn-primary" %>
   <% end %>
