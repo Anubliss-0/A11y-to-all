@@ -1,7 +1,8 @@
 class Tool < ApplicationRecord
-  belongs_to :profile
+  belongs_to :user
+  has_many :tool_categories
+  has_many :categories, through: :tool_categories
   has_many :bookmarks
-  has_many :resource_categories
+  has_many :lists, through: :bookmarks
   has_many :reviews
-  valiates :title, :descripation, :url, :user_id, presence: true
 end
