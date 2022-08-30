@@ -16,20 +16,28 @@ class ListsController < ApplicationController
   end
 
   def show
-    @list = List.find_by(params[:id])
+    @list = List.find(params[:id])
     authorize @list
     @bookmarks = Bookmarks.all
     @bookmarks_needed = @bookmarks.select { |bookmark| bookmark.list_id = @list.id}
   end
 
   def edit
-    @list = List.find_by(params[:id])
+    @list = List.find(params[:id])
+    @bookmarks = Bookmarks.all
+    @bookmarks_needed = @bookmarks.select { |bookmark| bookmark.list_id = @list.id}
     authorize @list
   end
 
   def update
-    @list = List.find_by(params[:id])
+    @list = List.find(params[:id])
     authorize @list
+    @list.bookmarks.clear
+    if params.key?(:bookmarks)
+      params[:bookmarks].each do |bookmark|
+        @list.bookmarks << Bookmark.find_by(bookmark.id)
+      end
+    end
     if @list.update(list_params)
       redirect_to list_path(@list)
     else
