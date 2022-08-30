@@ -18,8 +18,8 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     authorize @list
-    @bookmarks = Bookmarks.all
-    @bookmarks_needed = @bookmarks.select { |bookmark| bookmark.list_id = @list.id}
+    @bookmarks = Bookmark.all
+    @bookmarks_needed = @bookmarks.select { |bookmark| bookmark.list_id == @list.id }
   end
 
   def edit
