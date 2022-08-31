@@ -1,0 +1,9 @@
+<h1>Welcome to AllytoAll</h1>
+  <%= simple_form_for @profile do |f| %>
+    <%= f.input :name %>
+    <%= f.input :user_name %>
+    <%= f.input :bio %>
+    <%= f.input :location %>
+    <%= f.file_field :photo %>
+    <%= f.button :submit, "Go", class: "btn btn-primary" %>
+  <% end %>
