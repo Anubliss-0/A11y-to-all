@@ -31,6 +31,8 @@ Category.new(name:"Speech-Text").save!
     user_name: Faker::Internet.username,
     user_id: user.id
   )
+  file = URI.open("https://i.pravatar.cc/300")
+  profile.photo.attach(io: file, filename:"filler.jpeg",content_type: "image/jpeg")
   profile.save!
 end
 

@@ -4,6 +4,6 @@
     <%= f.input :user_name %>
     <%= f.input :bio %>
     <%= f.input :location %>
-    <%= f.file_field :photo %>
+    <%= f.input :photo, as: :file %>
     <%= f.button :submit, "Go", class: "btn btn-primary" %>
   <% end %>
