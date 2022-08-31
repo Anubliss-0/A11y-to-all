@@ -2,7 +2,11 @@ class ToolsController < ApplicationController
   before_action :set_tool, only: %i[show edit update destroy]
 
   def index
-    @tools = policy_scope(Tool).all
+    if params[:query].present?
+      @tools = policy_scope(Tool.search_tools(params[:query]))
+    else
+      @tools = policy_scope(Tool)
+    end
   end
 
   def show
