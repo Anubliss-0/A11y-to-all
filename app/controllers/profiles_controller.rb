@@ -1,15 +1,21 @@
 class ProfilesController < ApplicationController
   def new
     @profile = Profile.new
-    authorize @profile
     @profile_category = ProfileCategory.new
+    authorize @profile
   end
 
   def create
     @profile = Profile.new(profile_params)
-    authorize @profile
     @profile.user = current_user
+    authorize @profile
     if @profile.save
+      params[:profile][:category_ids].delete("")
+      params[:profile][:category_ids].each do |category|
+        @profile_category = ProfileCategory.new(category_id: category.to_i, profile: @profile)
+        @profile_category.save!
+      end
+      flash[:notice] = "#{@profile.user_name}'s profile has been saved"
       redirect_to profile_path(@profile)
     else
       render :new
