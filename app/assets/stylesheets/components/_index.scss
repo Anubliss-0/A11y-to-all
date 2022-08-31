@@ -3,3 +3,34 @@
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
+@import "card";
+@import "toolcard";
+
+
+.white_background {
+  background: white;
+}
+
+.ellipsis {
+  text-overflow:ellipsis;
+  overflow:hidden;
+  // Addition lines for 2 line or multiline ellipsis
+  display: -webkit-box !important;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+.deletethiscontainer {
+  margin: auto;
+  width: 50%;
+}
+
+p {
+  font-size: small;
+}
+
+h2 {
+  font-size: large;
+  margin-bottom: none;
+}
