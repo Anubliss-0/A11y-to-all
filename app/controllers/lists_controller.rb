@@ -15,6 +15,7 @@ class ListsController < ApplicationController
         @bookmark = Bookmark.new(tool_id: tool.to_i, list: @list)
         @bookmark.save!
       end
+      flash[:notice] = "#{@list.title} has been saved"
       redirect_to list_path(@list)
     else
       render :new
@@ -47,6 +48,7 @@ class ListsController < ApplicationController
         @bookmark = Bookmark.new(tool_id: tool.to_i, list: @list)
         @bookmark.save!
       end
+    flash[:notice] = "#{@list.title} has been updated."
     redirect_to list_path(@list)
     else
       render :new
@@ -57,8 +59,9 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     authorize @list
     @list.destroy
-    user = current_user
-    redirect_to "profiles/#{user.id}"
+    @user = current_user
+    flash[:notice] = "#{@list.title} has been deleted."
+    redirect_to "/profiles/#{@user.id}"
   end
 
   private
