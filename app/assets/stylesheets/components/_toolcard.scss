@@ -1,4 +1,4 @@
-.p_tcard{
+/* .p_tcard{
   margin-bottom: 0;
 }
 
@@ -14,26 +14,18 @@
   margin-bottom: 20px;
 
 }
-
-.tcard_boxshadow {
-  -webkit-box-shadow: 12px 14px 23px -6px rgba(0,0,0,0.11);
-  box-shadow: 12px 14px 23px -6px rgba(0,0,0,0.11);
+ */
+/* .tcard_boxshadow {
+  box-shadow: 4px 4px 11px 0px rgba(0,0,0,0.39);
 }
 
 .tcard_h2 {
 margin-bottom: 10px;
 margin-top: -10px;
 }
-
-
-
-
-
-
-
+ */
 
 .grid-item {
-  background-color: green;
   border: black;
   padding: 2px;
   font-size: 30px;
@@ -41,10 +33,15 @@ margin-top: -10px;
 }
 .zero {
   display: inline-grid;
- grid-template-columns: 1fr 8fr;
-  background-color: #2196F3;
-  padding: 10px;
+  grid-template-columns: 1fr 8fr;
+//  background-color: #2196F3;
+  padding: 5px 9px 5px 4px;
   width: 100%;
+  border-bottom: 3px solid $colorful-website;
+}
+
+.zero:hover{
+  background-color: $colorful-hover;
 }
 .item1 {
   grid-row: 1 /span 2;
@@ -56,28 +53,35 @@ margin-top: -10px;
   }
 }
 .item2 {
-  background-color: red;
-  border: black;
-  padding: 1px;
   font-size: 30px;
   text-align: center;
   display: inline-grid;
-  }
+  border-bottom: 1px;
+}
 .item21 {
   display: inline-grid;
- grid-template-columns: 1fr 1fr;
-  background-color: #2196F3;
+  grid-template-columns: 1fr 1fr;
   padding: 1px;
 }
-.item211{
-background-color: orange;
-}
 .toolname {
-background-color: yellow;
+  text-align: left;
+  margin-bottom: 0px;
 }
 .item22 {
-background-color: grey;
+  text-align: left;
 }
-.item23 {
-background-color: white;
+
+.daterating {
+  color: $colorful-text;
+  text-align: right;
+  margin-bottom: 0px;
+}
+
+.saverate {
+  text-align: center;
+  color: $colorful-text;
+  margin: 0;
+}
+.saverate:hover {
+  text-decoration: underline;
 }
