@@ -13,5 +13,5 @@
   </ul>
 <% end %>
 
-<%= link_to "Delete List", list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@list).destroy? %>
+<%= link_to "Delete List", @list, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@list).destroy? %>
 <%= link_to "Edit List", edit_list_path(@list), data: {turbo_method: :edit} if policy(@list).update? %>

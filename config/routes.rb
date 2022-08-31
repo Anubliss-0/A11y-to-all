@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  resources :profiles, only: [:new, :create, :show, :update]
+  resources :profiles
   resources :tools
   resources :lists
   resources :bookmarks, only: [:create, :destroy]

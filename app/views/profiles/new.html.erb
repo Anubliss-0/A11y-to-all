@@ -4,6 +4,8 @@
     <%= f.input :user_name %>
     <%= f.input :bio %>
     <%= f.input :location %>
+    <h2>What are your needs?</h2>
+    <%= f.association :categories %>
     <%= f.input :photo, as: :file %>
     <%= f.button :submit, "Go", class: "btn btn-primary" %>
   <% end %>
