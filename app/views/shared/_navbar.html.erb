@@ -23,8 +23,9 @@
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
         <% if current_user.profile.photo.key? %>
-          <%= cl_image_tag current_user.profile.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>        <% else %>
-        <%= image_tag "avatar_blank", height:50, width:50, crop: :fill, style: "border-radius: 50%; margin-left: 10px;" %>
+          <%= cl_image_tag current_user.profile.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+        <% else %>
+          <%= image_tag "avatar_blank.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
          <% end %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", profile_path(current_user.profile), class: "dropdown-item" %>
