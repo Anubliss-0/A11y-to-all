@@ -8,4 +8,10 @@ class Tool < ApplicationRecord
   validates :title, :description, :url, presence: true
   # validates :title, uniqueness: true
   validates :description, length: { minimum: 20 }
+
+  include PgSearch::Model
+  pg_search_scope :search_tools, against: [ :title, :description ], using:
+  {
+    tsearch: { prefix: true }
+  }
 end

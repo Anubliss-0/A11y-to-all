@@ -37,8 +37,8 @@ Category.new(name:"Speech-Text").save!
 end
 
 20.times do
-  tag = UserCategory.create(
-    user_id: rand(1..10),
+  tag = ProfileCategory.create(
+    profile_id: rand(1..10),
     category_id: rand(1..8)
   )
   tag.save!
