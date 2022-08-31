@@ -1,6 +1,11 @@
-<%= cl_image_tag @profile.photo.key, height: 300, width: 400, crop: :fill, gravity: :face %>
-<h1><%= @profile.name %></h1>
-<h2><%= @profile.user_name %>- <%= @profile.score %> points</h2>
+<div id='profile-page'>
+  <div class = 'profile-banner'>
+    <%= cl_image_tag @profile.photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"profile-avatar" %>
+    <div>
+      <h1><%= @profile.name %></h1>
+      <h2><%= @profile.user_name %>- <%= @profile.score %> points</h2>
+    </div>
+  </div>
 <h2><%= @profile.location %></h2>
 <p><%= @profile.bio %></p>
 
@@ -29,3 +34,4 @@
   <% if policy(@profile).destroy? %>
     <%= link_to "Delete Profile", @profile, data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
   <% end %>
+</div>

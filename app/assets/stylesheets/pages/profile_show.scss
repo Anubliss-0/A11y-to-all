@@ -1,0 +1,12 @@
+#profile-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-banner {
+  display: flex;
+  background:radial-gradient(80.68% 83.24% at 0% 100%, #FFED8D 0%, rgba(255, 225, 208, 0) 100%);
+  background-color: $background-green;
+  color: white;
+  height: 30vh;
+}
