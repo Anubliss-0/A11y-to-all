@@ -1,11 +1,81 @@
-<h1>Welcome to AllytoAll</h1>
-<p>Lets create your profile!</p>
-  <%= simple_form_for @profile do |f| %>
-    <%= f.input :name, wrapper_html: { class: 'hiding p-name' } %>
-    <%= f.input :user_name, wrapper_html: { class: 'hiding p-name' } %>
-    <%= f.input :bio, wrapper_html: { class: 'hiding p-name' } %>
-    <%= f.input :location, wrapper_html: { class: 'hiding p-name' } %>
-    <%= f.association :categories, wrapper_html: { class: 'hiding p-name' } %>
-    <%= f.input :photo, as: :file, wrapper_html: { class: 'hiding p-name' } %>
-    <%= f.button :submit, "Go", class: "btn btn-primary" %>
-  <% end %>
+<div class="question-container">
+  <div class="inner-container" data-controller="new-profile">
+
+
+      <%= simple_form_for @profile do |f| %>
+
+      <div class="open">
+      <h1>Welcome to A11y to All</h1>
+        <p>
+          A community where people come together to help one another find
+          tools help them use the world wide web free of barriers to access.
+        </p>
+        <button class="next" type="button" data-action="new-profile#next">Lets begin</button>
+      </div>
+
+      <div class="q1 hiding question">
+        <h2>What is your name?</h2>
+        <%= f.input :name %>
+        <button class="next" type="button">Next</button>
+      </div>
+
+      <div class="q2 hiding question">
+        <h2>What should we call you? Enter a username</h2>
+        <%= f.input :user_name %>
+        <button class="prev" type="button" class="prev">Previous</button>
+        <button class="next" type="button">Next</button>
+      </div>
+
+      <div class="q3 hiding question">
+        <h2>If you would like to, please tell a bit about yourself.</h2>
+        <p>Not required, this will be visable on your profile.</p>
+        <%= f.input :bio %>
+        <button type="button" class="prev">Previous</button>
+        <button class="next" type="button">Next</button>
+      </div>
+
+      <div class="q4 hiding question">
+        <h2>Where are you? Please enter a location</h2>
+        <p>Not required, this will be visable on your profile.</p>
+        <%= f.input :location %>
+        <button type="button" class="prev">Previous</button>
+        <button class="next" type="button">Next</button>
+      </div>
+
+      <div class="q5 hiding question">
+        <h2>Do you have any barriers to access?</h2>
+        <p>
+          At A11y to all we belive the web should be inclusive to all.
+          We ask this information to help tclass="prev"ailor the reccomendations we give our users.
+        </p>
+        <p>
+          Some may not consider themselves to have disabilities even if they do experience
+          such functional limitations.
+        </p>
+        <h3>This step is completly optional</h3>
+        <h3>Any information given is, and will always be private.</h3>
+        <%= f.association :categories %>
+        <button type="button" class="prev">Previous</button>
+        <button class="next" type="button">Next</button>
+      </div>
+
+      <div class="q6 hiding question">
+      <h2>Upload a picture for your profile.</h2>
+      <p>This can be whatever you want! But be aware that it will be visable on your profile.</p>
+      <p>Not required</p>
+        <%= f.input :photo, as: :file %>
+        <button class="prev" type="button" class="prev">Previous</button>
+        <button class="next" type="button">Next</button>
+      </div>
+
+      <div class="final hiding question">
+        <h2>Thanks for creating your profile</h2>
+        <p>You can change your profile settings at any time.</p>
+        <p>We cant wait to have you as part of our community!</p>
+        <p>When you are ready, press Go! to continue.</p>
+        <%= f.button :submit, "Go", class: "btn btn-primary " %>
+      </div>
+    <% end %>
+
+  </div>
+</div>
