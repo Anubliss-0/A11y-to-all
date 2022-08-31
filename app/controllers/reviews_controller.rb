@@ -1,33 +1,38 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: %i[show edit update destroy]
+  before_action :set_review, only: %i[show edit destroy update]
+  before_action :set_tool, only: %i[new create]
 
   def new
     @review = Review.new
     authorize @review
   end
 
-  def edit
-    authorize @review
-  end
+
 
   def create
     @review = Review.new(review_params)
     @review.user = current_user
+    @review.tool = @tool
 
     authorize @review
 
     if @review.save
-      redirect_to review_path(@review)
+      flash[:notice] = "Your review has been created!"
+      redirect_to tool_path(@tool)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
+  end
+
+  def edit
+    authorize @review
   end
 
   def update
     authorize @review
     if @review.update(review_params)
-      flash[:notice] = "#{@review.title} has been updated"
-      redirect_to review_path(@review)
+      flash[:notice] = "Your review has been updated"
+      redirect_to tool_path(@review.tool)
     else
       render :new
     end
@@ -35,15 +40,20 @@ class ReviewsController < ApplicationController
 
   def destroy
     authorize @review
+    @tool = @review.tool
     @review.destroy
     flash[:notice] = "Your review has been deleted"
-    # How to redirect to tool page?!
+    redirect_to tools_path()
   end
 
   private
 
   def set_tool
-    @tool = Tool.find(params[:id])
+    @tool = Tool.find(params[:tool_id])
+  end
+
+  def set_review
+    @review = Review.find(params[:id])
   end
 
   def review_params

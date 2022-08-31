@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
   resources :profiles, only: [:create, :show, :update]
   resources :tools do
-    resources :reviews, except: [:index, :show]
+    resources :reviews, except: [:index, :show, :destroy, :update, :edit]
   end
+  resources :reviews, only: [:destroy, :update, :edit]
   resources :lists
   resources :bookmarks, only: [:create, :destroy]
   resources :profiles, only: [:show, :update]
