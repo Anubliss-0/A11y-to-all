@@ -3,15 +3,29 @@
 <h2><%= @profile.user_name %>- <%= @profile.score %> points</h2>
 <h2><%= @profile.location %></h2>
 <p><%= @profile.bio %></p>
-<h2><%= @profile.user_name %>'s Lists:</h2>
-<% @lists.each do |list| %>
-  <ul>
-    <li><%= link_to list.title, list_path(list) %></li>
-  </ul>
+
+<% if @lists != [] %>
+  <h2><%= @profile.user_name %>'s Lists:</h2>
+  <% @lists.each do |list| %>
+    <ul>
+      <li><%= link_to list.title, list_path(list) %></li>
+    </ul>
+  <% end %>
 <% end %>
-<h2><%= @profile.user_name %>'s Tools:</h2>
-<% @tools.each do |tool| %>
-  <ul>
-    <li><%= link_to tool.title, tool_path(tool) %></li>
-  </ul>
+
+<% if @tools != [] %>
+  <h2><%= @profile.user_name %>'s Tools:</h2>
+  <% @tools.each do |tool| %>
+    <ul>
+      <li><%= link_to tool.title, tool_path(tool) %></li>
+    </ul>
+  <% end %>
 <% end %>
+
+  <% if policy(@profile).edit? %>
+    <%= link_to "Update Profile", edit_profile_path(@profile)%>
+  <% end %>
+
+  <% if policy(@profile).destroy? %>
+    <%= link_to "Delete Profile", @profile, data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+  <% end %>

@@ -2,6 +2,7 @@ class ProfilesController < ApplicationController
   def new
     @profile = Profile.new
     authorize @profile
+    @user_category = UserCategory.new
   end
 
   def create
@@ -36,6 +37,13 @@ class ProfilesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @profile = Profile.find(params[:id])
+    authorize @profile
+    @profile.delete
+    redirect_to root_path
   end
 
   private
