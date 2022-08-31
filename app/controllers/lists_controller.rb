@@ -59,9 +59,9 @@ class ListsController < ApplicationController
     @list = List.find(params[:id])
     authorize @list
     @list.destroy
-    user = current_user
+    @user = current_user
     flash[:notice] = "#{@list.title} has been deleted."
-    redirect_to "profiles/#{user.id}"
+    redirect_to "/profiles/#{@user.id}"
   end
 
   private
