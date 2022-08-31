@@ -1,3 +1,4 @@
+<%= cl_image_tag @profile.photo.key, height: 300, width: 400, crop: :fill, gravity: :face %>
 <h1><%= @profile.name %></h1>
 <h2><%= @profile.user_name %>- <%= @profile.score %> points</h2>
 <h2><%= @profile.location %></h2>
