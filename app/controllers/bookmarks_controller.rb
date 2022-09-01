@@ -13,7 +13,7 @@ class BookmarksController < ApplicationController
       authorize @bookmark
       @bookmark.list_id = list
       @tool = Tool.find(params[:tool_id])
-      @bookmark.tool_id = @tool
+      @bookmark.tool_id = @tool.id
       @bookmark.save
     end
     redirect_to profile_path(current_user.profile)
