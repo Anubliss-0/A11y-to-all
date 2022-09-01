@@ -15,6 +15,7 @@ class ListsController < ApplicationController
         @bookmark = Bookmark.new(tool_id: tool.to_i, list: @list)
         @bookmark.save!
       end
+      UpdateScoreJob.perform
       flash[:notice] = "#{@list.title} has been saved"
       redirect_to list_path(@list)
     else
