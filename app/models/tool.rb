@@ -10,8 +10,11 @@ class Tool < ApplicationRecord
   validates :description, length: { minimum: 20 }
 
   include PgSearch::Model
-  pg_search_scope :search_tools, against: [ :title, :description ], using:
-  {
+  pg_search_scope :search_tools, against: [ :title, :description ],
+    associated_against: {
+      categories: :name
+    },
+    using: {
     tsearch: { prefix: true }
   }
 end

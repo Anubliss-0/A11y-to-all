@@ -7,22 +7,11 @@
 @import "card";
 @import "toolcard";
 
+
 @import "toolshow";
 @import "buttons";
 @import "reviewcard.scss";
 @import "profile_list_card";
 @import "profile_tool_card";
 
-
-
-
-.white_background {
-  background: white;
-}
-.colorful-text {
-  color: $miku;
-}
-
-h2 {
-  margin-bottom: 0rem;
-}
+@import "toolbox-card"
