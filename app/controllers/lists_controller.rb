@@ -9,6 +9,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     @list.user = current_user
     authorize @list
+    raise
     if @list.save
       params[:list][:tool_ids].delete("")
       params[:list][:tool_ids].each do |tool|

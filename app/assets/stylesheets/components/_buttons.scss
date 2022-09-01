@@ -1,0 +1,15 @@
+.button1 {
+
+  width: 25%;
+  background-color: $miku;
+  padding: 1%;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  margin: 0% 2% 0% 0%;
+  min-width: 115px;
+}
+
+.button1:hover {
+  background-color: $mikuhover;
+}
