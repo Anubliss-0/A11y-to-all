@@ -1,0 +1,29 @@
+.toolbox-card {
+  padding: 1% 0%;
+}
+
+/* .toolbox-card:hover {
+  background-color: white;
+} */
+
+.toolboxcard-list {
+  border-right: 2px solid $miku;
+  padding: 0% 10% 0% 0%;
+
+  ::marker {
+    color: red;
+  }
+}
+.toolboxcard-list > li {
+  display: list-item;
+  list-style-type: "🔧";
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+ // max-width: 150px;
+}
+
+.toolbox-card > h4 {
+padding: 0px 0px 0px 1ch;
+}

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:create, :destroy]
   resources :profiles
 
+  get "test", to: "pages#test"
+
   # Defines the root path route ("/")
   # root "articles#index"
 end

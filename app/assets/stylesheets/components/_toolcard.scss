@@ -34,14 +34,10 @@ margin-top: -10px;
   white-space: normal;
 }
 
-p {
-  font-size: small;
-}
-
 .grid-item {
   border: black;
  // padding: 2px;
-  font-size: 30px;
+ // font-size: 30px;
   text-align: center;
 }
 .zero {
@@ -61,7 +57,11 @@ p {
   border-bottom: 3px solid $miku;
 }
 .zero:hover, .zero-small:hover{
+
   background-color: $mikuhover;
+
+  background-color: white;
+
 }
 .item0 {
   grid-row: 1 /span 2;
@@ -76,7 +76,7 @@ p {
   }
 }
 .item2 {
-  font-size: 30px;
+  //font-size: 30px;
   text-align: center;
   display: inline-grid;
   border-bottom: 1px;
