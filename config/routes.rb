@@ -6,9 +6,11 @@ Rails.application.routes.draw do
   resources :tools do
     resources :reviews, except: [:index, :show, :destroy, :update, :edit]
   end
+  resources :tools do
+    resources :bookmarks, only: [:new, :create, :destroy]
+  end
   resources :reviews, only: [:destroy, :update, :edit]
   resources :lists
-  resources :bookmarks, only: [:create, :destroy]
   resources :profiles
 
   get "test", to: "pages#test"
