@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[show edit destroy update]
-  before_action :set_tool, only: %i[new create]
+  before_action :set_tool, only: %i[new create destroy]
 
   def new
     @review = Review.new
@@ -34,6 +34,7 @@ class ReviewsController < ApplicationController
     authorize @review
     if @review.update(review_params)
       flash[:notice] = "Your review has been updated"
+      UpdateToolRatingJob.perform_now(@review.tool, current_user)
       redirect_to tool_path(@review.tool)
     else
       render :new
@@ -44,6 +45,7 @@ class ReviewsController < ApplicationController
     authorize @review
     @tool = @review.tool
     @review.destroy
+    UpdateToolRatingJob.perform_now(@tool, current_user)
     flash[:notice] = "Your review has been deleted"
     redirect_to tools_path()
   end
