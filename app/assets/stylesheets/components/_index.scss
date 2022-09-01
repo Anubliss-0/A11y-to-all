@@ -5,32 +5,17 @@
 @import "navbar";
 @import "card";
 @import "toolcard";
-
+@import "toolshow";
+@import "buttons";
+@import "reviewcard.scss";
 
 .white_background {
   background: white;
 }
-
-.ellipsis {
-  text-overflow:ellipsis;
-  overflow:hidden;
-  // Addition lines for 2 line or multiline ellipsis
-  display: -webkit-box !important;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  white-space: normal;
-}
-
-.deletethiscontainer {
-  margin: auto;
-  width: 50%;
-}
-
-p {
-  font-size: small;
+.colorful-text {
+  color: $miku;
 }
 
 h2 {
-  font-size: large;
   margin-bottom: 0rem;
 }

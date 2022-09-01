@@ -1,3 +1,24 @@
+.ellipsis3 {
+  text-overflow:ellipsis;
+  overflow:hidden;
+  // Addition lines for 2 line or multiline ellipsis
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+.ellipsis5 {
+  text-overflow:ellipsis;
+  overflow:hidden;
+  // Addition lines for 2 line or multiline ellipsis
+  display: -webkit-box !important;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+p {
+  font-size: small;
+}
 .p_card{
   margin-bottom: 0;
 }
@@ -18,11 +39,13 @@
 
 
 .card_boxshadow {
-  -webkit-box-shadow: 12px 14px 23px -6px rgba(0,0,0,0.11);
-  box-shadow: 12px 14px 23px -6px rgba(0,0,0,0.11);
+  -webkit-box-shadow: 12px 14px 23px -6px rgba(0,0,0,0.45);
+  box-shadow: 12px 14px 23px -6px rgba(0,0,0,0.45);
 }
 
 .card_h2 {
 margin-bottom: 10px;
 margin-top: -10px;
+color: $miku;
+border-bottom: 3px solid $miku;
 }

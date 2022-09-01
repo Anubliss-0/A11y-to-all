@@ -24,10 +24,23 @@ margin-bottom: 10px;
 margin-top: -10px;
 }
  */
+ .ellipsis {
+  text-overflow:ellipsis;
+  overflow:hidden;
+  // Addition lines for 2 line or multiline ellipsis
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
+p {
+  font-size: small;
+}
 
 .grid-item {
   border: black;
-  padding: 2px;
+ // padding: 2px;
   font-size: 30px;
   text-align: center;
 }
@@ -37,17 +50,27 @@ margin-top: -10px;
 //  background-color: #2196F3;
   padding: 5px 9px 5px 4px;
   width: 100%;
-  border-bottom: 3px solid $colorful-website;
+  border-bottom: 3px solid $miku;
 }
-
-.zero:hover{
+.zero-small {
+  display: inline-grid;
+  grid-template-columns: 0fr 8fr;
+//  background-color: #2196F3;
+  padding: 5px 11px 5px 11px;
+  width: 100%;
+  border-bottom: 3px solid $miku;
+}
+.zero:hover, .zero-small:hover{
   background-color: $colorful-hover;
+}
+.item0 {
+  grid-row: 1 /span 2;
 }
 .item1 {
   grid-row: 1 /span 2;
   min-width: 60px;
   .img {
-    background-color: grey;
+    background-color: rgb(171, 171, 171);
     border-radius: 10px;
     margin-right: 10px;
   }
@@ -72,14 +95,14 @@ margin-top: -10px;
 }
 
 .daterating {
-  color: $colorful-text;
+  color: $miku;
   text-align: right;
   margin-bottom: 0px;
 }
 
 .saverate {
   text-align: center;
-  color: $colorful-text;
+  color: $miku;
   margin: 0;
 }
 .saverate:hover {
