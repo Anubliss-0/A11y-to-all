@@ -46,7 +46,7 @@
         <h2>Do you have any barriers to access?</h2>
         <p>
           At A11y to all we belive the web should be inclusive to all.
-          We ask this information to help tclass="prev"ailor the reccomendations we give our users.
+          We ask this information to help tailor the reccomendations we give our users.
         </p>
         <p>
           Some may not consider themselves to have disabilities even if they do experience
@@ -54,7 +54,7 @@
         </p>
         <h3>This step is completly optional</h3>
         <h3>Any information given is, and will always be private.</h3>
-        <%= f.association :categories %>
+        <%= f.association :categories, as: :check_boxes %>
         <button type="button" class="prev">Previous</button>
         <button class="next" type="button">Next</button>
       </div>
