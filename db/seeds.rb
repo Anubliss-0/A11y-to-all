@@ -24,7 +24,7 @@ Category.new(name:"Speech-Text").save!
   )
   user.save!
   profile = Profile.create(
-    score: rand(1..100),
+    # score: rand(1..100),
     name: Faker::Name.name,
     bio: "Hello I am a bio that is more than ten! This will be used to test our views.",
     location: Faker::Address.city,

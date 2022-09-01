@@ -9,13 +9,13 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     @list.user = current_user
     authorize @list
-    raise
     if @list.save
       params[:list][:tool_ids].delete("")
       params[:list][:tool_ids].each do |tool|
         @bookmark = Bookmark.new(tool_id: tool.to_i, list: @list)
         @bookmark.save!
       end
+      UpdateScoreJob.perform_now(current_user)
       flash[:notice] = "#{@list.title} has been saved"
       redirect_to list_path(@list)
     else

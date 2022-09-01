@@ -17,7 +17,11 @@ class ReviewsController < ApplicationController
     authorize @review
 
     if @review.save
+      @owner = User.find(@tool.user_id)
       flash[:notice] = "Your review has been created!"
+      UpdateScoreJob.perform_now(current_user)
+      UpdateToolRatingJob.perform_now(@tool, current_user)
+      UpdateOwnerScoreJob.perform_now(@owner)
       redirect_to tool_path(@tool)
     else
       render :new, status: :unprocessable_entity
@@ -32,6 +36,7 @@ class ReviewsController < ApplicationController
     authorize @review
     if @review.update(review_params)
       flash[:notice] = "Your review has been updated"
+      UpdateToolRatingJob.perform_now(@review.tool, current_user)
       redirect_to tool_path(@review.tool)
     else
       render :new
@@ -42,6 +47,7 @@ class ReviewsController < ApplicationController
     authorize @review
     @tool = @review.tool
     @review.destroy
+    UpdateToolRatingJob.perform_now(@tool, current_user)
     flash[:notice] = "Your review has been deleted"
     redirect_to tools_path()
   end

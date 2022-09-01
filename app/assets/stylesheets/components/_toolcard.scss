@@ -57,7 +57,11 @@ margin-top: -10px;
   border-bottom: 3px solid $miku;
 }
 .zero:hover, .zero-small:hover{
+
+  background-color: $mikuhover;
+
   background-color: white;
+
 }
 .item0 {
   grid-row: 1 /span 2;
