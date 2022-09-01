@@ -30,6 +30,7 @@ class ToolsController < ApplicationController
     authorize @tool
 
     if @tool.save
+      UpdateScoreJob.perform_now(current_user)
       redirect_to tool_path(@tool)
     else
       render :new
