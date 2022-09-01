@@ -1,5 +1,8 @@
-<h1>Tools</h1>
-
+<% if @query %>
+  <h1>Tools matching- <%= @query %></h1>
+<% else %>
+  <h1>Tools</h1>
+<% end %>
 <nav>
   <ul>
     <li><%= link_to "new tool", new_tool_path %></li>
