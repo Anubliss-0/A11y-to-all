@@ -1,0 +1,34 @@
+//grid for tool/show page
+//class names are messy. haven't yet figured out how to name grid-components properly
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.tool-grid > div {
+  text-align: center;
+  font-size: 30px;
+}
+
+.imgg {
+  grid-row: 1 / span 4;
+  padding: none;
+}
+
+.name-stars {
+display: grid;
+grid-template-columns: 1fr 1fr;
+}
+
+.buttonsg {
+  display:flex;
+  margin-bottom: 30px;
+}
+.starsg {
+
+color: $miku;
+}
+.textg {
+  width: 70%;
+}
