@@ -5,6 +5,7 @@ class Tool < ApplicationRecord
   has_many :bookmarks
   has_many :lists, through: :bookmarks
   has_many :reviews
+  has_one_attached :photo
   validates :title, :description, :url, presence: true
   # validates :title, uniqueness: true
   validates :description, length: { minimum: 20 }

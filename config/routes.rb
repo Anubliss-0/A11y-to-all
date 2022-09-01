@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :profiles
 
   get "test", to: "pages#test"
+  get "dashboard", to: "pages#dashboard"
 
   # Defines the root path route ("/")
   # root "articles#index"

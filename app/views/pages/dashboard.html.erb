@@ -1,0 +1,38 @@
+<div class="dash-container">
+
+  <div class="dash-grid">
+    <div class="dash-profile">
+        <div class="prof-left">
+          <%= cl_image_tag current_user.profile.photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"profile-avatar" %>
+          <span>Score:<%= current_user.profile.score %></span>
+        </div>
+        <div class="prof-right">
+          <h2>Profile</h2>
+          <p><%= current_user.profile.name %></p>
+          <p><%= current_user.profile.user_name %></p>
+          <p><%= current_user.profile.location %></p>
+          <p><%= current_user.profile.bio %></p>
+          <%= link_to "Update Profile", edit_profile_path(current_user.profile)%>
+        </div>
+    </div>
+
+    <div class="dash-tools">
+    <h2>Your tools</h2>
+      <div class="prof-toolboxes">
+        <% current_user.lists.each do |list| %>
+          <div class="toolbox">
+          <h3><%= link_to list.title, list %></h3>
+          <% list.bookmarks.each do |bookmark| %>
+            <%= link_to bookmark.tool.title, bookmark.tool %>
+          <% end %>
+          </div>
+          <% end %>
+      </div>
+    </div>
+
+    <div class="dash-reccomend">
+    <h2>Reccomendations</h2>
+    </div>
+  </div>
+
+</div>
