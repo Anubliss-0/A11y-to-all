@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   resources :reviews, only: [:destroy, :update, :edit]
   resources :lists
-  resources :bookmarks, only: [:create, :destroy]
+  resources :bookmarks, only: [:new, :create, :destroy]
   resources :profiles
 
   get "test", to: "pages#test"
