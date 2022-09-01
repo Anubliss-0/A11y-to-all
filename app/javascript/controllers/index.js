@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import NewProfileController from "./new_profile_controller"
 application.register("new-profile", NewProfileController)
+
+import SwitchSearchController from "./switch_search_controller"
+application.register("switch-search", SwitchSearchController)
