@@ -6,4 +6,12 @@ class Profile < ApplicationRecord
   validates :name, :user_name, presence: true
   has_one_attached :photo
   # validates :user_name, uniqueness: true
+
+  #search user profiles, need to add search bar and javascript
+  include PgSearch::Model
+  pg_search_scope :search_profiles,
+  against: [ :name, :bio, :location, :user_name ],
+  using: {
+    tsearch: { prefix: true }
+  }
 end
