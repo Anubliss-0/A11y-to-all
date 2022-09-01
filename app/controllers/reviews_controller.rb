@@ -19,6 +19,7 @@ class ReviewsController < ApplicationController
     if @review.save
       flash[:notice] = "Your review has been created!"
       UpdateScoreJob.perform_now(current_user)
+      UpdateToolRatingJob.perform_now(@tool, current_user)
       redirect_to tool_path(@tool)
     else
       render :new, status: :unprocessable_entity
