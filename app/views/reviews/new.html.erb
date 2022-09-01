@@ -1,0 +1,8 @@
+<h1>Review</h1>
+<%= simple_form_for [@tool, @review] do |f| %>
+<h2>Leave a review</h2>
+  <%= f.input :content %>
+  <h2>Leave a rating</h2>
+  <%= f.input :rating, as: :integer, input_html: { min: '0', max: '5', step: '1' } %>
+  <%= f.button :submit %>
+<% end %>
