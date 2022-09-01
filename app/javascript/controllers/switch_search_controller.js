@@ -12,7 +12,6 @@ export default class extends Controller {
       this.searchusersTarget.classList.remove("hiding")
       this.searchtoolsTarget.classList.add("hiding")
     } else if (this.toolsTarget.checked) {
-      console.log(this.searchusersTarget)
       this.searchusersTarget.classList.add("hiding")
       this.searchtoolsTarget.classList.remove("hiding")
     }
