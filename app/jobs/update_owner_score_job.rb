@@ -2,14 +2,15 @@ class UpdateOwnerScoreJob < ApplicationJob
   queue_as :default
 
   def perform(owner)
-    @profile = current_user.profile
+    @profile = owner.profile
     @profile.score = 0
-    @tools = Tool.select { |tool| tool.user_id == current_user.id }
+    @tools = Tool.select { |tool| tool.user_id == owner.id }
     base = 0
     @tools.each do |tool|
       base += tool.rating
     end
-    UpdateScoreJob.perform(owner)
-    profile.score += base
+    UpdateScoreJob.perform_now(owner)
+    @profile.score += base
+    @profile.save
   end
 end

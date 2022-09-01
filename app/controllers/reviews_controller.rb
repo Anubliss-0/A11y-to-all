@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[show edit destroy update]
-  before_action :set_tool, only: %i[new create destroy]
+  before_action :set_tool, only: %i[new create]
 
   def new
     @review = Review.new
@@ -17,9 +17,11 @@ class ReviewsController < ApplicationController
     authorize @review
 
     if @review.save
+      @owner = User.find(@tool.user_id)
       flash[:notice] = "Your review has been created!"
       UpdateScoreJob.perform_now(current_user)
       UpdateToolRatingJob.perform_now(@tool, current_user)
+      UpdateOwnerScoreJob.perform_now(@owner)
       redirect_to tool_path(@tool)
     else
       render :new, status: :unprocessable_entity
