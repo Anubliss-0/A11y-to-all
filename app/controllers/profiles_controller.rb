@@ -1,4 +1,14 @@
 class ProfilesController < ApplicationController
+
+  def index
+    if params[:query].present?
+      @query = params[:query]
+      @profiles = policy_scope(Profile.search_profiles(params[:query]))
+    else
+      @profiles = policy_scope(Profile)
+    end
+  end
+
   def new
     @profile = Profile.new
     @profile_category = ProfileCategory.new
