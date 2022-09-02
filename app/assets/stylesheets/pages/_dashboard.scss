@@ -5,17 +5,16 @@
   justify-content: center;
   align-items: flex-start;
   background-color: $miku;
-  overflow-y: hidden;
 }
 
 .dash-grid {
-  margin-top: 3%;
+  margin-top: 10px;
   display: grid;
   grid-template-areas:
   "prof reccomend"
   "toolboxes reccomend"
   ;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 30px 30px;
   height: 80%;
@@ -31,11 +30,10 @@
   display: flex;
   height: 100%;
 
-  h2 {
-    text-align: center;
+  h1 {
+    border-bottom: 3px solid $miku;
+    color: $miku;
   }
-
-
 
   .prof-left {
     display: flex;
@@ -51,6 +49,7 @@
     display: flex;
     flex-direction: column;
     flex: 1.5;
+    text-align: center;
   }
 
   .profile-avatar {
@@ -58,6 +57,12 @@
     height: auto;
     min-width: 150px;
     max-width: 200px;
+    box-shadow: 0px 8px 10px -3px rgba(39, 48, 37, 0.36);
+  }
+
+  #score {
+    font-size: 2rem;
+    color: $miku;
   }
  }
 
@@ -75,4 +80,53 @@
   border-radius: 29px;
   padding: 35px;
   box-shadow: 0px 57px 64px rgba(12, 53, 43, 0.5);
+ }
+
+ .dash-tools {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  h2 {
+    color: $miku;
+    border-bottom: 3px solid $miku;
+    width: 80%;
+    text-align: center;
+  }
+
+  .prof-toolboxes {
+    display: flex;
+    overflow-x: scroll;
+    width: 55vw;
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+    padding-top: 10px;
+  }
+
+  .prof-toolboxes::-webkit-scrollbar {
+      display: none;  /* Safari and Chrome */
+  }
+
+  .toolbox {
+    border-left: 3px solid $miku;
+    border-right: 3px solid $miku;
+    min-width: 200px;
+    padding: 0px 10px;
+
+    h5 {
+      text-align: center;
+    }
+  }
+
+  .toolbox:first-of-type {
+    border-left: none;
+  }
+
+  .toolbox:last-of-type {
+    border-right: none;
+  }
+ }
+
+ .dash-reccomend {
+  text-align: center;
  }

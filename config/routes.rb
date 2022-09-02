@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   resources :profiles
 
   get "test", to: "pages#test"
-  get "dashboard", to: "pages#dashboard"
+  get "dashboard", to: "dashboard#reccomend"
+  # resources :dashboard, only: [:show, :index]
 
   # Defines the root path route ("/")
   # root "articles#index"
