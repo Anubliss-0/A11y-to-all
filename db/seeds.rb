@@ -52,6 +52,8 @@ end
     rating: rand(1..100),
     user_id: rand(1..10)
   )
+  file = URI.open("https://placeimg.com/440/280/tech")
+  tool.photo.attach(io: file, filename:"filler.jpeg",content_type: "image/jpeg")
   tool.save!
   category = ToolCategory.create(
     category_id: rand(1..8),
