@@ -23,9 +23,10 @@
           <h5><%= link_to list.title, list %></h5>
             <ul>
               <% list.bookmarks[0..2].each do |bookmark| %>
-                <li><%= link_to bookmark.tool.title, bookmark.tool %></li>
+                <li><%= bookmark.tool.title %></li>
               <% end %>
               <% if list.bookmarks.length > 2 %>
+              <br>
                 <%= link_to "see more...", list %>
               <% end %>
             </ul>
