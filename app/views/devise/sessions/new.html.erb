@@ -1,4 +1,5 @@
-<h2>Log in</h2>
+<div style= "width: 33%; margin: auto;"class="white_background card_borderradius card_padding card_margin card_boxshadow">
+    <h2 class="card_h2">Log in</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
   <div class="form-inputs">
@@ -18,3 +19,8 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+
+
+</div>

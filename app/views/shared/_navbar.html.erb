@@ -5,9 +5,8 @@
     <% end %>
     <div data-controller="switch-search">
 
-
       <div data-switch-search-target="searchtools" class="navbar-form">
-        <%= form_with url: tools_path, method: :get, class: "d-flex" do %>
+        <%= form_with url: tools_path, method: :get, class: "d-flex navbar-margin" do %>
           <%= text_field_tag :query,
           params[:query],
           class: "form-control2",
@@ -18,7 +17,7 @@
       </div>
 
       <div data-switch-search-target="searchusers" class="hiding">
-        <%= form_with url: profiles_path, method: :get, class: "d-flex" do %>
+        <%= form_with url: profiles_path, method: :get, class: "d-flex navbar-margin" do %>
           <%= text_field_tag :query,
           params[:query],
           class: "form-control2",
@@ -28,8 +27,7 @@
 
         <% end %>
       </div>
-
-        <form action="" data-action="input->switch-search#switch">
+        <form action="" data-action="input->switch-search#switch" class="navbar-margin">
           <input id="select-users" type="radio" name="selection" value="users" data-switch-search-target="users">
           <label for="select-users">Users</label>
           <input id="select-tools" type="radio" name="selection" value="tools" data-switch-search-target="tools">
