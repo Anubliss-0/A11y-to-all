@@ -19,3 +19,9 @@
 @import "form";
 
 @import "background";
+
+// oops I did it again
+::selection {
+  color: white;
+  background-color: $mikuhover;
+}
