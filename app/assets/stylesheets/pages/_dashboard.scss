@@ -104,7 +104,7 @@
   }
 
   .prof-toolboxes::-webkit-scrollbar {
-      display: none;  /* Safari and Chrome */
+      display: none;  /* Salink_to fari and Chrome */
   }
 
   .toolbox {
@@ -141,10 +141,18 @@
   }
  }
 
+ .dash-reccomend::-webkit-scrollbar {
+   display: none;
+ }
+
  .dash-reccomend {
   text-align: center;
   display: flex;
   flex-direction: column;
+  overflow-y: scroll;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+
 
   .tool-contain {
     width: 100%;
