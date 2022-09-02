@@ -6,14 +6,14 @@
     <div data-controller="switch-search">
 
 
-      <div data-switch-search-target="searchtools" class="">
+      <div data-switch-search-target="searchtools" class="navbar-form">
         <%= form_with url: tools_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
           params[:query],
-          class: "form-control",
+          class: "form-control2",
           placeholder: "Find a User or Tool"
           %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
+          <%= submit_tag "Search", class: "btnnav" %>
         <% end %>
       </div>
 
@@ -21,10 +21,11 @@
         <%= form_with url: profiles_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
           params[:query],
-          class: "form-control",
-          placeholder: "Find a User or Tool"
+          class: "form-control2",
+          placeholder: "Find a User or a Tool"
           %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
+          <%= submit_tag "Search", class: "btnnav" %>
+
         <% end %>
       </div>
 
