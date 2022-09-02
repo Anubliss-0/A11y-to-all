@@ -1,0 +1,14 @@
+.form-control {
+  transition: none;
+  border: none;
+}
+
+.form-control:focus {
+  outline: 5px solid white;
+  background-color: $mikubright;
+
+}
+
+.form-control:hover {
+  background-color: $mikubright;
+}
