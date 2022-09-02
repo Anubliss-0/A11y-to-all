@@ -4,6 +4,8 @@ class Tool < ApplicationRecord
   has_many :categories, through: :tool_categories
   has_many :bookmarks
   has_many :lists, through: :bookmarks
+  has_many :reviews
+  has_one_attached :photo
   has_many :reviews, dependent: :destroy
   validates :title, :description, :url, presence: true
   # validates :title, uniqueness: true
