@@ -36,8 +36,31 @@
 
     <div class="dash-reccomend">
     <h2>Reccomendations</h2>
-    <% @suggestions.each do |i| %>
-      <p><%= i.name%></p>
+    <% @suggestions.each do |tool| %>
+      <div class="tool-contain">
+
+  <div class="zero-small">
+
+    <div class=" item0">
+    </div>
+
+    <div class="item2">
+      <div class="item21">
+        <div class="grid-item toolname">
+          <h4> <%= tool.title %> </h4>
+        </div>
+    	  <div class="grid-item">
+        <p class="daterating"><%= tool.rating %>★</p>
+        </div>
+	    </div>
+        <div class="grid-item item22">
+          <p class="ellipsis3 p_card"><%= tool.description %></p>
+        </div>
+      </div>
+      <div class="grid-item">
+        <p class="saverate"> <%= link_to "view", tool %></p>
+    </div>
+  </div>
     <% end %>
     </div>
   </div>
