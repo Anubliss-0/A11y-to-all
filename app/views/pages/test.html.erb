@@ -118,22 +118,24 @@
 </div>
 
 
-<form>
-  <input type="radio" id="html" name="fav_language" value="HTML">
-    <label for="html">HTML</label><br>
 
-  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
-   <label for="vehicle1"> I have a bike</label><br>
-  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
-   <label for="vehicle2"> I have a car</label><br>
-  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
-   <label for="vehicle3"> I have a boat</label>
 
-  <br>
+<div class="colored-background">
+<%# replace on all forms
 
-  <label for="fname">First name:</label><br>
-  <input type="text" id="fname" name="fname" value="John"><br>
-  <label for="lname">Last name:</label><br>
-  <input type="text" id="lname" name="lname" value="Doe"><br><br>
-  <input class="button1"type="submit" value="Submit">
-</form>
+also replace h3 for h4%>
+  <div style= "width: 33%; margin: auto;"class="white_background card_borderradius card_padding card_margin card_boxshadow">
+    <h2 class="card_h2">New tool</h2>
+<%# end %>
+    <form class="simple_form new_tool" id="new_tool" novalidate="novalidate" enctype="multipart/form-data" action="/tools" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="PVHFNDdmXsR586L3NgsQxxUDWisVj4YuKpaqzJtuaVleHv3wRyLTcDUSH7KGfxUUaC2i7g7odoXoc-2yjnphxQ" autocomplete="off" />
+      <h4>What is the name of this tool?</h4>
+      <div class="mb-3 string required tool_title"><label class="form-label string required" for="tool_title">Title <abbr title="required">*</abbr></label><input class="form-control string required" type="text" name="tool[title]" id="tool_title" /></div>
+      <h4>Write something about how this tool</h4>
+      <div class="mb-3 text required tool_description"><label class="form-label text required" for="tool_description">Description <abbr title="required">*</abbr></label><textarea class="form-control text required" name="tool[description]" id="tool_description">
+      </textarea></div>
+      <h4>Enter the URL of this tool</h4>
+      <div class="mb-3 url required tool_url"><label class="form-label url required" for="tool_url">Url <abbr title="required">*</abbr></label><input class="form-control string url required" type="url" name="tool[url]" id="tool_url" /></div>
+      <div class="mb-3 file optional tool_photo"><label class="form-label file optional" for="tool_photo">Photo</label><input class="form-control file optional" type="file" name="tool[photo]" id="tool_photo" /></div>
+      <input type="submit" name="commit" value="Create Tool" class="btn" data-disable-with="Create Tool" />
+</form>  </div>
+</div>

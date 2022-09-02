@@ -11,3 +11,24 @@
   <%= f.input :photo, as: :file %>
   <%= f.button :submit %>
 <% end %>
+
+
+
+
+<div class="colored-background">
+  <div style= "width: 50%; margin: auto;"class="white_background card_borderradius card_padding card_margin card_boxshadow">
+    <h2>New tool</h2>
+    <%= simple_form_for @tool do |f| %>
+    <h3>What is the name of this tool?</h3>
+      <%= f.input :title %>
+      <h3>Write something about how this tool</h3>
+      <%# Perhaps here there can be an expandable box with more text
+      on what makes a good description? %>
+      <%= f.input :description %>
+      <h3>Enter the URL of this tool</h3>
+      <%= f.input :url %>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

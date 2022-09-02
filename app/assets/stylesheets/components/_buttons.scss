@@ -1,4 +1,4 @@
-.button1 {
+.button1, .btn {
 
   width: 25%;
   background-color: $miku;
@@ -11,8 +11,9 @@
   border: none;
 }
 
-.button1:hover {
+.button1:hover , .btn:hover{
   background-color: $mikuhover;
+  color: white;
 }
 
 .mikulink {
