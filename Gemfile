@@ -89,3 +89,6 @@ gem "cloudinary"
 
 # Search functionality
 gem "pg_search"
+
+#stoked-bios
+gem 'faker-stoked'
