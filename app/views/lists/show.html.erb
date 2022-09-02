@@ -5,8 +5,8 @@
   <% profile = Profile.find(user.id) %>
   <%#might need to change line method %>
   <ul>
-    <li><%= cl_image_tag tool.photo.key, height: 300, width: 300, crop: :fill, gravity: :face %></li>
-    <li><%= tool.title %></li>
+    <li><%= cl_image_tag tool.photo.key, height: 300, width: 300 %></li>
+    <li><%= tool.title.split.map(&:capitalize).join(' ') %></li>
     <li><%= tool.description %></li>
     <li><%= tool.rating %></li>
     <li><%= tool.url %></li>

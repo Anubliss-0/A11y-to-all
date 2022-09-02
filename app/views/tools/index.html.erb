@@ -11,10 +11,11 @@
 
 <ul>
   <% @tools.each do |tool| %>
-    <li>
-      <h2><%= tool.title %></h2>
+      <% if tool.photo.key != nil %>
+        <%= cl_image_tag tool.photo.key, height: 300, width: 300 %>
+      <% end %>
+      <h2><%= tool.title.split.map(&:capitalize).join(' ') %></h2>
       <p><%= tool.description %></p>
-    </li>
   <%= link_to "See tool", tool_path(tool) %>
   <% end %>
 </ul>
