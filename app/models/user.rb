@@ -6,5 +6,6 @@ class User < ApplicationRecord
   has_one :profile
   has_many :tools
   has_many :lists
+  has_many :bookmarks, through: :lists
   has_many :reviews
 end

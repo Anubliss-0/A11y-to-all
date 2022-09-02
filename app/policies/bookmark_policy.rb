@@ -11,6 +11,8 @@ class BookmarkPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record.user == user
+    # list = List.find(record.list_id)
+    # return true if list.user_id == user
+    record.list.user == user
   end
 end
