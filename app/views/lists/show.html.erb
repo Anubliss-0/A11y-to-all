@@ -11,7 +11,8 @@
     <li><%= tool.url %></li>
     <li><%= profile.user_name %></li>
   </ul>
+  <%= link_to "Remove Tool from Toolbox", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(bookmark).destroy? %>
 <% end %>
 
-<%= link_to "Delete List", @list, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@list).destroy? %>
+<%= link_to "Delete List", list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@list).destroy? %>
 <%= link_to "Edit List", edit_list_path(@list), data: {turbo_method: :edit} if policy(@list).update? %>

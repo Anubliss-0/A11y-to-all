@@ -62,7 +62,7 @@ class ListsController < ApplicationController
     @list.destroy
     @user = current_user
     flash[:notice] = "#{@list.title} has been deleted."
-    redirect_to "/profiles/#{@user.id}"
+    redirect_to "/profiles/#{@user.profile.id}", status: :see_other
   end
 
   private
