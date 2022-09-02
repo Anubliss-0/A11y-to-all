@@ -108,13 +108,27 @@
   }
 
   .toolbox {
-    border-left: 3px solid $miku;
-    border-right: 3px solid $miku;
+    border-left: 2px solid $miku;
+    border-right: 2px solid $miku;
     min-width: 200px;
     padding: 0px 10px;
 
+    ul {
+      padding: 0;
+      margin-top: 10%;
+    }
+
+    li {
+      list-style-type: none;
+      padding: 0px;
+    }
+
+    li::before {
+      content: "🔧";
+    }
+
     h5 {
-      text-align: center;
+      text-align: left;
     }
   }
 
@@ -129,4 +143,27 @@
 
  .dash-reccomend {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+
+  .tool-contain {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+  }
+
+  h2 {
+    color: $miku;
+    border-bottom: 3px solid $miku;
+  }
+
+  .saverate {
+    text-align: right;
+  }
+
+ }
+
+ @media (max-width) {
+
  }

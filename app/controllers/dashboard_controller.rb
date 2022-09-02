@@ -4,8 +4,10 @@ class DashboardController < ApplicationController
   def reccomend
     @tools = Tool.all
     @categories = current_user.profile.categories
-    # raise
-    @tool_category = ToolCategory.select { |category| category.category_id == @categories.id }
-    @suggestions = @tools.select { |tool| tool.id == @tool_category.tool_id }
+    @tool_categories = @categories & current_user.profile.categories
+
+    @suggestions = @tool_categories.map do |category|
+      category.tools
+    end.flatten.sample(3)
   end
 end
