@@ -13,10 +13,18 @@ class BookmarksController < ApplicationController
       authorize @bookmark
       @bookmark.list_id = list
       @tool = Tool.find(params[:tool_id])
-      @bookmark.tool_id = @tool
+      @bookmark.tool_id = @tool.id
       @bookmark.save
     end
     redirect_to profile_path(current_user.profile)
+  end
+
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    authorize @bookmark
+    @list = @bookmark.list
+    @bookmark.destroy
+    redirect_to list_path(@list), status: :see_other
   end
 
   private
