@@ -1,33 +1,44 @@
-<div id='profile-page'>
-  <div class = 'profile-banner'>
+<div id='profile-page' style="display: grid; grid-template-columns: 2fr 3fr"  class = 'profile-banner'>
+  <div>
     <%= cl_image_tag @profile.photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"profile-avatar" %>
-    <div class="profile-banner-text">
-      <h1><%= @profile.name %></h1>
-      <h3><%= @profile.user_name %>- <%= @profile.score %> points</h2>
+  </div>
+  <div class="profile-banner-text">
+    <h1><%= @profile.name %></h1>
+    <h3><%= @profile.user_name %> - 🥰<%= @profile.score %> points</h3>
+  </div>
+</div>
+
+
+<div class="profile-lower-half" style= "width: 50%; margin: auto">
+  <div class="profile-bio-and-tools">
+    <div class="profile-bio">
+      <h3><i class="fa-solid fa-map-location"></i>   <%= @profile.location %></h3>
+      <p><i class="fa-solid fa-user"></i>   <%= @profile.bio %></p>
     </div>
   </div>
-  <div class="profile-lower-half">
-    <div class="profile-bio-and-tools">
-      <div class="profile-bio">
-        <h3><i class="fa-solid fa-map-location"></i>   <%= @profile.location %></h3>
-        <p><i class="fa-solid fa-user"></i>   <%= @profile.bio %></p>
-      </div>
+</div>
 
-      <div class="profile-tools">
-        <% if @tools != [] %>
-          <h2><%= @profile.user_name %>'s Tools:</h2>
-          <div class="profile-tool-box">
-            <% @tools.each do |tool| %>
-                <%= link_to tool_path(tool) do%>
-                <div class="profile-tool-card">
-                  <span><%= tool.title %></span>
-                </div>
-              <% end %>
-            <% end %>
+
+
+
+<div class="profile-tools "style= "width: 50%; margin: auto">
+  <% if @tools != [] %>
+    <h2><%= @profile.user_name %>'s Tools:</h2>
+    <div class="profile-tool-box">
+      <% @tools.each do |tool| %>
+          <%= link_to tool_path(tool) do%>
+          <div class="profile-tool-card">
+            <span><%= tool.title %></span>
           </div>
         <% end %>
-      </div>
+      <% end %>
     </div>
+  <% end %>
+</div>
+
+
+
+
     <div class="profile-lists">
       <% if @lists != [] %>
         <h2><%= @profile.user_name %>'s Lists:</h2>
@@ -42,9 +53,6 @@
         </div>
       <% end %>
     </div>
-
-  </div>
-</div>
       <% if policy(@profile).edit? %>
         <%= link_to "Update Profile", edit_profile_path(@profile)%>
       <% end %>
@@ -52,3 +60,5 @@
       <% if policy(@profile).destroy? %>
         <%= link_to "Delete Profile", @profile, data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
       <% end %>
+
+  </div>
