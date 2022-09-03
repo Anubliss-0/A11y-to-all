@@ -12,12 +12,12 @@ $light-gray: #F4F4F4;
 
 $miku: rgb(0, 112, 124);
 $mikuhover: rgb(53, 53, 53);
-$background-green: #3ca48b;
+$background-green: $miku;
 
-$miku: rgb(0, 128, 109);
 $mikubright: rgb(229, 239, 239);
 $brightgray: rgb(243, 243, 243);
 
+$background-light: #e3eeee;
 
 $text: black;
 $colorful-text: $miku;
