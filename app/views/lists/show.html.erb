@@ -1,15 +1,16 @@
-<body class= "light-background">
+<body class= "light-background-gradient">
   <div style="display: grid ; grid-template-columns: 4fr 7fr; margin: 2% auto 2% auto; width: 90%;">
 
     <div>
-      <h1><%= @list.title %></h1>
+      <h1>🧰<%= @list.title %></h1>
       <%= link_to "Delete Toolbox", list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@list).destroy? %>
       <%= link_to "Edit Toolbox", edit_list_path(@list), data: {turbo_method: :edit} if policy(@list).update? %>
     </div>
 
-    <div style=" ">
 
-    <% @bookmarks_needed.each do |bookmark| %>
+    <div>
+
+      <% @bookmarks_needed.each do |bookmark| %>
       <% tool = Tool.find(bookmark.tool_id) %>
       <% user = User.find(tool.user_id) %>
       <% profile = Profile.find(user.id) %>
@@ -53,10 +54,11 @@
           <div class="grid-item">
             <p class="saverate"> <%= link_to "Remove from Toolbox", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(bookmark).destroy? %></p>
         </div>
-      </div>
 
+    </div>
 
-    <% end %>
+<% end %>
+
   </div>
 </body>
 
