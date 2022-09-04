@@ -11,14 +11,32 @@
   margin-top: 10px;
   display: grid;
   grid-template-areas:
-  "prof reccomend"
-  "toolboxes reccomend"
+  "prof social reccomend"
+  "toolboxes toolboxes reccomend"
   ;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.6fr 1.2fr 1.2fr;
   grid-template-rows: 1fr 1fr;
   gap: 30px 30px;
   height: 80%;
   width: 90%;
+}
+
+.dash-social {
+  grid-area: social;
+  background-color: white;
+  border-radius: 29px;
+  padding: 30px;
+  box-shadow: 10px 57px 64px rgba(12, 53, 43, 0.5);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  h2 {
+    border-bottom: 3px solid $miku;
+    color: $miku;
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .dash-profile {
@@ -28,11 +46,15 @@
   padding: 30px;
   box-shadow: 10px 57px 64px rgba(12, 53, 43, 0.5);
   display: flex;
+  align-items: center;
+  flex-direction: column;
   height: 100%;
+  text-align: center;
 
-  h1 {
+  h2 {
     border-bottom: 3px solid $miku;
     color: $miku;
+    width: 100%;
   }
 
   .prof-left {
@@ -58,6 +80,7 @@
     min-width: 150px;
     max-width: 200px;
     box-shadow: 0px 8px 10px -3px rgba(39, 48, 37, 0.36);
+    margin: 0;
   }
 
   #score {
