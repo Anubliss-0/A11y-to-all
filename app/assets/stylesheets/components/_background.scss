@@ -1,3 +1,12 @@
 .colored-background {
   background-color: $miku;
 }
+
+.light-background {
+  background-color: $background-light;
+}
+
+.light-background-gradient {
+//  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 56%);
+  background-color: $background-light;
+}

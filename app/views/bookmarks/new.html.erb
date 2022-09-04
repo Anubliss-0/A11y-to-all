@@ -1,5 +1,5 @@
 <% if @lists == [] %>
-  <h1>Sorry please create a list before adding this tool.</h1>
+  <h1>Create a list before adding this tool.</h1>
   <h2><%= link_to "Make a list",new_list_path %></h2>
 <% else %>
   <h1>Add <%= @tool.title %> to your toolbox</h1>

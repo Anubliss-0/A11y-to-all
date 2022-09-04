@@ -5,10 +5,11 @@
   padding: 1%;
   border-radius: 6px;
   color: white;
-  font-weight: bold;
+ // font-weight: bold;
   margin: 0% 2% 0% 0%;
   min-width: 115px;
   border: none;
+  text-decoration: none;
 }
 
 .button1:hover , .btn:hover{
@@ -19,4 +20,16 @@
 .mikulink {
   color: $miku;
   text-decoration: underline;
+}
+
+.btnnav {
+  width: 25%;
+  background-color: $mikuhover;
+  padding: 1%;
+  border-radius: 6px;
+  color: white;
+ // font-weight: bold;
+  margin: 0% 2% 0% 0%;
+  min-width: 115px;
+  border: none;
 }
