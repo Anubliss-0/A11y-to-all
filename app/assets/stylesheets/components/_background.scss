@@ -1,5 +1,10 @@
 .colored-background {
-  background-color: $miku;
+//  background-color: $miku;
+  background:radial-gradient(80.68% 83.24% at 0% 100%, $gradient 0%, $miku 100%);
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center;
+ height: 100%;
 }
 
 .light-background {
