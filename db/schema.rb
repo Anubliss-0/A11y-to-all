@@ -73,7 +73,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_01_094009) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.integer "score", default: 50
+    t.integer "score"
     t.string "name"
     t.text "bio"
     t.string "location"

@@ -3,14 +3,22 @@
     <%= link_to "#", class: "navbar-brand" do %>
       <span>A11y to all</span>
     <% end %>
-    <div data-controller="switch-search">
+    <div data-controller="switch-search" class="search-container">
 
+        <form action="" data-action="input->switch-search#switch" class="navbar-margin search-toggle">
+        <div data-switch-search-target="togglebg" class="toggle-background">&nbsp</div>
+          <input id="select-tools" type="radio" name="selection" value="tools" data-switch-search-target="tools">
+          <label for="select-tools">Tools</label>
+          <input id="select-users" type="radio" name="selection" value="users" data-switch-search-target="users">
+          <label for="select-users">Users</label>
+        </form>
       <div data-switch-search-target="searchtools" class="navbar-form">
+
         <%= form_with url: tools_path, method: :get, class: "d-flex navbar-margin" do %>
           <%= text_field_tag :query,
           params[:query],
           class: "form-control2",
-          placeholder: "Find a User or Tool"
+          placeholder: "Find a Tool"
           %>
           <%= submit_tag "Search", class: "btnnav" %>
         <% end %>
@@ -21,18 +29,12 @@
           <%= text_field_tag :query,
           params[:query],
           class: "form-control2",
-          placeholder: "Find a User or a Tool"
+          placeholder: "Find a User"
           %>
           <%= submit_tag "Search", class: "btnnav" %>
 
         <% end %>
       </div>
-        <form action="" data-action="input->switch-search#switch" class="navbar-margin">
-          <input id="select-users" type="radio" name="selection" value="users" data-switch-search-target="users">
-          <label for="select-users">Users</label>
-          <input id="select-tools" type="radio" name="selection" value="tools" data-switch-search-target="tools">
-          <label for="select-tools">Tools</label>
-        </form>
 
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

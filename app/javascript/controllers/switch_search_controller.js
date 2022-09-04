@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="switch-search"
 export default class extends Controller {
-  static targets = ["searchtools", "searchusers", "users", "tools"]
+  static targets = ["searchtools", "searchusers", "users", "tools", "togglebg"]
   connect() {
     console.log("Switch-search controller connected.")
   }
@@ -11,9 +11,13 @@ export default class extends Controller {
     if (this.usersTarget.checked) {
       this.searchusersTarget.classList.remove("hiding")
       this.searchtoolsTarget.classList.add("hiding")
+      this.togglebgTarget.classList.add("highlight-users")
     } else if (this.toolsTarget.checked) {
       this.searchusersTarget.classList.add("hiding")
       this.searchtoolsTarget.classList.remove("hiding")
+      this.togglebgTarget.classList.remove("highlight-users")
     }
   }
+
+
 }

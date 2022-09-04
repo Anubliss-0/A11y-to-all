@@ -11,6 +11,54 @@
     color: white;
     font-size: 1.5rem;
   }
+
+  .search-container {
+    display: flex;
+    align-items: center;
+
+    .btnnav {
+      margin-left: 10px;
+    }
+  }
+
+  .search-toggle {
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px;
+    background-color: $mikuhover;
+    border-radius: 29px;
+    width: 120px;
+    color: white;
+    position: relative;
+    border: 2px solid white;
+
+    .toggle-background {
+      width: 60px;
+      height: 100%;
+      background-color: $miku;
+      position: absolute;
+      left: 0px;
+      border-radius: 29px;
+      z-index: 1;
+      transition: 0.3s;
+    }
+
+    .highlight-users {
+      left: 56px;
+    }
+
+    label {
+      z-index: 2;
+      padding: 0 3px;
+    }
+
+    input {
+      display: none;
+    }
+  }
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -19,9 +67,4 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
-}
-
-.navbar-margin {
- margin: 0px 0% 0px -13%;
-
 }
