@@ -2,10 +2,12 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="switch-search"
 export default class extends Controller {
-  static targets = ["searchtools", "searchusers", "users", "tools", "togglebg"]
+  static targets = ["searchtools", "searchusers", "users", "tools", "togglebg", "avatar"]
   connect() {
     console.log("Switch-search controller connected.")
+    const blackout = document.querySelector(".blackout")
   }
+
   switch() {
     console.log('click')
     if (this.usersTarget.checked) {
@@ -18,6 +20,5 @@ export default class extends Controller {
       this.togglebgTarget.classList.remove("highlight-users")
     }
   }
-
 
 }
