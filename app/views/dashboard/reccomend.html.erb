@@ -1,7 +1,7 @@
 <div class="dash-container">
 
   <div class="dash-grid">
-    <div class="dash-profile">
+    <div class="dash-profile card_borderradius">
 
           <h2><%= current_user.profile.name %></h2>
           <%= link_to profile_path(current_user.profile) do %>
@@ -13,12 +13,12 @@
 
     </div>
 
-    <div class="dash-social">
+    <div class="dash-social card_borderradius">
       <h2>Messages</h2>
       <p>Test content</p>
     </div>
 
-    <div class="dash-tools">
+    <div class="dash-tools card_borderradius">
     <h2>Your tools</h2>
       <div class="prof-toolboxes">
         <% current_user.lists.each do |list| %>
@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <div class="dash-reccomend">
+    <div class="dash-reccomend card_borderradius">
     <h2>Reccomendations</h2>
     <% @suggestions.each do |tool| %>
       <div class="tool-contain">
