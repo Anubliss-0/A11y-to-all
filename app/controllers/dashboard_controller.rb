@@ -10,6 +10,7 @@ class DashboardController < ApplicationController
       category.tools
     end.flatten.sample(3)
 
-    @chatrooms = Chatroom.all
+    @messages = Message.select { |message| message.recipient_id == current_user.id && message.read == false}
+
   end
 end

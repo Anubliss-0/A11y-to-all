@@ -4,4 +4,9 @@
     <i><%= message.created_at.strftime("%a %b %e at %l:%M %p") %></i>
   </small>
   <p><%= message.content %></p>
+  <% if message.read? %>
+    <p><em>Read</em></p>
+  <% else %>
+    <p><em>Unread</em></p>
+  <% end %>
 </div>
