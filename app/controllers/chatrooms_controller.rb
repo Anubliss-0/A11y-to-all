@@ -9,7 +9,7 @@ class ChatroomsController < ApplicationController
   end
 
   def create
-    @chatroom = Chatroom.new
+    @chatroom = Chatroom.new(chatroom_params)
     authorize @chatroom
     if @chatroom.save
       redirect_to chatroom_path(@chatroom)
@@ -22,5 +22,11 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.find(params[:id])
     authorize @chatroom
     @message = Message.new
+  end
+
+  private
+
+  def chatroom_params
+    params.require(:chatroom).permit(:name)
   end
 end
