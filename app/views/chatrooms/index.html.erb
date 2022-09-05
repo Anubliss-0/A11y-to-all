@@ -4,7 +4,7 @@
   <% if chatroom.sender_id == current_user.id %>
     <% @user = User.find(chatroom.recipient_id) %>
     <p>Chat with <%= @user.profile.user_name %></p>
-  <% elsif @chatroom.recipient_id == current_user.id%>
+  <% elsif chatroom.recipient_id == current_user.id%>
     <% @user = User.find(chatroom.sender_id) %>
     <p>Chat with <%= @user.profile.user_name %></p>
   <% end %>
