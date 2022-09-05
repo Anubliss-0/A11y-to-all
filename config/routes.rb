@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :reviews, except: [:index, :show, :destroy, :update, :edit]
   end
   resources :tools do
-    resources :bookmarks, only: [:new, :create]
+    resources :bookmarks, only: [:new, :create, :edit, :update]
   end
   resources :bookmarks, only: :destroy
   resources :reviews, only: [:destroy, :update, :edit]
