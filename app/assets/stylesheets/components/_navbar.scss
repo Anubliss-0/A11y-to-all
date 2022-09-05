@@ -1,6 +1,121 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $miku;
+  z-index: 2;
+
+  .avatar {
+    width: 70px;
+    height: 70px;
+  }
+
+  span:first-of-type {
+    color: white;
+    font-size: 1.5rem;
+  }
+
+  .search-container {
+    display: flex;
+    align-items: center;
+
+    .btnnav {
+      margin-left: 10px;
+    }
+  }
+
+  .search-toggle {
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 7px;
+    background-color: $mikuhover;
+    border-radius: 29px;
+    width: 120px;
+    color: white;
+    position: relative;
+    border: 2px solid white;
+
+    .toggle-background {
+      width: 60px;
+      height: 100%;
+      background-color: $miku;
+      position: absolute;
+      left: 0px;
+      border-radius: 29px;
+      z-index: 1;
+      transition: 0.3s;
+    }
+
+    .highlight-users {
+      left: 56px;
+    }
+
+    label {
+      z-index: 2;
+      padding: 0 3px;
+    }
+
+    input {
+      display: none;
+    }
+  }
+
+  .dropdown-menu {
+    width: 15vw;
+    height: 30vw;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 29px;
+    z-index: 3;
+    background-color: #D0D0D0;
+    box-shadow: 0px 8px 10px -3px rgba(39, 48, 37, 0.808);
+
+    .large-drop-avatar {
+      border-radius: 50%;
+      width: 70%;
+      height: auto;
+      margin: 5% 0px;
+      box-shadow: 0px 8px 10px -3px rgba(39, 48, 37, 0.644);
+    }
+
+    .top-half {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      height: 50%;
+
+      span {
+        color: $miku;
+        size: 2rem;
+        width: 90%;
+        text-align: center;
+        border-bottom: 3px solid $miku;
+      }
+    }
+
+    .bottom-half {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+      height: 50%;
+
+      a {
+        color: $miku;
+        font-size: 2rem;
+        transition: 0.3s;
+      }
+
+      a:hover {
+        background-color: #4e4e4e;
+        color: white;
+      }
+    }
+
+
+  }
+
 }
 
 .navbar-lewagon .navbar-collapse {

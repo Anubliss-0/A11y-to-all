@@ -1,0 +1,14 @@
+<% if @lists == [] %>
+  <h1>Create a list before adding this tool.</h1>
+  <h2><%= link_to "Make a list",new_list_path %></h2>
+<% else %>
+  <h1>Add <%= @tool.title %> to your toolbox</h1>
+  <h3>Select a toolbox to add to</h3>
+    <%= simple_form_for [ @tool, @bookmark ] do |f| %>
+      <h2>Add a tool to your list:</h2>
+      <%= f.input :list_id, as: :check_boxes, collection: @lists, wrapper: :horizontal_collection_inline %>
+
+
+      <%= f.button :submit, "Go", class: "btn btn-primary" %>
+    <% end %>
+<% end %>

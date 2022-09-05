@@ -2,7 +2,12 @@ class ToolsController < ApplicationController
   before_action :set_tool, only: %i[show edit update destroy]
 
   def index
-    @tools = policy_scope(Tool).all
+    if params[:query].present?
+      @query = params[:query]
+      @tools = policy_scope(Tool.search_tools(params[:query]))
+    else
+      @tools = policy_scope(Tool)
+    end
   end
 
   def show
@@ -22,10 +27,10 @@ class ToolsController < ApplicationController
   def create
     @tool = Tool.new(tool_params)
     @tool.user = current_user
-
     authorize @tool
-
+    @tool.rating = 0
     if @tool.save
+      UpdateScoreJob.perform_now(current_user)
       redirect_to tool_path(@tool)
     else
       render :new
@@ -57,6 +62,6 @@ class ToolsController < ApplicationController
   end
 
   def tool_params
-    params.require(:tool).permit(:title, :description, :url, :rating)
+    params.require(:tool).permit(:title, :description, :url, :rating, :photo)
   end
 end

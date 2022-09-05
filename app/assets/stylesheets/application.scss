@@ -10,3 +10,18 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+a {
+  color: $miku;
+}
+
+
+.blackout {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.322);
+  overflow-x: hidden;
+  z-index: 1;
+
+}

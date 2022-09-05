@@ -1,0 +1,41 @@
+.form-control2, .form-control2:focus {
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+}
+
+.form-control {
+  transition: none;
+  border: none;
+  background-color: $brightgray;
+}
+
+.form-control:focus {
+  outline: 5px solid white;
+  background-color: $mikubright;
+
+}
+
+.form-control:hover {
+  background-color: $mikubright;
+}
+
+.form-check-input:focus, .form-check-input:checked {
+  background-color: $miku;
+  outline: 5px solid white;
+  border: 1px solid white;
+}
+
+.form-check {
+  padding: 0%;
+}
+
+.form-control.is-valid {
+  background-image: none;
+
+}
+
+.form-select {
+  border: none;
+}

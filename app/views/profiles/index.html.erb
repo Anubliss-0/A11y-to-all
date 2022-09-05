@@ -1,0 +1,10 @@
+<h1>Profile results matching: <%= @query %></h1>
+<% @profiles.each do |profile| %>
+  <%= cl_image_tag profile.photo.key, height: 300, width: 300, crop: :fill, gravity: :face %>
+  <%= link_to profile.name, profile_path(profile) %>
+  <%= profile.user_name %>
+  <%= profile.bio %>
+  <%= profile.location %>
+  <%= profile.score %>
+  <br>
+<% end %>

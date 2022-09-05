@@ -15,6 +15,7 @@ class ListsController < ApplicationController
         @bookmark = Bookmark.new(tool_id: tool.to_i, list: @list)
         @bookmark.save!
       end
+      UpdateScoreJob.perform_now(current_user)
       flash[:notice] = "#{@list.title} has been saved"
       redirect_to list_path(@list)
     else
@@ -61,7 +62,7 @@ class ListsController < ApplicationController
     @list.destroy
     @user = current_user
     flash[:notice] = "#{@list.title} has been deleted."
-    redirect_to "/profiles/#{@user.id}"
+    redirect_to "/profiles/#{@user.profile.id}", status: :see_other
   end
 
   private

@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
 
+
 Category.new(name:"Reading").save!
 Category.new(name:"Listening").save!
 Category.new(name:"Dyslexia").save!
@@ -16,7 +17,7 @@ Category.new(name:"Autism").save!
 Category.new(name:"Text-readers").save!
 Category.new(name:"Speech-Text").save!
 
-10.times do
+20.times do
   user = User.create(
     email: Faker::Internet.email,
     password: Faker::Internet.password,
@@ -24,11 +25,10 @@ Category.new(name:"Speech-Text").save!
   )
   user.save!
   profile = Profile.create(
-    score: rand(1..100),
     name: Faker::Name.name,
-    bio: "Hello I am a bio that is more than ten! This will be used to test our views.",
-    location: Faker::Address.city,
-    user_name: Faker::Internet.username,
+    bio: Faker::Stoked.bio,
+    location: Faker::Address.country_by_code(code: "#{Faker::Address.country_code}"),
+    user_name: ("#{Faker::Internet.username}#{rand(10..100)}"),
     user_id: user.id
   )
   file = URI.open("https://i.pravatar.cc/300")
@@ -36,22 +36,24 @@ Category.new(name:"Speech-Text").save!
   profile.save!
 end
 
-20.times do
-  tag = UserCategory.create(
-    user_id: rand(1..10),
+40.times do
+  tag = ProfileCategory.create(
+    profile_id: rand(1..20),
     category_id: rand(1..8)
   )
   tag.save!
 end
 
-30.times do
+40.times do
   tool = Tool.create(
-    title: Faker::Educator.course_name,
-    description: "This is a fake tool to help test the views of our website.",
+    title: ("#{Faker::Emotion.noun} #{Faker::Verb.base}er"),
+    description: Faker::Restaurant.description,
     url: Faker::Internet.domain_name,
-    rating: rand(1..100),
+    rating: rand(1..5),
     user_id: rand(1..10)
   )
+  file = URI.open("https://placeimg.com/440/280/tech")
+  tool.photo.attach(io: file, filename:"filler.jpeg",content_type: "image/jpeg")
   tool.save!
   category = ToolCategory.create(
     category_id: rand(1..8),
@@ -62,13 +64,13 @@ end
 
 20.times do
   list = List.create(
-    title: Faker::IndustrySegments.industry,
-    user_id: rand(1..10)
+    title: Faker::Job.key_skill,
+    user_id: rand(1..20)
   )
   list.save!
 end
 
-40.times do
+50.times do
   bookmark = Bookmark.create(
     list_id: rand(1..20),
     tool_id: rand(1..30)
@@ -76,11 +78,11 @@ end
   bookmark.save!
 end
 
-20.times do
+40.times do
   review = Review.new(
-    content: "This is content for a fake review. Hope you like it!",
+    content: Faker::Restaurant.review,
     rating: rand(1..5),
-    user_id: rand(1..10),
+    user_id: rand(1..20),
     tool_id: rand(1..30)
   )
   review.save!

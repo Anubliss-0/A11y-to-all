@@ -1,7 +1,7 @@
 class CreateProfiles < ActiveRecord::Migration[7.0]
   def change
     create_table :profiles do |t|
-      t.integer :score
+      t.integer :score, default: 50
       t.string :name
       t.text :bio
       t.string :location

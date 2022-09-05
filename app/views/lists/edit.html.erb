@@ -1,7 +1,9 @@
-<h1>Edit this list:</h1>
-  <%= simple_form_for @list do |f| %>
+
+  <div style= "width: 33%; margin: 8% auto auto auto;"class="white_background card_borderradius card_padding card_margin card_boxshadow">
+    <h2 class="card_h2">Edit this list:</h2>
+    <%= simple_form_for @list do |f| %>
     <%= f.input :title %>
-    <h2>Add tools to your list:</h2>
+    <h5>Add tools to your list:</h5>
     <%= f.association :tools %>
     <%= f.button :submit, "Go", class: "btn btn-primary" %>
   <% end %>

@@ -3,3 +3,27 @@
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
+@import "profile_avatar";
+@import "card";
+@import "toolcard";
+
+
+
+@import "toolshow";
+@import "buttons";
+@import "reviewcard.scss";
+@import "profile_list_card";
+@import "profile_tool_card";
+
+@import "toolbox-card";
+
+@import "form";
+
+@import "background";
+
+@import "chatroom";
+// oops I did it again
+::selection {
+  color: white;
+  background-color: $mikuhover;
+}

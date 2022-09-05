@@ -4,5 +4,17 @@
 
 import { application } from "./application"
 
+import BlackoutController from "./blackout_controller"
+application.register("blackout", BlackoutController)
+
+import ChatroomSubscriptionController from "./chatroom_subscription_controller"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import NewProfileController from "./new_profile_controller"
+application.register("new-profile", NewProfileController)
+
+import SwitchSearchController from "./switch_search_controller"
+application.register("switch-search", SwitchSearchController)

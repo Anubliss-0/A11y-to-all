@@ -1,0 +1,70 @@
+#profile-page {
+  display: flex;
+  flex-direction: column;
+  position: sticky; top: 0;
+}
+.profile-avatar {
+  height: 35%;
+  width: 35%;
+  margin-left: 12vw;
+}
+.profile-banner {
+  display: flex;
+  height: 20vw;
+  background:radial-gradient(80.68% 83.24% at 0% 100%, $gradient 0%, rgba(255, 225, 208, 0) 100%);
+  background-color: $background-green;
+  color: white;
+  align-items: center;
+//  padding: 71px 200px;
+
+}
+
+//.profile-banner-text {
+//  padding-left: 30px;
+//}
+
+.profile-bio {
+
+
+  p {
+    font-size: 20px;
+  }
+}
+
+.profile-lower-half {
+  display: flex;
+  //position: sticky; top: 50%;
+}
+
+.profile-bio-and-tools {
+  display: flex;
+  flex-direction: column;
+ // width: 40%;
+  position: sticky; top: 50vh;
+}
+
+.profile-lists{
+  margin: 0 auto;
+  width: 60%;
+  h2 {
+    padding-top: 10px;
+    padding-left: 10px;
+  }
+}
+
+.list-box {
+  display: flex;
+  align-items: center;
+ // height: 40vh;
+  overflow-x: scroll;
+  width: 100%;
+}
+
+.profile-tool-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+//  height: 100%;
+}

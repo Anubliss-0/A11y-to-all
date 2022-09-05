@@ -1,4 +1,64 @@
-<h1><%= @tool.title %></h1>
+<div style="width: 100% ; padding-top: 0%; padding-bottom: 5%; padding-right: 3%; background-color: white; ">
+  <div class="tool-grid">
+    <div class="imgg">
+        <%= link_to "Back to results", tools_path, class: "button1" %>
+        <%= cl_image_tag @tool.photo.key, height: 300, width: 300, crop: :fill %>
+        <%= link_to "Delete this tool", @tool, method: :delete, class: "button1" if policy(@tool).destroy? %>
+        <% if policy(@tool).edit? %>
+          <%= link_to "Edit This Tool", edit_tool_path(@tool), class: "button2" %>
+        <% end %>
+    </div>
+    <div class="name-stars">
+      <div class="nameg" style="text-align: left"> <h1><%= @tool.title %></h1>
+        <p class="colorful-text">Added by <%= link_to @tool.user.profile.user_name, profile_path(@tool.user.profile) %> on <%= @tool.created_at.strftime('%d/%m/%Y') %></p>
+      </div>
+      <div class="starsg" style="text-align: right">
+        <% @tool.rating.to_i.times do %>
+          <%= "٭" %>
+        <% end %>
+        </div>
+    </div>
+    <div class="textg" style="text-align: left"> <p style="padding-top: 8%"><%= @tool.description %></p> </div>
+    <div class="buttonsg">
+      <%= link_to "🧰Save to Toolbox", new_tool_bookmark_path(@tool), class: "button1" %>
+      <a class="button1" href="https://<%= @tool.url %>" target="blank">🔗Open Link</a>
+      <%= link_to "💬Leave a review", new_tool_review_path(@tool), class: "button2"%>
+      <br>
+    </div>
+
+    <h2>Reviews</h2>
+    <div>&nbsp</div>
+
+    <div class="review-grid">
+      <% @reviews.each do |review| %>
+      <div class="review-grid-item">
+        <p class="colorful-text" style="text-align: left">
+          <%= review.user.profile.user_name %> | <%= review.created_at.strftime('%d/%m/%Y') %>
+        </p>
+        <p style="text-align: left">
+        <%= review.content %>
+          <div class="starsg" style="text-align: left">
+          <% review.rating.to_i.times do %>
+            <span id="ratestars"><%= "٭" %></span>
+          <% end %>
+          <br>
+          <%= link_to "Edit this review", edit_review_path(review) if policy(review).update? %>
+          <%= link_to "Delete this review", review_path(review), data: { "turbo-method": :delete } if policy(review).destroy? %>
+        </div>
+
+        </p>
+      </div>
+      <div class="review-grid-item">
+        <div class="avatar-small">
+          <%=cl_image_tag review.user.profile.photo.key, height: 80, width:80, crop: :fill %>
+       </div>
+      </div>
+
+    <% end %>
+</div>
+
+<!--
+<%# =begin %>
 <ul>
   <li><%= @tool.title %></li>
   <li><%= @tool.description %></li>
@@ -8,17 +68,13 @@
 </ul>
 
 <%= link_to "Leave a review", new_tool_review_path(@tool) %>
-
+<%= link_to "Save this tool to a toolbox", new_tool_bookmark_path(@tool) %>
 <% @reviews.each do |review| %>
   <p><%= review.content %></p>
   <p><%= review.rating %></p>
-  <%= link_to "Delete this review", review_path(review), data: { "turbo-method": :delete } if policy(review).destroy? %>
+
   <%= link_to "Edit this review", edit_review_path(review) if policy(review).update? %>
 <% end %>
-
-<%= link_to "Back to index", tools_path %>
+<%# =end %>
+-->
 <%# Add JS to create Confirmation box %>
-<%= button_to "Delete this tool", @tool, method: :delete if policy(@tool).destroy? %>
-<% if policy(@tool).edit? %>
-  <%= link_to "Edit This Tool", edit_tool_path(@tool) %>
-<% end %>

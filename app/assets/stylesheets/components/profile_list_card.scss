@@ -1,0 +1,23 @@
+.profile-list-card {
+  height: 180px;
+  width: 200px;
+  border-radius: 5%;
+  box-shadow: 2px 2px 5px rgba($color: #000000, $alpha: .5);
+  border: 2px solid #888888;
+  background-color: gray;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  font-size: 27px;
+  margin: auto 20px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 1s ease;
+}
+
+.profile-list-card:hover {
+  height: 200px;
+  width: 220px;
+}
