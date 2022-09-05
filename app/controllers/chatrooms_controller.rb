@@ -23,13 +23,13 @@ class ChatroomsController < ApplicationController
     @chatroom = Chatroom.find(params[:id])
     authorize @chatroom
     user = current_user
-    @message = Message.new
     @messages = Message.select {|message| message.chatroom_id == @chatroom.id}
     @messages.each do |message|
       if message.user_id != user.id
         message.read = true
         message.save
       end
+    @message = Message.new
     end
   end
 

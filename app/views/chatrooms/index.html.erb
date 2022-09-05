@@ -1,16 +1,11 @@
 <h1>Chatrooms</h1>
 <% @chatrooms.each do |chatroom| %>
   <%= link_to chatroom.name, chatroom_path(chatroom) %>
-  <% messages = Message.select {|message| message.chatroom_id == chatroom.id} %>
-  <% empty = [] %>
-  <% messages.each do |message| %>
-    <% if empty.include?(message.user_id) == false %>
-      <% empty << message %>
-    <% end %>
-  <% end %>
-  <% if empty.count == 1 %>
-    <p><%= empty.count %> user</p>
-  <% else %>
-    <p><%= empty.count %> users</p>
+  <% if chatroom.sender_id == current_user.id %>
+    <% @user = User.find(chatroom.recipient_id) %>
+    <p>Chat with <%= @user.profile.user_name %></p>
+  <% elsif @chatroom.recipient_id == current_user.id%>
+    <% @user = User.find(chatroom.sender_id) %>
+    <p>Chat with <%= @user.profile.user_name %></p>
   <% end %>
 <% end %>
