@@ -2,10 +2,12 @@ module ApplicationHelper
   def colored_background_page
     if current_page?(root_path)
       "colored-background"
-    elsif current_page?(action: :new)
+    elsif params[:action] == "new"
       "colored-background"
-    elsif current_page?(action: :edit)
+    elsif params[:action] == "edit"
       "colored-background"
+    else
+      ""
     end
   end
 end
