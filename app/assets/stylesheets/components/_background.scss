@@ -7,6 +7,16 @@
  height: 100%;
 }
 
+.colored-background {
+  //  background-color: $miku;
+    background: linear-gradient(80.68% 83.24% at 0% 100%, $gradient 0%, $miku 100%);
+  //  background:radial-gradient(80.68% 83.24% at 0% 100%, $gradient 0%, $miku 100%);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+   height: 100%;
+  }
+
 .light-background {
   background-color: $background-light;
 }
