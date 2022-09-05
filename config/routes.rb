@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :reviews, only: [:destroy, :update, :edit]
   resources :lists
   resources :profiles
+  resources :chatrooms, only: :show
 
   get "test", to: "pages#test"
   get "dashboard", to: "dashboard#reccomend"
