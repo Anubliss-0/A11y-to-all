@@ -1,14 +1,37 @@
 <h1>AllytoAll</h1>
 <p>Coming soon!</p>
 
-<div style="background: rgb(0, 128, 109); padding: 20px 10px">
+<div style="padding: 20px 10px" class = "colored-background">
 <div style="margin: auto ; width: 50%;">
   <div class="white_background card_borderradius card_padding card_margin card_boxshadow">
    <h4 class="card_h2">Title</h4>
    <p class="ellipsis3 p_card">Lorem ipsum dolor sit amet consectetur adipiscing elit platea, vitae venenatis massa cubilia justo augue luctus, fames egestas ante lectus ullamcorper habitant mauris. Ut ligula morbi rhoncus viverra sed fringilla vel quisque, bibendum vestibulum fermentum eleifend posuere curae class convallis, congue orci phasellus dignissim integer augue commodo. Taciti velit quam laoreet pharetra sociis natoque cubilia hac penatibus suspendisse, quisque montes vulputate volutpat commodo morbi suscipit eu dui arcu varius, et aliquam nam venenatis molestie lobortis fames senectus sem. </p>
   </div>
 </div>
+
+
+<br><br><br>
+
+
+<div style="margin: auto ; width: 50%; position: relative; ">
+  <div class="white_background card_borderradius card_margin card_boxshadow" style =" display: grid; grid-template-columns: 3fr 7fr; padding: 35px 28px 23px 0px;">
+   <p style= "font-size: 75px; text-align: center">🧰</p>
+   <div>
+      <h4>Thanks for using A11y to All !</h4>
+      <p> We hope you like this tool. <br>
+      Dont forget to add it to your toolbox 😊</p>
+      <p class="button1" style="margin-top: 2%; margin-bottom: 2.5%">Add</p>
+    </div>
+  </div>
+  <div class="xbutton" style="position: absolute; top: -7%; right: 0%">
+  ✖
+  </div>
 </div>
+
+
+
+
+
 
 <%# grid card %>
 <div style="margin: 2% auto 2% auto; width: 50%; ; width: 50%; ">
@@ -97,23 +120,25 @@
     <div class="buttonsg">
     <p class="button1">🧰Save to Toolbox</p>
     <p class="button1">🔗Open Link</p>
+     <p class="button2">Leave a review</p>
     </div>
-                    <div class="review-grid">
 
-                      <div class="review-grid-item">
-                        <p class="colorful-text" style="text-align: left">
-                          Lorem ipsum dolor sit amet.
-                        </p>
-                        <p style="text-align: left">
-                          Lorem ipsum dolor sit amet consectetur adipiscing elit, leo nascetur sem integer donec at quisque mus, imperdiet justo conubia suspendisse fames phasellus. Dignissim nulla curae dictum fusce congue praesent, placerat suscipit laoreet imperdiet facilisi odio leo, urna habitasse varius ullamcorper enim. Ullamcorper convallis varius laoreet quam ad class hac nec lectus malesuada, diam sagittis imperdiet sem viverra sapien quis mauris tincidunt cubilia, lobortis natoque sodales tristique metus facilisis platea duis mattis.
-                        </p>
-                      </div>
-                      <div class="review-grid-item">
-                        <div class="avatar-small" style= "padding: 0% 35% 0% 0%">
-                          <%=image_tag("https://via.placeholder.com/50", style: "border-radius: 50%")%>
-                        </div>
-                      </div>
-                    </div>
+    <div id= "review" class="review-grid">
+      <div id="review-text"class="review-grid-item">
+        <p class="colorful-text" style="text-align: left">
+          Lorem ipsum dolor sit amet.
+        </p>
+        <p style="text-align: left">
+          Lorem ipsum dolor sit amet consectetur adipiscing elit, leo nascetur sem integer donec at quisque mus, imperdiet justo conubia suspendisse fames phasellus. Dignissim nulla curae dictum fusce congue praesent, placerat suscipit laoreet imperdiet facilisi odio leo, urna habitasse varius ullamcorper enim. Ullamcorper convallis varius laoreet quam ad class hac nec lectus malesuada, diam sagittis imperdiet sem viverra sapien quis mauris tincidunt cubilia, lobortis natoque sodales tristique metus facilisis platea duis mattis.
+        </p>
+      </div>
+      <div id="review-image" class="review-grid-item">
+        <div class="avatar-small" style= "padding: 0% 35% 0% 0%">
+          <%=image_tag("https://via.placeholder.com/50", style: "border-radius: 50%")%>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
