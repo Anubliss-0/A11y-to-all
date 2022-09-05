@@ -1,4 +1,36 @@
-<h1><%= @tool.title %></h1>
+<div style="width: 100% ; padding-top: 5%; padding-bottom: 5%; padding-right: 3%; background-color: white; ">
+  <div class="tool-grid">
+    <div class="imgg"> <%=image_tag(src="https://via.placeholder.com/250") %>
+</div>
+    <div class="name-stars">
+      <div class="nameg" style="text-align: left"> <h1><%= @tool.title %></h1>
+      <p class="colorful-text">Added by USERNAME on DD/MM/YY</p></div>
+      <div class="starsg" style="text-align: right"> <h3>★★★★✰</h3> </div>
+    </div>
+    <div class="textg" style="text-align: left"> <p style="padding-top: 8%"><%= @tool.description %></p> </div>
+    <div class="buttonsg">
+        <p class="button1">🧰Save to Toolbox</p>
+        <a class="button1" href="<%= @tool.url %>">🔗Open Link</a>
+    </div>
+                    <div class="review-grid" style="margin-top: 5%">
+                      <div class="review-grid-item">
+                        <p class="colorful-text" style="text-align: left">
+                          Lorem ipsum dolor sit amet.
+                        </p>
+                        <p style="text-align: left">
+                          Lorem ipsum dolor sit amet consectetur adipiscing elit, leo nascetur sem integer donec at quisque mus, imperdiet justo conubia suspendisse fames phasellus. Dignissim nulla curae dictum fusce congue praesent, placerat suscipit laoreet imperdiet facilisi odio leo, urna habitasse varius ullamcorper enim. Ullamcorper convallis varius laoreet quam ad class hac nec lectus malesuada, diam sagittis imperdiet sem viverra sapien quis mauris tincidunt cubilia, lobortis natoque sodales tristique metus facilisis platea duis mattis.
+                        </p>
+                      </div>
+                      <div class="review-grid-item">
+                        <div class="avatar-small" style= "padding: 0% 35% 0% 0%">
+                          <%=image_tag("https://via.placeholder.com/50", style: "border-radius: 50%")%>
+                        </div>
+                      </div>
+                    </div>
+  </div>
+</div>
+
+
 <ul>
   <li><%= @tool.title %></li>
   <li><%= @tool.description %></li>

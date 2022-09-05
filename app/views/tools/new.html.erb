@@ -1,17 +1,18 @@
-<div class="colored-background">
-  <div style= "width: 50%; margin: auto;"class="white_background card_borderradius card_padding card_margin card_boxshadow">
-    <h2>New tool</h2>
+
+
+   <div style= "width: 33%; margin: 1% auto auto auto; "class="white_background card_borderradius card_padding card_margin card_boxshadow">
+    <h2 class="card_h2">New tool</h2>
+
     <%= simple_form_for @tool do |f| %>
-    <h3>What is the name of this tool?</h3>
+    <h5>What is this tool's name?</h5>
       <%= f.input :title %>
-      <h3>Write something about how this tool</h3>
+      <h5>Write something about this tool</h5>
       <%# Perhaps here there can be an expandable box with more text
       on what makes a good description? %>
       <%= f.input :description %>
-      <h3>Enter the URL of this tool</h3>
+      <h5>Enter the URL of this tool</h5>
       <%= f.input :url %>
       <%= f.input :photo, as: :file %>
       <%= f.button :submit %>
     <% end %>
   </div>
-</div>

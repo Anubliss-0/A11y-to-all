@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import BlackoutController from "./blackout_controller"
+application.register("blackout", BlackoutController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 

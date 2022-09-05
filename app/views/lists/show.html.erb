@@ -1,21 +1,95 @@
-<h1><%= @list.title %></h1>
-<% @bookmarks_needed.each do |bookmark| %>
-  <% tool = Tool.find(bookmark.tool_id) %>
-  <% user = User.find(tool.user_id) %>
-  <% profile = Profile.find(user.id) %>
-  <%#might need to change line method %>
-  <ul>
-    <% if tool.photo.key != nil %>
-      <li><%= cl_image_tag tool.photo.key, height: 300, width: 300 %></li>
-    <% end %>
-    <li><%= tool.title.split.map(&:capitalize).join(' ') %></li>
-    <li><%= tool.description %></li>
-    <li><%= tool.rating %></li>
-    <li><%= tool.url %></li>
-    <li><%= profile.user_name %></li>
-  </ul>
-  <%= link_to "Remove Tool from Toolbox", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(bookmark).destroy? %>
+  <div style="display: grid ; grid-template-columns: 4fr 7fr; margin: 2% auto 2% auto; width: 90%;">
+
+    <div>
+      <h1>🧰<%= @list.title %></h1>
+      <%= link_to "Delete Toolbox", list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@list).destroy? %>
+      <%= link_to "Edit Toolbox", edit_list_path(@list), data: {turbo_method: :edit} if policy(@list).update? %>
+    </div>
+
+
+    <div>
+
+      <% @bookmarks_needed.each do |bookmark| %>
+      <% tool = Tool.find(bookmark.tool_id) %>
+      <% user = User.find(tool.user_id) %>
+      <% profile = Profile.find(user.id) %>
+
+
+
+        <%# <%= tool.url %>
+
+
+      <div class="zero">
+
+        <div class="grid-item item1">
+          <div class="img tcard_boxshadow">
+            <%=image_tag("tool-svgrepo-com.svg") %>
+
+          <%# can't set the photo because I can't upload one (backend error?)
+
+            <%# <% if tool.photo.key != nil %>
+            <%# <%= cl_image_tag tool.photo.key, height: 300, width: 300 %>
+            <%# <% end %>
+
+          </div>
+        </div>
+        <div class="item2">
+          <div class="item21">
+            <div class="grid-item toolname">
+              <h4> <%= tool.title.split.map(&:capitalize).join(' ') %> </h4>
+
+            </div>
+
+      <%#might need to change line method %>
+
+            <div class="grid-item">
+              <p class="daterating"> Added by <%= profile.user_name %> on DD/MM/YY <br><%= tool.rating %>★</p>
+            </div>
+          </div>
+            <div class="grid-item item22">
+              <p class="ellipsis3 p_card"><%= tool.description %> </p>
+            </div>
+          </div>
+          <div class="grid-item">
+            <p class="saverate"> <%= link_to "Remove from Toolbox", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(bookmark).destroy? %></p>
+        </div>
+
+    </div>
+
 <% end %>
 
-<%= link_to "Delete List", list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@list).destroy? %>
-<%= link_to "Edit List", edit_list_path(@list), data: {turbo_method: :edit} if policy(@list).update? %>
+  </div>
+
+
+
+
+
+<br><br><br><br><br><br><br>
+
+
+
+
+
+
+
+<%#       <%# <h1><%= @list.title %></h1>
+<%#       <%# <% @bookmarks_needed.each do |bookmark| %>
+<%#               <% tool = Tool.find(bookmark.tool_id) %>
+<%#               <% user = User.find(tool.user_id) %>
+<%#               <% profile = Profile.find(user.id) %>
+<%#               <%#might need to change line method %>
+<%#               <ul>
+<%#                 <% if tool.photo.key != nil %>
+<%#                   <li><%= cl_image_tag tool.photo.key, height: 300, width: 300 %></li>
+<%#                 <% end %>
+<%#                 <li><%= tool.title.split.map(&:capitalize).join(' ') %></li>
+<%#                 <li><%= tool.description %></li>
+<%#                 <li><%= tool.rating %></li>
+<%#                 <li><%= tool.url %></li>
+<%#                 <li><%= profile.user_name %></li>
+<%#               </ul>
+<%#               <%= link_to "Remove Tool from Toolbox", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(bookmark).destroy? %>
+<%#       <% end %>
+<%#
+<%#       <%= link_to "Delete Toolbox", list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@list).destroy? %>
+<%#       <%= link_to "Edit Toolbox", edit_list_path(@list), data: {turbo_method: :edit} if policy(@list).update? %>

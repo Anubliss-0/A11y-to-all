@@ -22,3 +22,8 @@
 @import "background";
 
 @import "chatroom";
+// oops I did it again
+::selection {
+  color: white;
+  background-color: $mikuhover;
+}

@@ -1,12 +1,13 @@
-<h1>Update <%= @tool.title %></h1>
+   <div style= "width: 33%; margin: 1% auto auto auto; "class="white_background card_borderradius card_padding card_margin card_boxshadow">
+    <h2 class="card_h2">Update <%= @tool.title %></h2>
 <%= simple_form_for @tool do |f| %>
-<h2>What is the name of this tool?</h2>
+<h4>What is the name of this tool?</h4>
   <%= f.input :title %>
-  <h2>Write something about how this tool</h2>
+  <h4>Write something about how this tool</h4>
   <%# Perhaps here there can be an expandable box with more text
   on what makes a good description? %>
   <%= f.input :description %>
-  <h2>Enter the URL of this tool</h2>
+  <h4>Enter the URL of this tool</h4>
   <%= f.input :url %>
   <%= f.button :submit %>
 <% end %>

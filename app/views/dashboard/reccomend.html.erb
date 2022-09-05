@@ -2,17 +2,20 @@
 
   <div class="dash-grid">
     <div class="dash-profile">
-        <div class="prof-left">
-          <%= cl_image_tag current_user.profile.photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"profile-avatar" %>
-          <span id="score">Score:<%= current_user.profile.score %></span>
-        </div>
-        <div class="prof-right">
-          <h1>Profile</h1>
+
           <h2><%= current_user.profile.name %></h2>
-          <p><%= current_user.profile.user_name %> | <%= current_user.profile.location %></p></p>
-          <p><%= current_user.profile.bio %></p>
-          <%= link_to "Update Profile", edit_profile_path(current_user.profile)%>
-        </div>
+          <%= link_to profile_path(current_user.profile) do %>
+            <%= cl_image_tag current_user.profile.photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"profile-avatar" %>
+          <% end %>
+          <span id="score">Score:<%= current_user.profile.score %></span>
+
+
+
+    </div>
+
+    <div class="dash-social">
+      <h2>Messages</h2>
+      <p>Test content</p>
     </div>
 
     <div class="dash-tools">
