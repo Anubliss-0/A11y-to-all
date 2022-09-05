@@ -15,7 +15,16 @@
 
     <div class="dash-social card_borderradius">
       <h2>Messages</h2>
-      <p>Test content</p>
+      <% if @messages != [] %>
+        <% @messages.each do |message| %>
+          <% @user = User.find(message.user_id) %>
+          <h3>New Message from <%= @user.profile.user_name %></h3>
+          <p><%= message.content %></p>
+          <%= link_to "Enter Chat", chatroom_path(message.chatroom) %>
+        <% end %>
+      <% else %>
+        <h3>You have no unread messages</h3>
+      <% end %>
     </div>
 
     <div class="dash-tools card_borderradius">
