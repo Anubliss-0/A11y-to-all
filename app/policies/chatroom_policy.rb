@@ -2,7 +2,7 @@ class ChatroomPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      scope.all
+      scope.where(sender_id: user).or(scope.where(recipient_id: user))
     end
   end
 
@@ -11,6 +11,6 @@ class ChatroomPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    record.sender_id == user.id || record.recipient_id == user.id
   end
 end

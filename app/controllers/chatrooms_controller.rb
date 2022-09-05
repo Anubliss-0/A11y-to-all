@@ -11,6 +11,7 @@ class ChatroomsController < ApplicationController
   def create
     @chatroom = Chatroom.new(chatroom_params)
     authorize @chatroom
+    @chatroom.sender_id = current_user.id
     if @chatroom.save
       redirect_to chatroom_path(@chatroom)
     else
@@ -27,6 +28,6 @@ class ChatroomsController < ApplicationController
   private
 
   def chatroom_params
-    params.require(:chatroom).permit(:name)
+    params.require(:chatroom).permit(:name, :recipient_id)
   end
 end
