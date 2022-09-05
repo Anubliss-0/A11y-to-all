@@ -14,7 +14,7 @@
     </div>
 
     <div class="dash-social">
-      <h2>Messages</h2>
+      <h2>Chatrooms</h2>
       <% @chatrooms.each do |chatroom| %>
         <%= link_to chatroom.name, chatroom_path(chatroom) %>
         <% messages = Message.select {|message| message.chatroom_id == chatroom.id} %>
