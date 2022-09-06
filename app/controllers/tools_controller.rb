@@ -18,6 +18,7 @@ class ToolsController < ApplicationController
   def new
     @tool = Tool.new
     authorize @tool
+    @tool_category = ToolCategory.new
   end
 
   def edit
@@ -30,6 +31,11 @@ class ToolsController < ApplicationController
     authorize @tool
     @tool.rating = 0
     if @tool.save
+      params[:tool][:category_ids].delete("")
+      params[:tool][:category_ids].each do |cat|
+        toolcat = ToolCategory.new(tool_id: @tool.id, category_id: cat.to_i)
+        toolcat.save
+      end
       UpdateScoreJob.perform_now(current_user)
       redirect_to tool_path(@tool)
     else
@@ -62,6 +68,6 @@ class ToolsController < ApplicationController
   end
 
   def tool_params
-    params.require(:tool).permit(:title, :description, :url, :rating)
+    params.require(:tool).permit(:title, :description, :url, :rating, :photo)
   end
 end

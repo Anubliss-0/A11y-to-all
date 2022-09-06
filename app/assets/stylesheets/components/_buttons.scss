@@ -11,6 +11,9 @@
   min-width: 115px;
   border: none;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button1:hover , .btn:hover{
@@ -47,6 +50,10 @@
   margin: 0% 2% 0% 0%;
   min-width: 115px;
   text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .button2:hover {
@@ -64,3 +71,4 @@
    color: white;
    background-color: $mikuhover;
  }
+

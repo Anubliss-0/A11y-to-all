@@ -49,7 +49,7 @@ end
     title: ("#{Faker::Emotion.noun} #{Faker::Verb.base}er"),
     description: Faker::Restaurant.description,
     url: Faker::Internet.domain_name,
-    rating: rand(1..100),
+    rating: rand(1..5),
     user_id: rand(1..10)
   )
   file = URI.open("https://placeimg.com/440/280/tech")

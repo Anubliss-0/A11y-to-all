@@ -4,6 +4,13 @@
 .tool-grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1fr 80px;
+  padding-top: 2rem;
+
+  h2 {
+    color: $miku;
+    border-bottom: 3px solid $miku;
+  }
 }
 
 .tool-grid > div {
@@ -14,21 +21,74 @@
 .imgg {
   grid-row: 1 / span 4;
   padding: none;
+  margin: 0px 10px;
+  margin-top: 2%;
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .button1 {
+    width: 150px;
+    height: 50px;
+    margin-bottom: 1.25rem;
+  }
+
+  .button1:nth-of-type(2) {
+    margin-top: 1.25rem;
+  }
+
+  .button2 {
+    width: 150px;
+    height: 50px;
+  }
 }
 
 .name-stars {
 display: grid;
 grid-template-columns: 1fr 1fr;
+
+  .starsg {
+    color: $miku;
+    font-size: 3rem;
+  }
 }
 
 .buttonsg {
   display:flex;
   margin-bottom: 30px;
 }
-.starsg {
 
-color: $miku;
+
+#ratestars{
+  color: $miku;
+  font-size: 2rem;
 }
 .textg {
   width: 70%;
+}
+
+.avatar-small {
+  width: 100px;
+  height: 100px;
+
+  img {
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+}
+
+.review-grid {
+  display: grid;
+  flex-direction: column;
+  margin-top: 0px;
+}
+
+.review-grid-item {
+  border-bottom: 3px solid $miku;
+  padding-top: 30px;
+}
+
+.review-grid-item:first-of-type {
+  padding-top: 0px;
 }
