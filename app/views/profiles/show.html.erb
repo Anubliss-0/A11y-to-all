@@ -4,22 +4,23 @@
   </div>
   <div class="profile-banner-text">
     <h1><%= @profile.name %></h1>
-    <h3><%= @profile.user_name %> - 🥰<%= @profile.score %> points</h3>
+    <h2>@<%= @profile.user_name %></h2> <p> 🥰<%= @profile.score %> points <br>
 
 
-<div class="profile-lower-half" style= "margin: auto">
-  <div class="profile-bio-and-tools">
-    <div class="profile-bio">
-      <h3><i class="fa-solid fa-map-location"></i>   <%= @profile.location %></h3>
-      <p><i class="fa-solid fa-user"></i>   <%= @profile.bio %></p>
+<%# <div class="profile-lower-half" style= "margin: auto"> %>
+  <%# <div class="profile-bio-and-tools"> %>
+    <%# <div class="profile-bio"> %>
+      <i class="fa-solid fa-map-location"></i>   <%= @profile.location %>
+      <br>
+      <i class="fa-solid fa-user"></i>   <%= @profile.bio %></p>
 
 
       <% if @profile.user != current_user %>
               <%= link_to "Chat with #{@profile.user_name}", talk_path %>
       <% end %>
-    </div>
-  </div>
-</div>
+    <%# </div> %>
+  <%# </div> %>
+<%# </div> %>
 
   </div>
 </div>
