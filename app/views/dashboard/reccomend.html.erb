@@ -3,14 +3,12 @@
   <div class="dash-grid">
     <div class="dash-profile card_borderradius">
 
-          <h2><%= current_user.profile.name %></h2>
           <%= link_to profile_path(current_user.profile) do %>
             <%= cl_image_tag current_user.profile.photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"profile-avatar" %>
           <% end %>
-          <span id="score">Score:<%= current_user.profile.score %></span>
-
-
-
+          <h2 style="border-bottom: none; font-size: 20px"><%= current_user.profile.name %></h2>
+          <p >@<%= current_user.profile.user_name %>
+          <span id="score">Score:<%= current_user.profile.score %></span></p>
     </div>
 
     <div class="dash-social card_borderradius">
