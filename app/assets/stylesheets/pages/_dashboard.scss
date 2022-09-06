@@ -146,9 +146,9 @@
       padding: 0px;
     }
 
-    li::before {
-      content: "🔧";
-    }
+    // li::before {
+    //   content: "<i class='fa-solid fa-wrench'></i>";
+    // }
 
     h5 {
       text-align: left;
