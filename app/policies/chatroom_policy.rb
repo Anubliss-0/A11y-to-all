@@ -13,4 +13,8 @@ class ChatroomPolicy < ApplicationPolicy
   def show?
     record.sender_id == user.id || record.recipient_id == user.id
   end
+
+  def chat_with_user?
+    true
+  end
 end

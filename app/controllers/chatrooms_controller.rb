@@ -24,12 +24,23 @@ class ChatroomsController < ApplicationController
     authorize @chatroom
     user = current_user
     @message = Message.new
-    @messages = Message.select {|message| message.chatroom_id == @chatroom.id}
+    @messages = Message.select { |message| message.chatroom_id == @chatroom.id }
     @messages.each do |message|
       if message.user_id != user.id
         message.read = true
         message.save
       end
+    end
+  end
+
+  def chat_with_user
+    @profile = Profile.find(params[:id])
+    @chatroom = Chatroom.create(name: "Chat with #{@profile.user_name}", recipient_id: @profile.user.id, sender_id: current_user.id)
+    authorize @chatroom
+    if @chatroom.save
+      redirect_to chatroom_path(@chatroom)
+    else
+      render :new
     end
   end
 
