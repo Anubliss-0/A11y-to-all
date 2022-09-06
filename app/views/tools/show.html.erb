@@ -1,8 +1,8 @@
-<div style="width: 100% ; padding-top: 0%; padding-bottom: 5%; padding-right: 3%; background-color: white; ">
+<div style="width: 100% ; padding-top: 0%; padding-bottom: 5%; padding-right: 3%; background-color: white;" data-controller="external">
   <div class="tool-grid">
     <div class="imgg">
-        <%= link_to "Back to results", tools_path, class: "button1" %>
         <%= cl_image_tag @tool.photo.key, height: 300, width: 300, crop: :fill %>
+        <%= link_to "Back to results", tools_path, class: "button1" %>
         <%= link_to "Delete this tool", @tool, method: :delete, class: "button1" if policy(@tool).destroy? %>
         <% if policy(@tool).edit? %>
           <%= link_to "Edit This Tool", edit_tool_path(@tool), class: "button2" %>
@@ -18,8 +18,9 @@
         <% end %>
         </div>
     </div>
-    <div class="textg" style="text-align: left"> <p style="padding-top: 8%"><%= @tool.description %></p> </div>
+    <div class="textg" style="text-align: left"> <p style=><%= @tool.description %></p> </div>
     <div class="buttonsg">
+
       <%= link_to new_tool_bookmark_path(@tool), class: "button1" do |link|%>
         <i class='fa-solid fa-toolbox'></i>Save to Toolbox
       <% end %>
@@ -29,6 +30,7 @@
       <%= link_to new_tool_review_path(@tool), class: "button2" do |link| %>
         <i class="fa-solid fa-comment"></i> Leave a Review
       <% end %>
+
       <br>
     </div>
 
@@ -39,7 +41,7 @@
       <% @reviews.each do |review| %>
       <div class="review-grid-item">
         <p class="colorful-text" style="text-align: left">
-          <%= review.user.profile.user_name %> | <%= review.created_at.strftime('%d/%m/%Y') %>
+          <%= link_to review.user.profile.user_name, profile_path(review.user) %> | <%= review.created_at.strftime('%d/%m/%Y') %>
         </p>
         <p style="text-align: left">
         <%= review.content %>
@@ -61,6 +63,25 @@
       </div>
 
     <% end %>
+
+</div>
+  <div class= "popup hiding" data-external-target="popup" data-action="click->external#close">
+    <div style="margin: auto ; width: 50%; position: relative;">
+      <div class="white_background card_borderradius card_boxshadow popupbox">
+        <i class="fa-solid fa-toolbox"></i>
+        <div class="pcontent">
+          <h4>Thanks for using A11y to All !</h4>
+            <p> If you like this tool, dont forget to leave a rating!</p>
+            <div class="buttons">
+            <%= link_to "add to toolbox", new_tool_bookmark_path(@tool), class: "button1" %>
+            <%= link_to "Leave a review", new_tool_review_path(@tool), class: "button2"%>
+        </div>
+        </div>
+      </div>
+    <div class="xbutton" style="position: absolute; top: -7%; right: 0%; cursor: pointer;" >
+      ✖
+    </div>
+  </div>
 </div>
 
 <!--
