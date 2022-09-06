@@ -18,6 +18,7 @@ class ToolsController < ApplicationController
   def new
     @tool = Tool.new
     authorize @tool
+    @tool_category = ToolCategory.new
   end
 
   def edit
