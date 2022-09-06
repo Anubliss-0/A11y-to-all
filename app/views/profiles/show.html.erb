@@ -28,38 +28,46 @@
 
 
 
-<div class="profile-tools "style= "width: 50%; margin: auto">
-  <% if @tools != [] %>
-    <h2><%= @profile.user_name %>'s Tools:</h2>
-    <div class="profile-tool-box">
-      <% @tools.each do |tool| %>
-          <%= link_to tool_path(tool) do%>
-          <div class="profile-tool-card">
-            <span><%= tool.title %></span>
-          </div>
-        <% end %>
-      <% end %>
-    </div>
-  <% end %>
-</div>
 
 
+ <div class="profile-lists">
+      <% if @tools != [] %>
+        <h2><%= @profile.user_name %>'s Tools:</h2>
 
-
-    <div class="profile-lists">
-      <% if @lists != [] %>
-        <h2><%= @profile.user_name %>'s Lists:</h2>
         <div class="list-box">
-          <% @lists.each do |list| %>
-            <%= link_to list_path(list) do %>
+          <% @tools.each do |tool| %>
+            <%= link_to tool_path(tool) do %>
+
               <div class="profile-list-card">
-                <span><%= list.title %></span>
+                <span><%= tool.title %></span>
               </div>
+
             <% end %>
           <% end %>
         </div>
       <% end %>
     </div>
+
+
+    <div class="profile-lists">
+      <% if @lists != [] %>
+        <h2><%= @profile.user_name %>'s Lists:</h2>
+
+        <div class="list-box">
+          <% @lists.each do |list| %>
+            <%= link_to list_path(list) do %>
+
+              <div class="profile-list-card">
+                <span><%= list.title %></span>
+              </div>
+
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+
       <% if policy(@profile).edit? %>
         <%= link_to "Update Profile", edit_profile_path(@profile)%>
       <% end %>
