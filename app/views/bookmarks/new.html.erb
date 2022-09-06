@@ -1,14 +1,16 @@
 <% if @lists == [] %>
-  <h1>Create a list before adding this tool.</h1>
-  <h2><%= link_to "Make a list",new_list_path %></h2>
+  <div style= "width: 33%; margin: 1% auto auto auto; "class="white_background card_borderradius card_padding card_margin card_boxshadow d-flex flex-column align-items-center">
+    <h2 class="card_h2">Create a toolbox before adding this tool.</h2>
+    <h3><%= link_to "New Toolbox",new_list_path, class:"button1 " %></h3>
+  </div>
 <% else %>
-  <h1>Add <%= @tool.title %> to your toolbox</h1>
-  <h3>Select a toolbox to add to</h3>
-    <%= simple_form_for [ @tool, @bookmark ] do |f| %>
-      <h2>Add a tool to your list:</h2>
-      <%= f.input :list_id, as: :check_boxes, collection: @lists, wrapper: :horizontal_collection_inline %>
-
-
-      <%= f.button :submit, "Go", class: "btn btn-primary" %>
-    <% end %>
+  <div style= "width: 33%; margin: 1% auto auto auto; "class="white_background card_borderradius card_padding card_margin card_boxshadow">
+    <h2 class="card_h2">Add <%= @tool.title %> to your toolbox</h2>
+    <h3>Select a toolbox to add to</h3>
+      <%= simple_form_for [ @tool, @bookmark ] do |f| %>
+        <h2>Add a tool to your list:</h2>
+          <%= f.input :list_id, as: :check_boxes, collection: @lists, wrapper: :horizontal_collection_inline %>
+        <%= f.button :submit, "Go", class: "btn btn-primary" %>
+      <% end %>
+  </div>
 <% end %>
