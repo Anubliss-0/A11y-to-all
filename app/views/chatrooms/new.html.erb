@@ -5,7 +5,9 @@
     <h5>What is this chatrooms's name?</h5>
       <% user_names = [] %>
       <%= f.input :name %>
-      <%= f.input :recipient_id%>
+ssssssssssssssssssssssssssssssssssssssssss
+      <%= f.input :recipient_id, collection: Chatroom::USER_NAMES%>
+
       <%= f.button :submit %>
     <% end %>
   </div>

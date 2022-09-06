@@ -6,12 +6,16 @@ class ChatroomsController < ApplicationController
   def new
     @chatroom = Chatroom.new
     authorize @chatroom
+    @profiles = Profile.all
   end
 
   def create
     @chatroom = Chatroom.new(chatroom_params)
     authorize @chatroom
     @chatroom.sender_id = current_user.id
+    profile = Profile.find_by_user_name(params[:chatroom][:recipient_id])
+    user = User.find(profile.user_id)
+    @chatroom.recipient_id = user.id
     if @chatroom.save
       redirect_to chatroom_path(@chatroom)
     else
