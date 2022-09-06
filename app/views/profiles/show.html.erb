@@ -5,16 +5,31 @@
   <div class="profile-banner-text">
     <h1><%= @profile.name %></h1>
 
-    
+
 <h3><%= @profile.user_name %>  <i class="fa-solid fa-award"></i>  <%= @profile.score %> points</h3>
 
 <%# <div class="profile-lower-half" style= "margin: auto"> %>
   <%# <div class="profile-bio-and-tools"> %>
     <%# <div class="profile-bio"> %>
+
+    <%= link_to profile_friendships_path(@profile) do |link| %>
+      <% if @friends.count == 1 %>
+        <h3><%= @friends.count %> friend</h3>
+      <% else %>
+        <h3><%= @friends.count %> friends</h3>
+      <% end %>
+    <% end %>
+
+
+      <br>
       <i class="fa-solid fa-map-location"></i>   <%= @profile.location %>
       <br>
       <i class="fa-solid fa-user"></i>   <%= @profile.bio %></p>
-
+      <% if @friends_already == [] %>
+        <% if @profile.user != current_user %>
+                <%= link_to "Add Friend", add_friend_path, class:"button2" %>
+        <% end %>
+      <% end %>
 
 
       <% if @profile.user != current_user %>
