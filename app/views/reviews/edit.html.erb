@@ -1,8 +1,10 @@
-<h1>Edit Review</h1>
-<%= simple_form_for @review do |f| %>
-<h2>Leave a review</h2>
-  <%= f.input :content %>
-  <h2>Leave a rating</h2>
-  <%= f.input :rating, as: :integer, input_html: { min: '0', max: '5', step: '1' } %>
-  <%= f.button :submit %>
-<% end %>
+<div style= "width: 33%; margin: 5% auto auto auto;"class="white_background card_borderradius card_padding card_margin card_boxshadow">
+  <h2>Edit Review</h2>
+  <%= simple_form_for @review do |f| %>
+  <h3 class="card_h2">Leave a review</h3>
+    <%= f.input :content %>
+    <h3>Leave a rating</h3>
+    <%= f.input :rating, as: :integer, input_html: { min: '0', max: '5', step: '1' } %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
