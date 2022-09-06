@@ -14,7 +14,9 @@
     <div class="profile-bio">
       <h3><i class="fa-solid fa-map-location"></i>   <%= @profile.location %></h3>
       <p><i class="fa-solid fa-user"></i>   <%= @profile.bio %></p>
-      <%= link_to "Chat with #{@profile.user_name}", talk_path %>
+      <% if @profile.user != current_user %>
+              <%= link_to "Chat with #{@profile.user_name}", talk_path %>
+      <% end %>
     </div>
   </div>
 </div>
