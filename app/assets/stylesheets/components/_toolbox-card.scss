@@ -1,14 +1,18 @@
 .toolbox-card {
   padding: 1% 0%;
+  min-width: 15%;
+  border-radius: 5px;
+
 }
 
-/* .toolbox-card:hover {
+.toolbox-card:hover {
   background-color: white;
-} */
+}
 
 .toolboxcard-list {
   border-right: 2px solid $miku;
-  padding: 0% 10% 0% 0%;
+  padding: 0% 10% 0% 9%;
+
 
   ::marker {
     color: red;
@@ -25,5 +29,5 @@
 }
 
 .toolbox-card > h4 {
-padding: 0px 0px 0px 1ch;
+padding: 0px 10px 0px 1ch;
 }

@@ -4,36 +4,75 @@
   </div>
   <div class="profile-banner-text">
     <h1><%= @profile.name %></h1>
-    <h3><%= @profile.user_name %>  <i class="fa-solid fa-award"></i>  <%= @profile.score %> points</h3>
-  </div>
-</div>
+
+    
+<h3><%= @profile.user_name %>  <i class="fa-solid fa-award"></i>  <%= @profile.score %> points</h3>
+
+<%# <div class="profile-lower-half" style= "margin: auto"> %>
+  <%# <div class="profile-bio-and-tools"> %>
+    <%# <div class="profile-bio"> %>
+      <i class="fa-solid fa-map-location"></i>   <%= @profile.location %>
+      <br>
+      <i class="fa-solid fa-user"></i>   <%= @profile.bio %></p>
 
 
-<div class="profile-lower-half" style= "width: 50%; margin: auto">
-  <div class="profile-bio-and-tools">
-    <div class="profile-bio">
-      <h3><i class="fa-solid fa-map-location"></i>   <%= @profile.location %></h3>
-      <p><i class="fa-solid fa-user"></i>   <%= @profile.bio %></p>
+
       <% if @profile.user != current_user %>
               <%= link_to "Chat with #{@profile.user_name}", talk_path %>
       <% end %>
-    </div>
+    <%# </div> %>
+  <%# </div> %>
+<%# </div> %>
+
   </div>
 </div>
 
 
 
 
-<div class="profile-tools "style= "width: 50%; margin: auto">
-  <% if @tools != [] %>
-    <h2><%= @profile.user_name %>'s Tools:</h2>
-    <div class="profile-tool-box">
+<div class="profile-lists">
+  <% if @lists != [] %>
+    <h2>@<%= @profile.user_name %>'s tools:</h2>
+    <div style="display: flex">
       <% @tools.each do |tool| %>
-          <%= link_to tool_path(tool) do%>
-          <div class="profile-tool-card">
-            <span><%= tool.title %></span>
-          </div>
+          <div class= "toolbox-card "style="background-color: none;">
+            <%# <%= link_to list_path(list) do %>
+            <h4><%= tool.title %></h4>
+            <%# <% end %>
+            <div class="toolboxcard-list">
+            <p class="ellipsis5">Aut voluptatum deleniti aut nostrum dicta ut ratione exercitationem et impedit suscipit. Sed repudiandae nisi in repellendus magnam rem molestiae consequatur. Ab ipsam maiores id voluptatem dolor et consequatur sequi et mollitia inventore hic ipsum libero et debitis cupiditate est accusantium magnam.</p>
+            </div>
+        <%= link_to tool_path(tool) do %>
+        <p class="mikulink" style= "margin: 5px 0px 0px 2ch">See tool</p>
         <% end %>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+
+
+<div class="profile-lists">
+  <% if @lists != [] %>
+    <h2>@<%= @profile.user_name %>'s toolboxes:</h2>
+    <div style="display: flex">
+      <% @lists.each do |list| %>
+          <div class= "toolbox-card "style="background-color: none;">
+            <%# <%= link_to list_path(list) do %>
+            <h4><%= list.title %></h4>
+            <%# <% end %>
+            <div class="toolboxcard-list">
+              <li>Tool 1</li>
+              <li>Tool 2</li>
+              <li>Tool 3</li>
+              <li>Tool 4</li>
+              <li>Tool 5</li>
+            </div>
+        <%= link_to list_path(list) do %>
+        <p class="mikulink" style= "margin: 5px 0px 0px 2ch">See toolbox</p>
+        <% end %>
+      </div>
       <% end %>
     </div>
   <% end %>
@@ -42,20 +81,11 @@
 
 
 
-    <div class="profile-lists">
-      <% if @lists != [] %>
-        <h2><%= @profile.user_name %>'s Lists:</h2>
-        <div class="list-box">
-          <% @lists.each do |list| %>
-            <%= link_to list_path(list) do %>
-              <div class="profile-list-card">
-                <span><%= list.title %></span>
-              </div>
-            <% end %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+
+
+
+
+
       <% if policy(@profile).edit? %>
         <%= link_to "Update Profile", edit_profile_path(@profile)%>
       <% end %>

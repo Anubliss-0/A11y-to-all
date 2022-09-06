@@ -1,15 +1,22 @@
 .colored-background {
 //  background-color: $miku;
-  background:radial-gradient(80.68% 83.24% at 0% 100%, $gradient 0%, $miku 100%);
+  background:
+  radial-gradient(64% 77% at 119% 72%, #ffffff 15%, #b7cbff 26%, #7083e100 81%), radial-gradient(80.68% 83.24% at 0% 100%, #fff5bd 13%, #ffe2bd 22%, #7083e1 90%),
+
+
+  radial-gradient(50% 43% at 106% 50%, $gradient 0%, $gradient-middle 22%,  $miku 87%),
+  radial-gradient(80.68% 83.24% at 0% 100%, $gradient 13%, $gradient-middle 22%, $miku 87%);
   background-size: auto;
   background-repeat: no-repeat;
   background-position: center;
  height: 100%;
 }
 
+//   radial-gradient(9.68% 17.24% at 82% 30%, #fff5bd 11%, #ffe2bd 22%, #7083e1 96%)
+
 .colored-background {
   //  background-color: $miku;
-    background: linear-gradient(80.68% 83.24% at 0% 100%, $gradient 0%, $miku 100%);
+  //  background: linear-gradient(80.68% 83.24% at 0% 100%, $gradient 0%, $miku 100%);
   //  background:radial-gradient(80.68% 83.24% at 0% 100%, $gradient 0%, $miku 100%);
     background-size: auto;
     background-repeat: no-repeat;
