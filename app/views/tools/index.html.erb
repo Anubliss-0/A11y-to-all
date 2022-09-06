@@ -1,50 +1,41 @@
-<div style="display: grid ; grid-template-columns: 4fr 7fr; margin: 2% auto 2% auto; width: 90%;">
+<div class="tool-index-container">
 
-  <div>
+
+<div class="page-contain">
+
+  <div class="info-card">
     <% if @query %>
       <h1>🔧Tools matching <br> <p style="margin-left: 2.6ch;"><%= @query %></p></h1>
     <% else %>
       <h1>Tools</h1>
     <% end %>
-      <nav>
-        <ul>
-          <li><%= link_to "new tool", new_tool_path %></li>
-        </ul>
-      </nav>
-    </div>
-  <div>
+      <%= link_to "new tool", new_tool_path %>
+  </div>
 
-
-<div style="margin: 2% auto 2% auto; ">
-  <ul>
-  <% @tools.each do |tool| %>
-  <div class="zero">
-
-    <div class="grid-item item1">
-      <div class="img tcard_boxshadow">
-      <% if tool.photo.key != nil %>
-        <%= cl_image_tag tool.photo.key, height: 300, width: 300 %>
-      <% else %>
-        <%=image_tag("tool-svgrepo-com.svg") %>
-      <% end %>
-      </div>
-    </div>
-
-    <div class="item2">
-      <div class="item21">
-        <div class="grid-item toolname">
-        <h4><%= tool.title.split.map(&:capitalize).join(' ') %></h4>
+  <div class="index-container">
+    <% @tools.each do |tool| %>
+      <div class="index-tool">
+        <% if tool.photo.key != nil %>
+          <%= cl_image_tag tool.photo.key, height: 150, width: 150 %>
+        <% else %>
+          <%=image_tag("tool-svgrepo-com.svg") %>
+        <% end %>
+        <div class="name-desc">
+          <h2><%= tool.title%></h2>
         </div>
-    	  <div class="grid-item">
-          <p class="daterating">date<br>4.5★</p>
-        </div>
-	    </div>
         <div class="grid-item item22">
           <p class="ellipsis3 p_card"><%= tool.description %></p>
         </div>
+        </div>
+        <div class="grid-item">
+          <p class="mikulink"><%= link_to "See tool", tool_path(tool) %></p>
       </div>
-      <div class="grid-item">
-        <p class="mikulink"><%= link_to "See tool", tool_path(tool) %></p>
+      <% end %>
     </div>
-    <% end %>
+      </div>
   </div>
+
+
+  </div>
+
+</div>
