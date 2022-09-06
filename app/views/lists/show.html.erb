@@ -45,7 +45,7 @@
       <%#might need to change line method %>
 
             <div class="grid-item">
-              <p class="daterating"> Added by <%= profile.user_name %> on DD/MM/YY <br><%= tool.rating %>★</p>
+              <p class="daterating"> Added by <%= profile.user_name %> on <%= bookmark.created_at.strftime('%m/%d/%Y') %> <br><%= tool.rating %>★</p>
             </div>
           </div>
             <div class="grid-item item22">
