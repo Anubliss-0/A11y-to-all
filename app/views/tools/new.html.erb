@@ -10,6 +10,7 @@
       <%# Perhaps here there can be an expandable box with more text
       on what makes a good description? %>
       <%= f.input :description %>
+      <%= f.association :categories %>
       <h5>Enter the URL of this tool</h5>
       <%= f.input :url %>
       <%= f.input :photo, as: :file %>
