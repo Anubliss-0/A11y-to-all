@@ -38,7 +38,7 @@ class ProfilesController < ApplicationController
     @lists = List.select { |list| list.user_id == @profile.user_id }
     @tools = Tool.select { |tool| tool.user_id == @profile.user_id }
     @friends = Friendship.select { |friendship| friendship.friend1_id == @profile.id || friendship.friend2_id == @profile.id}
-    @friends_already = Friendship.select { |friendship| friendship.friend1_id == @profile.id || friendship.friend2_id == @profile.id && friendship.friend1_id == current_user.profile.id || friendship.friend2_id == current_user.profile.id}
+    @friends_already = Friendship.select { |friendship| (friendship.friend1_id == @profile.id || friendship.friend2_id == @profile.id) && (friendship.friend1_id == current_user.profile.id || friendship.friend2_id == current_user.profile.id)}
   end
 
   def edit
