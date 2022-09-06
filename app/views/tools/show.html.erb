@@ -47,7 +47,7 @@
         <%= review.content %>
           <div class="starsg" style="text-align: left">
           <% review.rating.to_i.times do %>
-            <span id="ratestars"><%= "٭" %></span>
+            <span id="ratestars"><i class="fa-solid fa-star"></i></span>
           <% end %>
           <br>
           <%= link_to "Edit this review", edit_review_path(review) if policy(review).update? %>
