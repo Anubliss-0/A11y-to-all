@@ -1,0 +1,28 @@
+.check-box-buttons {
+  background-color: red($color: #000000);
+
+  fieldset {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-bottom: 5%;
+
+
+    label {
+      background-color: $miku;
+      padding: 10px;
+      color: white;
+      margin: .3125rem;
+      border-radius: 5px;
+
+    }
+    input:checked + label {
+      background-color: $mikuhover;
+    }
+
+    input {
+      display: none;
+    }
+  }
+}

@@ -8,6 +8,7 @@ class UpdateToolRatingJob < ApplicationJob
     reviews.each do |review|
       rating += review.rating
     end
+    rating /= reviews.count
     tool.rating = rating
     tool.save
   end

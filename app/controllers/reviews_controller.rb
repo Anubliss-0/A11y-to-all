@@ -13,9 +13,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     @review.tool = @tool
-
     authorize @review
-
     if @review.save
       @owner = User.find(@tool.user_id)
       flash[:notice] = "Your review has been created!"

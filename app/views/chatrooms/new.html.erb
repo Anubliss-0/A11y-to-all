@@ -1,10 +1,13 @@
    <div style= "width: 33%; margin: 1% auto auto auto; "class="white_background card_borderradius card_padding card_margin card_boxshadow">
-    <h2 class="card_h2">New Message</h2>
+    <h2 class="card_h2">New Chat</h2>
 
     <%= simple_form_for @chatroom do |f| %>
     <h5>What is this chatrooms's name?</h5>
+      <% user_names = [] %>
       <%= f.input :name %>
-      <%= f.input :recipient_id %>
+ssssssssssssssssssssssssssssssssssssssssss
+      <%= f.input :recipient_id, collection: Chatroom::USER_NAMES%>
+
       <%= f.button :submit %>
     <% end %>
   </div>
