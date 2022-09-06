@@ -57,3 +57,52 @@
   height: 300px;
   background-color: aquamarine;
 }
+
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: $miku;
+  background: linear-gradient(180deg, rgba(255,236,158, 0.7) 0%, rgba(84, 120, 205, 0.7) 100%);  top: 0px;
+  justify-content: center;
+  align-items: center;
+
+  .pcontent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  i {
+    font-weight: 900;
+    font-size: 7rem;
+    margin-right: 5%;
+  }
+
+  .popupbox {
+    display: flex;
+    padding: 5%;
+    justify-content: center;
+  }
+
+  .button1 {
+    width: 40%;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .flex {
+    display: flex;
+  }
+}
+
+.imgg {
+  .button1 {
+    margin-top: 2%;
+  }
+}

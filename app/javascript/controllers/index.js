@@ -10,6 +10,9 @@ application.register("blackout", BlackoutController)
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
+import ExternalController from "./external_controller"
+application.register("external", ExternalController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
