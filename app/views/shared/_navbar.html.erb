@@ -1,7 +1,11 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <span>A11y to all</span>
+      <%= image_tag('logowhite.png') %>
+
+
+      <span style="font-weight: bold;
+">A11y to all</span>
     <% end %>
     <div data-controller="switch-search" class="search-container">
 
@@ -51,20 +55,22 @@
             <% else %>
               <%= image_tag "avatar_blank.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <% end %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <div class="top-half">
-                <%= cl_image_tag current_user.profile.photo.key, class: "large-drop-avatar", alt: "Your profile picture", width: 200, height: 200, crop: :fill %>
-                <span><%= current_user.profile.name %></span>
-              </div>
-              <div class="bottom-half">
+<%# dropdown menu %>
+            <div class="dropdown-menu dropdown-menu-end card_borderradius" aria-labelledby="navbarDropdown">
+              <%# <div class="top-half"> %>
+                <%# <%= cl_image_tag current_user.profile.photo.key, class: "large-drop-avatar", alt: "Your profile picture", width: 200, height: 200, crop: :fill %>
+                <%# <span><%= current_user.profile.name %></span>
+              <%# </div> %>
+              <%# <div class="bottom-half"> %>
                 <%= link_to "Profile", profile_path(current_user.profile), class: "dropdown-item" %>
                 <%= link_to "New Tool", new_tool_path, class: "dropdown-item" %>
                 <%= link_to "New Toolbox", new_list_path, class: "dropdown-item" %>
                 <%= link_to "Inbox", chatrooms_path, class: "dropdown-item" %>
                 <%= link_to "New Chat", new_chatroom_path, class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-              </div>
+              <%# </div> %>
             </div>
+
           </li>
         <% elsif user_signed_in? == false %>
           <li class="nav-item">

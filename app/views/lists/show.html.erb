@@ -1,9 +1,11 @@
   <div style="display: grid ; grid-template-columns: 4fr 7fr; margin: 2% auto 2% auto; width: 90%;">
 
     <div>
-      <h1>🧰<%= @list.title %></h1>
-      <%= link_to "Delete Toolbox", list_path(@list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@list).destroy? %>
-      <%= link_to "Edit Toolbox", edit_list_path(@list), data: {turbo_method: :edit} if policy(@list).update? %>
+      <h1><i class='fa-solid fa-toolbox'></i> <%= @list.title %></h1>
+      <div class="buttonsg">
+        <%= link_to "Delete Toolbox", list_path(@list), class: "button1", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@list).destroy? %>
+        <%= link_to "Edit Toolbox", edit_list_path(@list), class: "button1", data: {turbo_method: :edit} if policy(@list).update? %>
+      </div>
     </div>
 
 
@@ -43,7 +45,7 @@
       <%#might need to change line method %>
 
             <div class="grid-item">
-              <p class="daterating"> Added by <%= profile.user_name %> on DD/MM/YY <br><%= tool.rating %>★</p>
+              <p class="daterating"> Added by <%= profile.user_name %> on <%= bookmark.created_at.strftime('%m/%d/%Y') %> <br><%= tool.rating %>★</p>
             </div>
           </div>
             <div class="grid-item item22">
