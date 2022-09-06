@@ -20,9 +20,15 @@
     </div>
     <div class="textg" style="text-align: left"> <p style="padding-top: 8%"><%= @tool.description %></p> </div>
     <div class="buttonsg">
-      <%= link_to "🧰Save to Toolbox", new_tool_bookmark_path(@tool), class: "button1" %>
-      <a class="button1" href="https://<%= @tool.url %>" target="blank">🔗Open Link</a>
-      <%= link_to "💬Leave a review", new_tool_review_path(@tool), class: "button2"%>
+      <%= link_to new_tool_bookmark_path(@tool), class: "button1" do |link|%>
+        <i class='fa-solid fa-toolbox'></i>Save to Toolbox
+      <% end %>
+      <%= link_to  "https://#{@tool.url}", class: "button1" do |link|%>
+        <i class="fa-solid fa-link"></i> Open Link
+      <% end %>
+      <%= link_to new_tool_review_path(@tool), class: "button2" do |link| %>
+        <i class="fa-solid fa-comment"></i> Leave a Review
+      <% end %>
       <br>
     </div>
 
