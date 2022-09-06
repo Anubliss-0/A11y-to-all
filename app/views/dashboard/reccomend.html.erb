@@ -28,14 +28,14 @@
     </div>
 
     <div class="dash-tools card_borderradius">
-    <h2>Your tools</h2>
+    <h2>Your toolboxes</h2>
       <div class="prof-toolboxes">
         <% current_user.lists.each do |list| %>
           <div class="toolbox">
           <h5><%= link_to list.title, list %></h5>
             <ul>
               <% list.bookmarks[0..2].each do |bookmark| %>
-                <li><%= bookmark.tool.title %></li>
+                <li><i class="fa-solid fa-wrench"></i> <%= bookmark.tool.title %></li>
               <% end %>
               <% if list.bookmarks.length > 2 %>
               <br>
