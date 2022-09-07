@@ -15,7 +15,10 @@
       <div class="starsg" style="text-align: right">
         <% @tool.rating.to_i.times do %>
           <i class="fa-solid fa-star"></i>
-        <% end %>
+          <% end %>
+          <% (5 - @tool.rating.to_i).times do %>
+          <i class="fa-regular fa-star"></i>
+          <% end %>
         </div>
     </div>
     <div class="textg" style="text-align: left"> <p style=><%= @tool.description %></p> </div>
@@ -46,12 +49,12 @@
         <p style="text-align: left">
         <%= review.content %>
           <div class="starsg" style="text-align: left">
-          <% review.rating.to_i.times do %>
+            <% review.rating.to_i.times do %>
             <span id="ratestars"><i class="fa-solid fa-star"></i></span>
             <% end%>
             <% (5 - review.rating.to_i).times do %>
             <span id="ratestars"><i class="fa-regular fa-star"></i></span>
-          <% end %>
+            <% end %>
           <br>
           <%= link_to "Edit this review", edit_review_path(review) if policy(review).update? %>
           <%= link_to "Delete this review", review_path(review), data: { "turbo-method": :delete } if policy(review).destroy? %>
