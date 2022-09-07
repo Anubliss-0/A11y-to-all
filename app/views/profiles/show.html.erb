@@ -18,7 +18,7 @@
 
 
       <% if @profile.user != current_user %>
-              <%= link_to "Chat with #{@profile.user_name}", talk_path %>
+              <%= link_to "Chat with #{@profile.user_name}", talk_path, class:"button2" %>
       <% end %>
     <%# </div> %>
   <%# </div> %>
@@ -34,6 +34,7 @@
   <% if @lists != [] %>
     <h2>@<%= @profile.user_name %>'s tools:</h2>
     <div style="display: flex">
+      <div class="prof-scroll-list">
       <% @tools.each do |tool| %>
           <div class= "toolbox-card "style="background-color: none;">
             <%# <%= link_to list_path(list) do %>
@@ -48,6 +49,7 @@
       </div>
       <% end %>
     </div>
+    </div>
   <% end %>
 </div>
 
@@ -59,23 +61,25 @@ ffff
   <% if @lists != [] %>
     <h2>@<%= @profile.user_name %>'s toolboxes:</h2>
     <div style="display: flex">
-      <% @lists.each do |list| %>
-          <div class= "toolbox-card "style="background-color: none;">
-            <%# <%= link_to list_path(list) do %>
-            <h4><%= list.title %></h4>
-            <%# <% end %>
-            <div class="toolboxcard-list">
-              <li>Tool 1</li>
-              <li>Tool 2</li>
-              <li>Tool 3</li>
-              <li>Tool 4</li>
-              <li>Tool 5</li>
-            </div>
-        <%= link_to list_path(list) do %>
-        <p class="mikulink" style= "margin: 5px 0px 0px 2ch">See toolbox</p>
+      <div class ="prof-scroll-list">
+        <% @lists.each do |list| %>
+            <div class= "toolbox-card "style="background-color: none;">
+              <%# <%= link_to list_path(list) do %>
+              <h4><%= list.title %></h4>
+              <%# <% end %>
+              <div class="toolboxcard-list">
+                <li>Tool 1</li>
+                <li>Tool 2</li>
+                <li>Tool 3</li>
+                <li>Tool 4</li>
+                <li>Tool 5</li>
+              </div>
+          <%= link_to list_path(list) do %>
+          <p class="mikulink" style= "margin: 5px 0px 0px 2ch">See toolbox</p>
+          <% end %>
+        </div>
         <% end %>
       </div>
-      <% end %>
     </div>
   <% end %>
 </div>
