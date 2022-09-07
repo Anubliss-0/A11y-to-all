@@ -100,13 +100,17 @@
 }
 
 .index-profile:hover {
-  background-color: rgba(223, 223, 223, 0.808);
+  background-color: white;
 }
 
 .index-profile {
+
+    grid-template-columns: 1fr 8fr;
+    padding: 5px 9px 5px 4px;
+    width: 100%;
+    border-bottom: 3px solid $miku;
+
   display: flex;
-  margin: 1.25rem 0rem;
-  padding: 20px;
 
   img {
     border-radius: 13px;
