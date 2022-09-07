@@ -11,7 +11,10 @@
     color: $miku;
     border-bottom: 3px solid $miku;
   }
-
+  h1 {
+    color: $mikuhover;
+    border-bottom: 3px solid $mikuhover;
+  }
   p, h1 {
     color: $mikuhover;
   }
