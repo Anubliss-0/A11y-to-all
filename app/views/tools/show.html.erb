@@ -25,13 +25,13 @@
     <div class="buttonsg">
 
       <%= link_to new_tool_bookmark_path(@tool), class: "button1" do |link|%>
-        <i class='fa-solid fa-toolbox'></i>Save to Toolbox
+        <i style ="padding-right: 8px" class='fa-solid fa-toolbox'></i> Save to Toolbox
       <% end %>
       <%= link_to  "https://#{@tool.url}", class: "button1" do |link|%>
-        <i class="fa-solid fa-link"></i> Open Link
+        <i style ="padding-right: 8px" class="fa-solid fa-link"></i> Open Link
       <% end %>
       <%= link_to new_tool_review_path(@tool), class: "button2" do |link| %>
-        <i class="fa-solid fa-comment"></i> Leave a Review
+        <i style ="padding-right: 8px" class="fa-solid fa-comment"></i> Leave a Review
       <% end %>
 
       <br>
