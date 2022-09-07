@@ -12,32 +12,32 @@
   <%# <div class="profile-bio-and-tools"> %>
     <%# <div class="profile-bio"> %>
 
-    <%= link_to profile_friendships_path(@profile) do |link| %>
-      <% if @friends.count == 1 %>
-        <h3><%= @friends.count %> friend</h3>
-      <% else %>
-        <h3><%= @friends.count %> friends</h3>
+      <%= link_to profile_friendships_path(@profile) do |link| %>
+        <% if @friends.count == 1 %>
+          <p class="friends-link"><%= @friends.count %> friend</p>
+        <% else %>
+          <p class="friends-link"><%= @friends.count %> friends</p>
+        <% end %>
       <% end %>
-    <% end %>
-
 
       <br>
       <i class="fa-solid fa-map-location"></i>   <%= @profile.location %>
       <br>
       <i class="fa-solid fa-user"></i>   <%= @profile.bio %></p>
-      <% if @friends_already == [] %>
-        <% if @profile.user != current_user %>
-                <%= link_to "Add Friend", add_friend_path, class:"button2" %>
+      <div class ="profile-banner-buttons">
+        <% if @friends_already == [] %>
+          <% if @profile.user != current_user %>
+                  <%= link_to "Add Friend", add_friend_path, class:"button2" %>
+          <% end %>
         <% end %>
-      <% end %>
 
 
-      <% if @profile.user != current_user && @chat_already == [] %>
-        <%= link_to "Chat with #{@profile.user_name}", talk_path %>
-      <% elsif @profile.user != current_user && @chat_already != [] %>
-        <%= link_to "Chat with #{@profile.user_name}", chatroom_path(@chat_already.first.id) %>
-
-      <% end %>
+        <% if @profile.user != current_user && @chat_already == [] %>
+          <%= link_to "Chat with #{@profile.user_name}", talk_path, class:"button2" %>
+        <% elsif @profile.user != current_user && @chat_already != [] %>
+          <%= link_to "Chat with #{@profile.user_name}", chatroom_path(@chat_already.first.id), class:"button2" %>
+        <% end %>
+      </div>
     <%# </div> %>
   <%# </div> %>
 <%# </div> %>
@@ -72,7 +72,6 @@
 </div>
 
 <div class="profile-banner">
-ffff
 </div>
 
 <div class="profile-lists">

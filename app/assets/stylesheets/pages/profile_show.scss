@@ -16,6 +16,16 @@
   background-color: $background-green;
   color: white;
   align-items: center;
+
+  .friends-link {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  .friends-link:hover {
+    cursor: pointer;
+    text-decoration: none;
+  }
 //  padding: 71px 200px;
 
 }
@@ -73,4 +83,9 @@
 .prof-scroll-list {
   overflow-x: scroll;
   display: flex,
+}
+
+.profile-banner-buttons {
+  display: flex;
+  margin-bottom: 10px;
 }
