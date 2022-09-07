@@ -4,19 +4,23 @@
 <div class="page-contain">
 
   <div class="info-card">
-      <%= link_to "new tool", new_tool_path %>
     <div class="details-card" data-preview-target="preview">
+      <p id="intro">Select a tool to learn more</p>
     </div>
   </div>
 
   <div class="index-container">
-    <% if @query %>
-      <h1 style="font-size: 30px"><i class="fa-solid fa-wrench"></i> Tools matching <%= @query %></h1>
-    <% else %>
-      <h1><i class="fa-solid fa-wrench"></i> Tools</h1>
-    <% end %>
+    <div class="index-header">
+      <% if @query %>
+        <h1 style="font-size: 30px"><i class="fa-solid fa-wrench"></i> Tools matching <%= @query %></h1>
+        <%= link_to "new tool", new_tool_path %>
+      <% else %>
+        <h1><i class="fa-solid fa-wrench"></i> Tools</h1>
+        <%= link_to "new tool", new_tool_path, class: "button1" %>
+      <% end %>
+    </div>
     <% @tools.each do |tool| %>
-      <div class="zero index-tool" data-action="click->preview#preview">
+      <div class="index-tool" data-action="click->preview#preview">
         <div class="img-contain">
           <% if tool.photo.key != nil %>
             <%= cl_image_tag tool.photo.key, height: 120, width: 120, id: "image" %>
