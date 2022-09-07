@@ -30,7 +30,7 @@
       <div class="prof-toolboxes">
         <% current_user.lists.each do |list| %>
           <div class="toolbox">
-          <h5><%= link_to list.title, list %></h5>
+          <h5 class="mikulink"><%= link_to list.title, list %></h5>
             <ul>
               <% list.bookmarks[0..2].each do |bookmark| %>
                 <li><i class="fa-solid fa-wrench"></i> <%= bookmark.tool.title %></li>
@@ -57,7 +57,7 @@
     <div class="item2">
       <div class="item21">
         <div class="grid-item toolname">
-          <h4> <%= tool.title %> </h4>
+          <h5 class="mikulink"> <%= tool.title %> </h5>
         </div>
     	  <div class="grid-item">
         <p class="daterating"><%= tool.rating %>★</p>
