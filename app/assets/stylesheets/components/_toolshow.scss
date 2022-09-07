@@ -11,6 +11,10 @@
     color: $miku;
     border-bottom: 3px solid $miku;
   }
+
+  p, h1 {
+    color: $mikuhover;
+  }
 }
 
 .tool-grid > div {
