@@ -22,5 +22,8 @@ application.register("new-profile", NewProfileController)
 import PreviewController from "./preview_controller"
 application.register("preview", PreviewController)
 
+import ProfpreviewController from "./profpreview_controller"
+application.register("profpreview", ProfpreviewController)
+
 import SwitchSearchController from "./switch_search_controller"
 application.register("switch-search", SwitchSearchController)
