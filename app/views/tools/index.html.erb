@@ -1,37 +1,43 @@
-<div class="tool-index-container">
+<div class="tool-index-container" data-controller="preview">
 
 
 <div class="page-contain">
 
   <div class="info-card">
-    <% if @query %>
-      <h1><i class="fa-solid fa-wrench"></i> Tools matching <br> <p style="margin-left: 2.6ch;"><%= @query %></p></h1>
-    <% else %>
-      <h1>Tools</h1>
-    <% end %>
       <%= link_to "new tool", new_tool_path %>
-    <div class="details-card">
-      Hello
+    <div class="details-card" data-preview-target="preview">
     </div>
   </div>
 
   <div class="index-container">
+    <% if @query %>
+      <h1><i class="fa-solid fa-wrench"></i> Tools matching <%= @query %></h1>
+    <% else %>
+      <h1><i class="fa-solid fa-wrench"></i> Tools</h1>
+    <% end %>
     <% @tools.each do |tool| %>
-      <div class="index-tool">
+      <div class="index-tool" data-action="click->preview#preview">
         <div class="img-contain">
           <% if tool.photo.key != nil %>
-            <%= cl_image_tag tool.photo.key, height: 120, width: 120 %>
+            <%= cl_image_tag tool.photo.key, height: 120, width: 120, id: "image" %>
           <% else %>
             <%=image_tag("tool-svgrepo-com.svg") %>
           <% end %>
         </div>
+
         <div class="name-desc">
-          <h2><%= link_to tool.title, tool_path(tool) %></h2>
-          <p class="ellipsis3 p_card"><%= tool.description %></p>
+          <h2 id="name"><%= link_to tool.title, tool_path(tool), id: "tool-path" %></h2>
+          <p class="ellipsis3 p_card" id="description"><%= tool.description %></p>
         </div>
         <div class="date-rate">
           <span><%= tool.rating %>★</span>
           <%= tool.created_at.strftime('%m/%Y') %>
+        </div>
+        <div class="secret-info">
+          <p id="username"><%= tool.user.profile.user_name %></p>
+          <p id="rating"><%= tool.rating.to_i %></p>
+          <%= link_to "", new_tool_bookmark_path(tool), id: "toolbox-path" %>
+          <%= link_to "", profile_path(tool.user.profile), id: "user-path" %>
         </div>
       </div>
       <% end %>
