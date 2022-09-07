@@ -27,7 +27,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  img {
+    border-radius: 3px;
+  }
   .button1 {
     width: 150px;
     height: 50px;
