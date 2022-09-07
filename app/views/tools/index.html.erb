@@ -11,12 +11,12 @@
 
   <div class="index-container">
     <% if @query %>
-      <h1><i class="fa-solid fa-wrench"></i> Tools matching <%= @query %></h1>
+      <h1 style="font-size: 30px"><i class="fa-solid fa-wrench"></i> Tools matching <%= @query %></h1>
     <% else %>
       <h1><i class="fa-solid fa-wrench"></i> Tools</h1>
     <% end %>
     <% @tools.each do |tool| %>
-      <div class="index-tool" data-action="click->preview#preview">
+      <div class="zero index-tool" data-action="click->preview#preview">
         <div class="img-contain">
           <% if tool.photo.key != nil %>
             <%= cl_image_tag tool.photo.key, height: 120, width: 120, id: "image" %>
