@@ -27,7 +27,7 @@
           <% if current_user.id == chatroom.sender_id %>
             <div class = "avatar-inbox-container">
               <div>
-                <%= cl_image_tag Profile.find(chatroom.recipient_id).photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"avatar-inbox-new" %>
+                <%= cl_image_tag Profile.find(chatroom.recipient_id).photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"avatar-inbox" %>
                 <i class="fa-solid fa-circle new-mail"></i>
               </div>
               <p>New Message!</p>
@@ -35,7 +35,7 @@
           <% else %>
             <div class = "avatar-inbox-container">
               <div>
-                <%= cl_image_tag Profile.find(chatroom.sender_id).photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"avatar-inbox-new" %>
+                <%= cl_image_tag Profile.find(chatroom.sender_id).photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"avatar-inbox" %>
                 <i class="fa-solid fa-circle new-mail"></i>
               </div>
               <p>New Message!</p>
