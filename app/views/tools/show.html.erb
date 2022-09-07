@@ -1,10 +1,11 @@
-<div style="width: 100% ; padding-top: 0%; padding-bottom: 5%; padding-right: 3%; background-color: white;" data-controller="external">
+<div style="width: 100% ; padding-top: 0%; padding-bottom: 5%; padding-right: 3%;" data-controller="external">
   <div class="tool-grid">
     <div class="imgg">
+
         <% if @tool.photo.key? %>
           <%= cl_image_tag @tool.photo.key, height: 300, width: 300, crop: :fill %>
         <% end %>
-        <%= link_to "Back to results", tools_path, class: "button1" %>
+        <%= link_to "Back to results", tools_path, class: "mikulink" %>
         <%= link_to "Delete this tool", @tool, method: :delete, class: "button1" if policy(@tool).destroy? %>
         <% if policy(@tool).edit? %>
           <%= link_to "Edit This Tool", edit_tool_path(@tool), class: "button2" %>
@@ -17,7 +18,10 @@
       <div class="starsg" style="text-align: right">
         <% @tool.rating.to_i.times do %>
           <i class="fa-solid fa-star"></i>
-        <% end %>
+          <% end %>
+          <% (5 - @tool.rating.to_i).times do %>
+          <i class="fa-regular fa-star"></i>
+          <% end %>
         </div>
     </div>
     <div class="textg" style="text-align: left"> <p style=><%= @tool.description %></p> </div>
@@ -36,10 +40,10 @@
       <br>
     </div>
 
-    <h2>Reviews</h2>
+    <h2 style= "margin-bottom: 0px">Reviews</h2>
     <div>&nbsp</div>
 
-    <div class="review-grid">
+    <div class="review-grid" style="background-color: white">
       <% @reviews.each do |review| %>
       <div class="review-grid-item">
         <p class="colorful-text" style="text-align: left">
@@ -48,9 +52,12 @@
         <p style="text-align: left">
         <%= review.content %>
           <div class="starsg" style="text-align: left">
-          <% review.rating.to_i.times do %>
+            <% review.rating.to_i.times do %>
             <span id="ratestars"><i class="fa-solid fa-star"></i></span>
-          <% end %>
+            <% end%>
+            <% (5 - review.rating.to_i).times do %>
+            <span id="ratestars"><i class="fa-regular fa-star"></i></span>
+            <% end %>
           <br>
           <%= link_to "Edit this review", edit_review_path(review) if policy(review).update? %>
           <%= link_to "Delete this review", review_path(review), data: { "turbo-method": :delete } if policy(review).destroy? %>

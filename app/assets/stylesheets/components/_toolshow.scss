@@ -4,12 +4,19 @@
 .tool-grid {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr 1fr 80px;
+ // grid-template-rows: 1fr 1fr 80px;
   padding-top: 2rem;
 
   h2 {
     color: $miku;
     border-bottom: 3px solid $miku;
+  }
+  h1 {
+    color: $mikuhover;
+    border-bottom: 3px solid $mikuhover;
+  }
+  p, h1 {
+    color: $mikuhover;
   }
 }
 
@@ -27,7 +34,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  img {
+    border-radius: 3px;
+  }
   .button1 {
     width: 150px;
     height: 50px;
@@ -50,7 +59,7 @@ grid-template-columns: 1fr 1fr;
 
   .starsg {
     color: $miku;
-    font-size: 3rem;
+    font-size: 2rem;
   }
 }
 
@@ -67,7 +76,7 @@ grid-template-columns: 1fr 1fr;
 
 #ratestars{
   color: $miku;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 .textg {
   width: 70%;
