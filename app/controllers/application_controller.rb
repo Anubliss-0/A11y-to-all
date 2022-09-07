@@ -14,7 +14,11 @@ class ApplicationController < ActionController::Base
   # end
 
   def after_sign_in_path_for(resource)
-    new_profile_path
+    if current_user.profile
+      dashboard_path
+    else
+      new_profile_path
+    end
   end
 
   private
