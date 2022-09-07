@@ -1,6 +1,16 @@
+.points {
+font-size: 20px;
+background-color: $gradient;
+color: $mikuhover;
+width: 50%;
+text-align: center;
+border-radius: 5px;
+}
+
 .profile-avatar {
   border-radius: 50%;
   border: 5px solid white;
   height: 250px;
   width: 250px;
+  margin: 0% 1% 0% 0%;
 }
