@@ -12,12 +12,15 @@ Rails.application.routes.draw do
   resources :bookmarks, only: :destroy
   resources :reviews, only: [:destroy, :update, :edit]
   resources :lists
-  resources :profiles
+  resources :profiles do
+    resources :friendships, only: [:index]
+  end
   resources :chatrooms, only: [:show, :new, :create, :index] do
     resources :messages, only: :create
   end
 
 
+  get "profiles/:id/add_friend", to: "friendships#add_friend", as: :add_friend
   get "profiles/:id/chat", to: "chatrooms#chat_with_user", as: :talk
   get "test", to: "pages#test"
   get "dashboard", to: "dashboard#reccomend"
