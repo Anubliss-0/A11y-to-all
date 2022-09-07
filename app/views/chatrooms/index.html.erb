@@ -1,11 +1,50 @@
-<h1>Chatrooms</h1>
-<% @chatrooms.each do |chatroom| %>
-  <%= link_to chatroom.name, chatroom_path(chatroom) %>
-  <% if chatroom.sender_id == current_user.id %>
-    <% @user = User.find(chatroom.recipient_id) %>
-    <p>Chat with <%= @user.profile.user_name %></p>
-  <% elsif chatroom.recipient_id == current_user.id%>
-    <% @user = User.find(chatroom.sender_id) %>
-    <p>Chat with <%= @user.profile.user_name %></p>
-  <% end %>
-<% end %>
+<div style= "width: 33%; margin: 1% auto auto auto; "class="white_background card_borderradius card_padding card_margin card_boxshadow inbox-container">
+  <h2 class="card_h2">Chatrooms</h2>
+  <div class="chats-container">
+    <% @chatrooms.each do |chatroom| %>
+      <% @messages = Message.select { |message| message.chatroom_id == chatroom.id && message.recipient_id == current_user.id }%>
+      <div class = "inbox-card">
+        <% @unread = []%>
+        <% @messages.each do |message| %>
+          <% if message.read == false %>
+            <% @unread << message %>
+          <% end %>
+        <% end %>
+        <% if @unread == [] %>
+          <div class="avatar-inbox-container">
+            <% if current_user.id == chatroom.sender_id %>
+              <%= cl_image_tag Profile.find(chatroom.recipient_id).photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"avatar-inbox" %>
+              <div>
+              <p>No Unread Messages</p>
+              </div>
+            <% else %>
+              <%= cl_image_tag Profile.find(chatroom.sender_id).photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"avatar-inbox" %>
+            <% end %>
+          </div>
+          <%= link_to chatroom.name, chatroom_path(chatroom) %>
+          <i class="fa-solid fa-envelope"></i>
+        <% else %>
+          <% if current_user.id == chatroom.sender_id %>
+            <div class = "avatar-inbox-container">
+              <div>
+                <%= cl_image_tag Profile.find(chatroom.recipient_id).photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"avatar-inbox-new" %>
+                <i class="fa-solid fa-circle new-mail"></i>
+              </div>
+              <p>New Message!</p>
+            </div>
+          <% else %>
+            <div class = "avatar-inbox-container">
+              <div>
+                <%= cl_image_tag Profile.find(chatroom.sender_id).photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"avatar-inbox-new" %>
+                <i class="fa-solid fa-circle new-mail"></i>
+              </div>
+              <p>New Message!</p>
+            </div>
+          <% end %>
+          <%= link_to chatroom.name, chatroom_path(chatroom) %>
+          <i class="fa-solid fa-envelope"></i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

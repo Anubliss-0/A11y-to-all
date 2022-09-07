@@ -6,6 +6,8 @@ module ApplicationHelper
       "colored-background"
     elsif params[:action] == "edit"
       "colored-background"
+    elsif params[:controller] == "chatrooms" && params[:action] == "index"
+      "colored-background"
     else
       ""
     end
