@@ -13,12 +13,12 @@
 }
 .profile-banner {
   display: flex;
-  justify-content: center;
  // height: 20vw;
 //  background:radial-gradient(49.68% 93.24% at 102% 100%, #fff5bd 11%, rgba(255, 225, 208, 0) 96%);
   background-color: $miku;
   color: white;
   align-items: center;
+  padding-left: 15%;
 
   .friends-link {
     color: white;
@@ -33,9 +33,9 @@
 
 }
 
-//.profile-banner-text {
-//  padding-left: 30px;
-//}
+.profile-banner-text {
+ padding-left: 30px;
+}
 
 .profile-bio {
   p {

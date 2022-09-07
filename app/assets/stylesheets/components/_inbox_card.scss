@@ -1,0 +1,35 @@
+.inbox-container {
+  height: 85%;
+  overflow-y: scroll;
+}
+
+.chats-container {
+
+  height: 100%;
+}
+
+.inbox-card {
+  margin: 10px 0;
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 13px;
+  padding-bottom: 5px;
+  box-shadow: 2px 2px 10px $miku;
+  p {
+    margin-bottom: 0;
+  }
+  .new-mail {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    color: $miku;
+  }
+}
+
+.avatar-inbox-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
+}

@@ -1,12 +1,47 @@
-  <h1>Profile results matching: <%= @query %></h1>
-  <% @profiles.each do |profile| %>
-        <%= cl_image_tag profile.photo.key, height: 300, width: 300, crop: :fill, gravity: :face %>
-        <%= link_to profile.name, profile_path(profile) %>
-        <%= profile.user_name %>
-        <%= profile.bio %>
-        <%= profile.location %>
-        <%= profile.score %>
+
+<div class="profile-index-container" data-controller="profpreview">
+
+
+  <div class="page-contain">
+
+    <div class="info-card">
+      <div class="prof-details-card" data-profpreview-target="preview">
       </div>
-      <br>
     </div>
-  <% end %>
+
+    <div class="index-container">
+      <% if @query %>
+        <h1><i class="fa-solid fa-user"></i> Profiles matching <%= @query %></h1>
+      <% else %>
+        <h1><i class="fa-solid fa-user"></i> Profiles</h1>
+      <% end %>
+      <% @profiles.each do |profile| %>
+        <div class="index-profile" data-action="click->profpreview#preview">
+
+            <% if profile.photo.key != nil %>
+              <%= cl_image_tag profile.photo.key, height: 300, width: 300, id: "image", crop: :fill, gravity: :face %>
+            <% else %>
+              <%=image_tag("user-svgrepo-com.svg") %>
+            <% end %>
+
+
+          <div class="name-desc">
+            <h2 id="name"><%= link_to profile.user_name, profile_path(profile), id: "profile-path" %></h2>
+            <p class="ellipsis3 p_card" id="bio"><%= profile.bio %></p>
+          </div>
+          <div class="location">
+            <span><%= profile.location %></span>
+          </div>
+
+          <div class="secret-info">
+            <span id="score"><%= profile.score %></span>
+            <%= link_to "", profile_path(profile), id: "user-path" %>
+          </div>
+        </div>
+        <% end %>
+    </div>
+
+  </div>
+
+</div>
+
