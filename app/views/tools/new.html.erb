@@ -4,7 +4,8 @@
     <h2 class="card_h2">New tool</h2>
 
     <%= simple_form_for @tool do |f| %>
-    <h5>What is this tool's name?</h5>
+    <div class="newtool">
+      <h5>What is this tool's name?</h5>
       <%= f.input :title %>
       <h5>Write something about this tool</h5>
       <%# Perhaps here there can be an expandable box with more text
@@ -15,5 +16,6 @@
       <%= f.input :url %>
       <%= f.input :photo, as: :file %>
       <%= f.button :submit %>
-    <% end %>
+      <% end %>
+    </div>
   </div>
