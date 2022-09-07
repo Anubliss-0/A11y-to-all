@@ -1,6 +1,7 @@
 <div id='profile-page'  class = 'profile-banner'>
-
-    <%= cl_image_tag @profile.photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"profile-avatar" %>
+    <% if @profile.photo.key? %>
+      <%= cl_image_tag @profile.photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"profile-avatar" %>
+    <% end %>
 
   <div>
     <div class="profile-banner-text">
