@@ -2,7 +2,7 @@
   <div class="tool-grid">
     <div class="imgg">
         <%= cl_image_tag @tool.photo.key, height: 300, width: 300, crop: :fill %>
-        <%= link_to "Back to results", tools_path, class: "button1" %>
+        <%= link_to "Back to results", tools_path, class: "mikulink" %>
         <%= link_to "Delete this tool", @tool, method: :delete, class: "button1" if policy(@tool).destroy? %>
         <% if policy(@tool).edit? %>
           <%= link_to "Edit This Tool", edit_tool_path(@tool), class: "button2" %>
