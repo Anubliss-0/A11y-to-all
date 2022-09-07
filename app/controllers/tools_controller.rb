@@ -37,7 +37,7 @@ class ToolsController < ApplicationController
         toolcat.save
       end
       UpdateScoreJob.perform_now(current_user)
-      redirect_to tool_path(@tool)
+      redirect_to tool_path(@tool), notice: "Your Community Score has gone up!"
     else
       render :new
     end
