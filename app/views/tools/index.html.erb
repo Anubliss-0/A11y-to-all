@@ -38,6 +38,9 @@
           <p id="rating"><%= tool.rating.to_i %></p>
           <%= link_to "", new_tool_bookmark_path(tool), id: "toolbox-path" %>
           <%= link_to "", profile_path(tool.user.profile), id: "user-path" %>
+          <% tool.categories.each do |category|%>
+            <span id="category"><%= category.name %></span>
+          <% end %>
         </div>
       </div>
       <% end %>

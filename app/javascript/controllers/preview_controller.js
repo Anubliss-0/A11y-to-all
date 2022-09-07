@@ -17,7 +17,12 @@ export default class extends Controller {
     let toolPath = (event.currentTarget.querySelector("#tool-path")).href
     let toolBoxLink = (event.currentTarget.querySelector("#toolbox-path")).href
     let userLink = (event.currentTarget.querySelector("#user-path")).href
-    console.log(rating)
+    let categories = (event.currentTarget.querySelectorAll("#category"))
+    console.log(categories)
+    let tmp = "";
+    categories.forEach(category => {
+      tmp += `<span>${category.innerText}</span>`
+    })
     this.previewTarget.innerHTML +=
     `
       <h2>${name}</h2>
@@ -28,6 +33,9 @@ export default class extends Controller {
       <div class="preview-buttons">
         <a class="button1" href="${toolPath}">View tool</a>
         <a class="button2" href="${toolBoxLink}">Add to toolkit</a>
+      </div>
+      <div class= "categories">
+        ${tmp}
       </div>
       <div class="submit-details">
         <span>submitted by <a href="${userLink}">${username}</a></span>
