@@ -1,12 +1,15 @@
-<div id='profile-page' style="display: grid; grid-template-columns: 2fr 3fr"  class = 'profile-banner'>
-  <div>
+<div id='profile-page'  class = 'profile-banner'>
+
     <%= cl_image_tag @profile.photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"profile-avatar" %>
-  </div>
-  <div class="profile-banner-text">
+
+  <div>
+    <div class="profile-banner-text">
     <h1><%= @profile.name %></h1>
+    <h3>@<%= @profile.user_name %>  </h3>
+    </div>
+    <div>
+    <p class= "points"><i class="fa-solid fa-award"></i>  <%= @profile.score %>  points</p>
 
-
-<h3><%= @profile.user_name %>  <i class="fa-solid fa-award"></i>  <%= @profile.score %> points</h3>
 
 <%# <div class="profile-lower-half" style= "margin: auto"> %>
   <%# <div class="profile-bio-and-tools"> %>
@@ -38,17 +41,16 @@
           <%= link_to "Chat with #{@profile.user_name}", chatroom_path(@chat_already.first.id), class:"button2" %>
         <% end %>
       </div>
-    <%# </div> %>
-  <%# </div> %>
-<%# </div> %>
 
+    <%# </div> %>
+
+    </div>
   </div>
 </div>
 
 
 
-
-<div class="profile-lists">
+<div class="profile-lists grey-bg">
   <% if @lists != [] %>
     <h2>@<%= @profile.user_name %>'s tools:</h2>
     <div style="display: flex">

@@ -1,19 +1,22 @@
+.grey-bg {
+  background-color: #f4f4f4f4;
+}
+
 #profile-page {
-  display: flex;
-  flex-direction: column;
+ // display: flex;
+ // flex-direction: column;
  // position: sticky; top: 0;
 }
 .profile-avatar {
-  height: 35%;
-  width: 35%;
-  margin-left: 12vw;
+  height: 66%;
+  width: 15%;
 }
 .profile-banner {
   display: flex;
-  //height: 20vw;
-  background-position:center;
-    background:radial-gradient(49.68% 93.24% at 102% 100%, #fff5bd 11%, rgba(255, 225, 208, 0) 96%);
-  background-color: $background-green;
+  justify-content: center;
+ // height: 20vw;
+//  background:radial-gradient(49.68% 93.24% at 102% 100%, #fff5bd 11%, rgba(255, 225, 208, 0) 96%);
+  background-color: $miku;
   color: white;
   align-items: center;
 
@@ -35,8 +38,6 @@
 //}
 
 .profile-bio {
-
-
   p {
     font-size: 20px;
   }

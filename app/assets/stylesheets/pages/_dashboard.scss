@@ -1,5 +1,6 @@
 .dash-container {
   width: 100%;
+  height: 90%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -13,49 +14,46 @@
   "prof      social    reccomend"
   "toolboxes toolboxes reccomend"
   ;
-  grid-template-columns: 0.6fr 1.2fr 1.2fr;
+  grid-template-columns: 1fr 2fr 2fr;
   grid-template-rows: 1fr 1fr;
-  gap: 30px 30px;
+  gap: 15px 15px;
   height: 80%;
   width: 90%;
+  h2{
+   // border-bottom: 3px solid $miku;
+    color: $miku;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+  }
+  h4{
+    font-size: large;
+  }
 }
 
 .dash-social {
   grid-area: social;
   background-color: white;
  // border-radius: 29px;
-  padding: 30px;
+  padding: 5%;
  // box-shadow: 10px 57px 64px rgba(12, 53, 43, 0.5);
   display: flex;
   flex-direction: column;
   height: 100%;
   overflow-y: scroll;
-
-  h2 {
-    border-bottom: 3px solid $miku;
-    color: $miku;
-    width: 100%;
-    text-align: center;
-  }
 }
 
 .dash-profile {
   grid-area: prof;
   background-color: white;
  // border-radius: 29px;
-  padding: 20px;
+  padding: 5%;
 //  box-shadow: 10px 57px 64px rgba(12, 53, 43, 0.5);
   display: flex;
   align-items: center;
   flex-direction: column;
   height: 100%;
   text-align: center;
-
-  h2 {
-    border-bottom: 3px solid $miku;
-    color: $miku;
-    width: 100%;
-  }
 
   .prof-left {
     display: flex;
@@ -96,31 +94,38 @@
 .dash-tools {
   grid-area: toolboxes;
   background-color: white;
-  padding: 35px;
+
+//  border-radius: 29px;
+//  padding: 35px;
+//  box-shadow: 0px 57px 64px rgba(12, 53, 43, 0.5);
+
  }
 
 .dash-reccomend {
   grid-area: reccomend;
   background-color: white;
-  padding: 35px;
+
+ // border-radius: 29px;
+padding: 5%;
+ // box-shadow: 0px 57px 64px rgba(12, 53, 43, 0.5);
+
  }
 
  .dash-tools {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 3% 0% 0% 4%;
 
-  h2 {
-    color: $miku;
-    border-bottom: 3px solid $miku;
-    width: 80%;
-    text-align: center;
-  }
+
 
   .prof-toolboxes {
     display: flex;
     width: 100%;
     overflow-x: scroll;
+
+    width: 100%;
+
   }
 
   * {
@@ -148,7 +153,8 @@
     border-left: 2px solid $miku;
     border-right: 2px solid $miku;
     min-width: 200px;
-    padding: 0px 10px;
+    //padding: -1px 10px;
+    padding-left: 2%;
     margin-bottom: 20px;
 
     ul {
@@ -159,11 +165,17 @@
     li {
       list-style-type: none;
       padding: 0px;
+      text-overflow: ellipsis;
+
     }
 
 
     h5 {
       text-align: left;
+      a {
+        color: $mikuhover;
+        text-decoration: none;
+      }
     }
   }
 
@@ -193,13 +205,9 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 10%;
+   // margin-top: 10%;
   }
 
-  h2 {
-    color: $miku;
-    border-bottom: 3px solid $miku;
-  }
 
   .saverate {
     text-align: right;
