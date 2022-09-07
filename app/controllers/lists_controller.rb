@@ -16,7 +16,7 @@ class ListsController < ApplicationController
         @bookmark.save!
       end
       UpdateScoreJob.perform_now(current_user)
-      flash[:notice] = "#{@list.title} has been saved"
+      flash[:notice] = "#{@list.title} has been saved. You're community score has gone up!"
       redirect_to list_path(@list)
     else
       render :new
