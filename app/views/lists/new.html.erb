@@ -4,8 +4,7 @@
     <%= simple_form_for @list do |f| %>
       <%= f.input :title %>
       <h2>Add a tool to your list:</h2>
-      <%= f.input :tools %>
+      <%= f.association :tools %>
       <%= f.button :submit, "Go", class: "btn btn-primary" %>
     <% end %>
 </div>
-

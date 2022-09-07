@@ -90,23 +90,19 @@
     border-radius: 20px;
     padding: 0% 8%;
   }
- }
+}
 
 
 .dash-tools {
   grid-area: toolboxes;
   background-color: white;
- // border-radius: 29px;
   padding: 35px;
-//  box-shadow: 0px 57px 64px rgba(12, 53, 43, 0.5);
  }
 
 .dash-reccomend {
   grid-area: reccomend;
   background-color: white;
- // border-radius: 29px;
   padding: 35px;
- // box-shadow: 0px 57px 64px rgba(12, 53, 43, 0.5);
  }
 
  .dash-tools {
@@ -123,22 +119,37 @@
 
   .prof-toolboxes {
     display: flex;
+    width: 100%;
     overflow-x: scroll;
-    width: 48vw;
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
-    padding-top: 10px;
   }
 
-  .prof-toolboxes::-webkit-scrollbar {
-      display: none;  /* Salink_to fari and Chrome */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: $miku #ffffff;
   }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: $miku;
+    border-radius: 10px;
+    border: 3px none #ffffff;
+  }
+
 
   .toolbox {
     border-left: 2px solid $miku;
     border-right: 2px solid $miku;
     min-width: 200px;
     padding: 0px 10px;
+    margin-bottom: 20px;
 
     ul {
       padding: 0;
@@ -150,9 +161,6 @@
       padding: 0px;
     }
 
-    // li::before {
-    //   content: "<i class='fa-solid fa-wrench'></i>";
-    // }
 
     h5 {
       text-align: left;

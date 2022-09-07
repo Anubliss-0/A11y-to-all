@@ -1,0 +1,12 @@
+<h1><%= @profile.name %>'s friends'</h1>
+<% @friendships.each do |friend| %>
+  <div class = "friend-card">
+    <% if @profile.id == friend.friend1_id %>
+      <%= cl_image_tag Profile.find(friend.friend2_id).photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"avatar" %>
+      <%= Profile.find(friend.friend2_id).name  %>
+    <% elsif @profile.id == friend.friend2_id%>
+      <%= cl_image_tag Profile.find(friend.friend1_id).photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"avatar" %>
+      <%= Profile.find(friend.friend1_id).name  %>
+    <% end %>
+  </div>
+<% end %>
