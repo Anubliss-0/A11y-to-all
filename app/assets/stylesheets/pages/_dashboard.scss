@@ -121,13 +121,24 @@
     text-align: center;
   }
 
-  .prof-toolboxes {
-    display: flex;
-    overflow-x: scroll;
-    width: 48vw;
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
-    padding-top: 10px;
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: $miku #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: $miku;
+    border-radius: 10px;
+    border: 3px none #ffffff;
   }
 
   .prof-toolboxes::-webkit-scrollbar {
