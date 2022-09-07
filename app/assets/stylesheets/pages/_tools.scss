@@ -4,21 +4,21 @@
   height: 100%;
   position: relative;
   justify-content: flex-end;
-  margin-top: 20px;
-  padding: 0 20px;
+  margin-top: 3%;
+  padding: 0 4% 0 0;
 }
 
 .info-card {
-  width: 32%;
+  width: 35%;
   height: 90vh;
   position: fixed;
-  left: 20px;
+  left: 5%;
 }
 
 .index-container {
   display: flex;
   flex-direction: column;
-  width: 65%;
+  width: 56%;
   position: relative;
   right: 0px;
 
@@ -30,7 +30,7 @@
 .details-card {
   width: 100%;
   background-color: white;
-  box-shadow: 10px 57px 64px rgba(12, 53, 43, 0.5);
+  box-shadow: 0px 0px 30px -5px $mikuhover;
   border-radius: 29px;
   display: flex;
   flex-direction: column;
@@ -38,6 +38,7 @@
 
   h2 {
     color: $miku;
+    padding-top: 3%;
   }
 
   /* Firefox */
@@ -124,14 +125,15 @@
 
 }
 
-.index-tool:hover {
-  background-color: rgba(223, 223, 223, 0.808);
-}
+//.index-tool:hover {
+//  background-color: rgba(223, 223, 223, 0.808);
+//}
 
 .index-tool {
   display: flex;
-  margin: 1.25rem 0rem;
-  padding: 20px;
+ // margin: 1.25rem 0rem;
+  padding: 7px;
+
 
   img {
     border-radius: 13px;
