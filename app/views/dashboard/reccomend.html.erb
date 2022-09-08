@@ -17,16 +17,33 @@
 
     <div class="dash-social card_borderradius">
       <h2>Messages</h2>
-      <% if @messages != [] %>
-        <% @messages.each do |message| %>
-          <% @user = User.find(message.user_id) %>
-          <p>New Message from <%= @user.profile.user_name %></p>
-          <p><%= message.content %></p>
-          <%= link_to "Enter Chat", chatroom_path(message.chatroom) %>
+      <div class="dash-messages">
+        <% if @messages != [] %>
+          <% @messages.each do |message| %>
+            <div class = "dashboard-inbox-container">
+              <div class="avatar-container">
+                <%= cl_image_tag Profile.find_by_user_id(message.user_id).photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"avatar-inbox" %>
+                <i class="fa-solid fa-circle new-mail-dot"></i>
+              </div>
+              <div class="dashboard-username-container">
+                <% @user = User.find(message.user_id) %>
+                <p><%= @user.profile.user_name %></p>
+              </div>
+              <div class="dashboard-message-container">
+                <% if message.content.length > 20 %>
+                  <p><%= message.content[0..20] %>...</p>
+                  <%= link_to "Enter Chat", chatroom_path(message.chatroom) %>
+                <% else %>
+                  <p><%= message.content %></p>
+                  <%= link_to "Enter Chat", chatroom_path(message.chatroom) %>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        <% else %>
+          <p>You have no unread messages</p>
         <% end %>
-      <% else %>
-        <p>You have no unread messages</p>
-      <% end %>
+    </div>
     </div>
 
     <div class="dash-tools card_borderradius">
