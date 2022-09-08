@@ -6,7 +6,7 @@
           <%= cl_image_tag @tool.photo.key, height: 300, width: 300, crop: :fill %>
         <% end %>
         <%= link_to "Back to results", tools_path, class: "mikulink" %>
-        <%= link_to "Delete this tool", @tool, method: :delete, class: "button1" if policy(@tool).destroy? %>
+        <%= link_to "Delete this tool", @tool, class:"button1", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@tool).destroy?  %>
         <% if policy(@tool).edit? %>
           <%= link_to "Edit This Tool", edit_tool_path(@tool), class: "button2" %>
         <% end %>

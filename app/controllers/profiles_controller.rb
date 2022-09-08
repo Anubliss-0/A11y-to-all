@@ -28,7 +28,7 @@ class ProfilesController < ApplicationController
       flash[:notice] = "#{@profile.user_name}'s profile has been saved"
       redirect_to profile_path(@profile)
     else
-      render :new
+      render :new, status: :see_other
     end
   end
 
@@ -54,7 +54,7 @@ class ProfilesController < ApplicationController
       flash[:notice] = "#{@profile.user_name}'s profile has been updated."
       redirect_to profile_path(@profile)
     else
-      render :new
+      render :new, status: :see_other
     end
   end
 
@@ -62,7 +62,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     authorize @profile
     @profile.delete
-    redirect_to root_path
+    redirect_to root_path, status: :see_other
   end
 
   private
