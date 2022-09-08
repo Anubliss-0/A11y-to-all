@@ -15,6 +15,7 @@ export default class extends Controller {
     let image = (event.currentTarget.querySelector("#image").src)
     let score = (event.currentTarget.querySelector("#score").innerText)
     let userLink = (event.currentTarget.querySelector("#user-path")).href
+    let chatButton = (event.currentTarget.querySelector(".prof-chat-card")).href
 
 
     this.previewTarget.innerHTML +=
@@ -29,7 +30,7 @@ export default class extends Controller {
       </div>
       <div class="preview-buttons">
         <a class="button1" href="${userLink}">View Profile</a>
-
+        <a class="button1" href="${chatButton}">Chat With User</a>
       </div>
     `
   }
