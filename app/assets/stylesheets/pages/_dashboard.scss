@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   margin: auto;
+  width: 100%;
 }
 
 .dash-grid {
@@ -42,6 +43,7 @@
   flex-direction: column;
   height: 100%;
   overflow-y: scroll;
+  align-items: center;
 }
 
 .dash-profile {
