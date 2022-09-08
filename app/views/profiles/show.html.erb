@@ -82,14 +82,12 @@
         <% @lists.each do |list| %>
             <div class= "toolbox-card "style="background-color: none;">
               <%# <%= link_to list_path(list) do %>
-              <h4><%= list.title %></h4>
+              <h4><%= link_to list.title, list %></h4>
               <%# <% end %>
               <div class="toolboxcard-list">
-                <li>Tool 1</li>
-                <li>Tool 2</li>
-                <li>Tool 3</li>
-                <li>Tool 4</li>
-                <li>Tool 5</li>
+                <% list.bookmarks.each do |bookmark| %>
+                  <li><%= bookmark.tool.title %></li>
+                <% end %>
               </div>
           <%= link_to list_path(list) do %>
           <p class="mikulink" style= "margin: 5px 0px 0px 2ch">See toolbox</p>
