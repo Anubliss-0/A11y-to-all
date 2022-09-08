@@ -50,6 +50,7 @@
   .button2 {
     width: 150px;
     height: 50px;
+    margin: 0px;
   }
 }
 
@@ -70,6 +71,9 @@ grid-template-columns: 1fr 1fr;
 
   .button1 {
     margin: 0px 10px 0px 0px;
+  }
+  a{
+    height: 50px;
   }
 }
 
@@ -101,6 +105,10 @@ grid-template-columns: 1fr 1fr;
 .review-grid-item {
   border-bottom: 3px solid $miku;
   padding-top: 30px;
+
+  .user-date {
+    font-size: 1.5rem;
+  }
 }
 
 .review-grid-item:first-of-type {
