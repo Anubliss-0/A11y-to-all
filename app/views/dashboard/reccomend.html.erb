@@ -4,7 +4,11 @@
     <div class="dash-profile card_borderradius">
 
           <%= link_to profile_path(current_user.profile) do %>
-            <%= cl_image_tag current_user.profile.photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"profile-avatar" %>
+            <% if current_user.profile.photo.key? %>
+              <%= cl_image_tag current_user.profile.photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"profile-avatar" %>
+            <% else %>
+              <%= image_tag "avatar_blank.png", class: "profile-avatar" %>
+            <% end %>
           <% end %>
           <h2 style="border-bottom: none;"><%= current_user.profile.name %></h2>
           <p >@<%= current_user.profile.user_name %>

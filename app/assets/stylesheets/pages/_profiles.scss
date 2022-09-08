@@ -6,9 +6,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: 60vh;
 
   h2 {
     color: $miku;
+    margin-top: 3%;
   }
 
   /* Firefox */
@@ -96,6 +98,11 @@
     width: 40%
   }
 
+  .previewscore {
+    color: $miku;
+    font-size: 2rem;
+  }
+
 
 }
 
@@ -104,13 +111,11 @@
 }
 
 .index-profile {
-
     grid-template-columns: 1fr 8fr;
     padding: 5px 9px 5px 4px;
     width: 100%;
-    border-bottom: 3px solid $miku;
-
-  display: flex;
+    display: flex;
+    margin: 1.25rem 0rem;
 
   img {
     border-radius: 13px;
@@ -127,5 +132,12 @@
     margin: 0 .625rem;
     width: 100%;
   }
+
+  .location {
+    color: $miku;
+    text-align: end;
+  }
+
+
 
 }

@@ -16,10 +16,10 @@ class ReviewsController < ApplicationController
     authorize @review
     if @review.save
       @owner = User.find(@tool.user_id)
-      flash[:notice] = "Your review has been created!"
+      flash[:notice] = "Your review has been created. Your community score has gone up!"
       UpdateScoreJob.perform_now(current_user)
+      UpdateScoreJob.perform_now(@owner)
       UpdateToolRatingJob.perform_now(@tool, current_user)
-      UpdateOwnerScoreJob.perform_now(@owner)
       redirect_to tool_path(@tool)
     else
       render :new, status: :unprocessable_entity

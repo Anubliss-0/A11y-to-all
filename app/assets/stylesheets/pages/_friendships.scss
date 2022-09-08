@@ -1,0 +1,38 @@
+.page-container {
+  width: 80%;
+  background-color: white;
+  box-shadow: 2px 2px 6px $miku;
+  border-radius: 10px;
+  margin: 40px auto;
+  h2 {
+    color: #8690ec;
+    border-bottom: 3px solid #8690ec;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin: 0 10px;
+  }
+}
+
+.friends-card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 10px;
+  overflow-y: scroll;
+}
+
+.friends-card {
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin: 10px 10px;
+
+  img {
+    height: 100px;
+    width: 100px;
+    padding: 10px 10px;
+  }
+  p {
+    font-size:20px;
+  }
+}

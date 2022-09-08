@@ -1,12 +1,20 @@
-<h1><%= @profile.name %>'s friends'</h1>
-<% @friendships.each do |friend| %>
-  <div class = "friend-card">
-    <% if @profile.id == friend.friend1_id %>
-      <%= cl_image_tag Profile.find(friend.friend2_id).photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"avatar" %>
-      <%= Profile.find(friend.friend2_id).name  %>
-    <% elsif @profile.id == friend.friend2_id%>
-      <%= cl_image_tag Profile.find(friend.friend1_id).photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"avatar" %>
-      <%= Profile.find(friend.friend1_id).name  %>
+<div class="page-container">
+  <h2 class="card_h2"><%= @profile.name %>'s friends</h2 >
+  <div class="friends-card-container">
+    <% @friendships.each do |friend| %>
+      <div class = "friends-card">
+        <% if @profile.id == friend.friend1_id %>
+          <%= link_to profile_path(friend.friend2_id) do |link| %>
+            <%= cl_image_tag Profile.find(friend.friend2_id).photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"avatar" %>
+            <%= Profile.find(friend.friend2_id).name  %>
+          <% end %>
+        <% elsif @profile.id == friend.friend2_id%>
+          <%= link_to profile_path(friend.friend1_id) do |link| %>
+            <%= cl_image_tag Profile.find(friend.friend1_id).photo.key, height: 300, width: 300, crop: :fill, gravity: :face, class:"avatar" %>
+            <%= Profile.find(friend.friend1_id).name  %>
+          <% end %>
+      <% end %>
+      </div>
     <% end %>
   </div>
-<% end %>
+</div>
