@@ -26,7 +26,7 @@ class ProfilesController < ApplicationController
         @profile_category.save!
       end
       flash[:notice] = "#{@profile.user_name}'s profile has been saved"
-      redirect_to profile_path(@profile)
+      redirect_to root_path
     else
       render :new
     end

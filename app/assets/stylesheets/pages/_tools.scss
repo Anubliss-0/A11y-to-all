@@ -216,11 +216,22 @@
 
   .button1 {
     width: 40%;
+
   }
 
   .buttons {
     display: flex;
     justify-content: space-around;
+    width: 80%;
+
+    .button1 {
+      height: 50px;
+    }
+
+    .button2 {
+      height: 50px;
+      margin: auto;
+    }
   }
 
   .flex {
