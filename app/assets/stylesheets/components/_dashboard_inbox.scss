@@ -30,5 +30,13 @@
 }
 
 .dashboard-username-container {
-  padding: 10px 10%;
+  padding: 0px 5%;
+}
+
+.dashboard-message-container {
+  width: 100%;
+}
+
+#dash-user-name::after {
+  content: ":";
 }
