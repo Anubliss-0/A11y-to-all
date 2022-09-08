@@ -7,21 +7,22 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require "open-uri"
 
-
 Category.new(name:"Reading").save!
-Category.new(name:"Listening").save!
+Category.new(name:"Auditory").save!
 Category.new(name:"Dyslexia").save!
 Category.new(name:"Concentration").save!
 Category.new(name:"Relaxation").save!
-Category.new(name:"Autism").save!
-Category.new(name:"Text-readers").save!
-Category.new(name:"Speech-Text").save!
+Category.new(name:"Autism Spectrum").save!
+Category.new(name:"Visual").save!
+Category.new(name:"Physical/Motor").save!
+Category.new(name:"Neurological").save!
+Category.new(name:"Cognitive").save!
+Category.new(name:"Organization").save!
 
 20.times do
   user = User.create(
     email: Faker::Internet.email,
-    password: Faker::Internet.password,
-
+    password: Faker::Internet.password
   )
   user.save!
   profile = Profile.create(
@@ -34,56 +35,63 @@ Category.new(name:"Speech-Text").save!
   file = URI.open("https://i.pravatar.cc/300")
   profile.photo.attach(io: file, filename:"filler.jpeg",content_type: "image/jpeg")
   profile.save!
+  3.times do
+    tag = ProfileCategory.create(
+      profile_id: profile.id,
+      category_id: rand(1..11)
+    )
+    tag.save!
+  end
+  5.times do
+    tool = Tool.create(
+      title: ("#{Faker::Emotion.noun} #{Faker::Verb.base}er"),
+      description: Faker::Restaurant.description,
+      url: Faker::Internet.domain_name,
+      rating: rand(1..5),
+      user_id: user.id
+    )
+    file = URI.open("https://placeimg.com/440/280/tech")
+    tool.photo.attach(io: file, filename:"filler.jpeg",content_type: "image/jpeg")
+    tool.save!
+    3.times do
+      category = ToolCategory.create(
+        category_id: rand(1..11),
+        tool_id: tool.id
+      )
+      category.save!
+    end
+  end
+  6.times do
+    list = List.create(
+      title: Faker::Job.key_skill,
+      user_id: user.id
+    )
+    list.save!
+  end
 end
 
-40.times do
-  tag = ProfileCategory.create(
-    profile_id: rand(1..20),
-    category_id: rand(1..8)
-  )
-  tag.save!
-end
-
-40.times do
-  tool = Tool.create(
-    title: ("#{Faker::Emotion.noun} #{Faker::Verb.base}er"),
-    description: Faker::Restaurant.description,
-    url: Faker::Internet.domain_name,
-    rating: rand(1..5),
-    user_id: rand(1..10)
-  )
-  file = URI.open("https://placeimg.com/440/280/tech")
-  tool.photo.attach(io: file, filename:"filler.jpeg",content_type: "image/jpeg")
-  tool.save!
-  category = ToolCategory.create(
-    category_id: rand(1..8),
-    tool_id: tool.id
-  )
-  category.save!
-end
-
-20.times do
-  list = List.create(
-    title: Faker::Job.key_skill,
-    user_id: rand(1..20)
-  )
-  list.save!
-end
-
-50.times do
+300.times do
   bookmark = Bookmark.create(
-    list_id: rand(1..20),
-    tool_id: rand(1..30)
+    list_id: rand(1..120),
+    tool_id: rand(1..100)
   )
   bookmark.save!
 end
 
-40.times do
+150.times do
   review = Review.new(
     content: Faker::Restaurant.review,
     rating: rand(1..5),
     user_id: rand(1..20),
-    tool_id: rand(1..30)
+    tool_id: rand(1..100)
   )
   review.save!
+end
+
+300.times do
+  friendship = Friendship.new(
+    friend1_id: (1..50),
+    friend2_id: rand(51..100)
+  )
+  friendship.save!
 end
