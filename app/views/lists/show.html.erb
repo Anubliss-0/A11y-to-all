@@ -24,16 +24,18 @@
       <div class="zero">
 
         <div class="grid-item item1">
-          <div class="img tcard_boxshadow">
-            <%=image_tag("tool-svgrepo-com.svg") %>
 
-          <%# can't set the photo because I can't upload one (backend error?)
 
-            <%# <% if tool.photo.key != nil %>
-            <%# <%= cl_image_tag tool.photo.key, height: 300, width: 300 %>
-            <%# <% end %>
 
-          </div>
+          <% if tool.photo.key != nil %>
+            <%= cl_image_tag tool.photo.key, height: 60, width: 60, class:"img tcard_boxshadow" %>
+          <% else %>
+            <div class="img tcard_boxshadow">
+              <%=image_tag("tool-svgrepo-com.svg") %>
+            </div>
+          <% end %>
+
+
         </div>
         <div class="item2">
           <div class="item21">
