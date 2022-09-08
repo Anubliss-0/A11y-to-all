@@ -18,6 +18,7 @@
     <div class="dash-social card_borderradius">
       <h2>Messages</h2>
       <div class="dash-messages">
+      <div class="messagebox">
         <% if @messages != [] %>
           <% @messages.each do |message| %>
             <div class = "dashboard-inbox-container">
@@ -27,11 +28,11 @@
               </div>
               <div class="dashboard-username-container">
                 <% @user = User.find(message.user_id) %>
-                <p><%= @user.profile.user_name %></p>
+                <p id="dash-user-name"><%= @user.profile.user_name %></p>
               </div>
               <div class="dashboard-message-container">
                 <% if message.content.length > 20 %>
-                  <p><%= message.content[0..20] %>...</p>
+                  <p><%= message.content[0..30] %>...</p>
                   <%= link_to "Enter Chat", chatroom_path(message.chatroom) %>
                 <% else %>
                   <p><%= message.content %></p>
@@ -43,6 +44,7 @@
         <% else %>
           <p>You have no unread messages</p>
         <% end %>
+        </div>
     </div>
     </div>
 
