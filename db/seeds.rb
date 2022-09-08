@@ -90,8 +90,8 @@ end
 
 300.times do
   friendship = Friendship.new(
-    friend1_id: (1..50),
-    friend2_id: rand(51..100)
+    friend1_id: (1..10),
+    friend2_id: rand(10..20)
   )
   friendship.save!
 end
