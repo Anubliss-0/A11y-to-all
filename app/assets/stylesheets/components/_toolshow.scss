@@ -114,3 +114,18 @@ grid-template-columns: 1fr 1fr;
 .review-grid-item:first-of-type {
   padding-top: 0px;
 }
+
+.show-categories {
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+  span {
+    padding: 0.625rem;
+    color: white;
+    background-color: #8690ec;
+    border-radius: 29px;
+    margin: 10px;
+  }
+}

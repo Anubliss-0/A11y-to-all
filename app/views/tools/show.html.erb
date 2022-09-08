@@ -10,6 +10,11 @@
         <% if policy(@tool).edit? %>
           <%= link_to "Edit This Tool", edit_tool_path(@tool), class: "button2" %>
         <% end %>
+        <div class="show-categories">
+      <% @tool.categories.each do |category| %>
+        <span><%= category.name %></span>
+      <% end %>
+    </div>
     </div>
     <div class="name-stars">
       <div class="nameg" style="text-align: left"> <h1><%= @tool.title %></h1>
@@ -25,6 +30,7 @@
         </div>
     </div>
     <div class="textg" style="text-align: left"> <p style=><%= @tool.description %></p> </div>
+
     <div class="buttonsg">
 
       <%= link_to new_tool_bookmark_path(@tool), class: "button1", target: "blank", :"data-action" => "click->external#popup" do |link|%>
