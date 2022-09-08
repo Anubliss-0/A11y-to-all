@@ -5,11 +5,16 @@
         <% if @tool.photo.key? %>
           <%= cl_image_tag @tool.photo.key, height: 300, width: 300, crop: :fill %>
         <% end %>
-        <%= link_to "Back to results", tools_path, class: "mikulink" %>
+        <%= link_to "Back to results", tools_path, class: "button1" %>
         <%= link_to "Delete this tool", @tool, class:"button1", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} if policy(@tool).destroy?  %>
         <% if policy(@tool).edit? %>
           <%= link_to "Edit This Tool", edit_tool_path(@tool), class: "button2" %>
         <% end %>
+        <div class="show-categories">
+      <% @tool.categories.each do |category| %>
+        <span><%= category.name %></span>
+      <% end %>
+    </div>
     </div>
     <div class="name-stars">
       <div class="nameg" style="text-align: left"> <h1><%= @tool.title %></h1>
@@ -25,13 +30,14 @@
         </div>
     </div>
     <div class="textg" style="text-align: left"> <p style=><%= @tool.description %></p> </div>
+
     <div class="buttonsg">
 
       <%= link_to new_tool_bookmark_path(@tool), class: "button1", target: "blank", :"data-action" => "click->external#popup" do |link|%>
         <i style ="padding-right: 8px" class='fa-solid fa-toolbox'></i> Save to Toolbox
       <% end %>
       <%= link_to  "https://#{@tool.url}", class: "button1", target: "blank", :"data-action" => "click->external#popup" do |link|%>
-        <i class="fa-solid fa-link"></i> Open Link
+        <i style ="padding-right: 8px" class="fa-solid fa-link"></i> Open Link
       <% end %>
       <%= link_to new_tool_review_path(@tool), class: "button2" do |link| %>
         <i style ="padding-right: 8px" class="fa-solid fa-comment"></i> Leave a Review
@@ -46,7 +52,7 @@
     <div class="review-grid" style="background-color: white">
       <% @reviews.each do |review| %>
       <div class="review-grid-item">
-        <p class="colorful-text" style="text-align: left">
+        <p class="colorful-text user-date" style="text-align: left">
           <%= link_to review.user.profile.user_name, profile_path(review.user) %> | <%= review.created_at.strftime('%d/%m/%Y') %>
         </p>
         <p style="text-align: left">
