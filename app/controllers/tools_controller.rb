@@ -49,11 +49,12 @@ class ToolsController < ApplicationController
       flash[:notice] = "#{@tool.title} has been updated"
       redirect_to tool_path(@tool)
     else
-      render :new
+      render :new, status: :see_other
     end
   end
 
   def destroy
+    @tool = Tool.find(params[:id])
     authorize @tool
     @tool.destroy
     flash[:notice] = "#{@tool.title} has been deleted"
