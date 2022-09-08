@@ -11,6 +11,7 @@ class FriendshipsController < ApplicationController
     @friend2 = Profile.find(params[:id])
     @friendship.friend2_id = @friend2.id
     if @friendship.save
+      flash[:notice] = "#{@friend2.name} has been added to your friends list!"
       redirect_to profile_path(params[:id])
     else
       render :new

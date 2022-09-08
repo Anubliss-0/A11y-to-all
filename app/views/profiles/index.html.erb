@@ -11,6 +11,7 @@
     </div>
 
     <div class="index-container">
+
       <% if @query %>
         <h1><i class="fa-solid fa-user"></i> Profiles matching <%= @query %></h1>
       <% else %>
@@ -19,11 +20,11 @@
       <% @profiles.each do |profile| %>
         <div class="index-profile" data-action="click->profpreview#preview">
 
-            <% if profile.photo.key != nil %>
-              <%= cl_image_tag profile.photo.key, height: 300, width: 300, id: "image", crop: :fill, gravity: :face %>
-            <% else %>
-              <%=image_tag("user-svgrepo-com.svg") %>
-            <% end %>
+          <% if profile.photo.key != nil %>
+            <%= cl_image_tag profile.photo.key, height: 300, width: 300, id: "image", crop: :fill, gravity: :face %>
+          <% else %>
+            <%=image_tag("user-svgrepo-com.svg") %>
+          <% end %>
 
 
           <div class="name-desc">
@@ -37,6 +38,12 @@
           <div class="secret-info">
             <span id="score"><%= profile.score %></span>
             <%= link_to "", profile_path(profile), id: "user-path" %>
+            <% chat_already = Chatroom.select { |chat| (chat.sender_id == profile.user_id || chat.recipient_id == profile.user_id) && (chat.sender_id == current_user.id || chat.recipient_id == current_user.id)} %>
+            <% if profile.user != current_user && chat_already == [] %>
+              <%= link_to "Chat with #{profile.user_name}", talk_path(profile.id), class:"button2 prof-chat-card" %>
+            <% elsif profile.user != current_user && chat_already != [] %>
+              <%= link_to "Chat with #{profile.user_name}", chatroom_path(chat_already.first.id), class:"button2 prof-chat-card" %>
+            <% end %>
           </div>
         </div>
         <% end %>

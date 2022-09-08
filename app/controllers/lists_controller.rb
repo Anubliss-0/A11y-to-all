@@ -9,7 +9,7 @@ class ListsController < ApplicationController
     @list = List.new(list_params)
     @list.user = current_user
     authorize @list
-    if @list.save
+    if @list.save!
       params[:list][:tool_ids].delete("")
       params[:list][:tool_ids].each do |tool|
         @bookmark = Bookmark.new(tool_id: tool.to_i, list: @list)

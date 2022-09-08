@@ -39,7 +39,7 @@ class ToolsController < ApplicationController
       UpdateScoreJob.perform_now(current_user)
       redirect_to tool_path(@tool), notice: "Tool Created- Your Community Score has gone up!"
     else
-      render :new
+      render :new, status: :see_other
     end
   end
 
@@ -49,15 +49,16 @@ class ToolsController < ApplicationController
       flash[:notice] = "#{@tool.title} has been updated"
       redirect_to tool_path(@tool)
     else
-      render :new
+      render :new, status: :see_other
     end
   end
 
   def destroy
+    @tool = Tool.find(params[:id])
     authorize @tool
     @tool.destroy
     flash[:notice] = "#{@tool.title} has been deleted"
-    redirect_to tools_path
+    redirect_to tools_path, status: :see_other
   end
 
 
