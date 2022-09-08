@@ -12,6 +12,8 @@ module ApplicationHelper
       "colored-background"
     elsif params[:controller] == "dashboard" && params[:action] == "reccomend"
       "colored-background"
+    elsif params[:controller] == "chatrooms" && params[:action] == "show"
+      "colored-background"
     else
       ""
     end
