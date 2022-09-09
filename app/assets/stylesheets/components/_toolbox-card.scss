@@ -13,17 +13,17 @@
 }
 
 .toolboxcard-list {
-  border-right: 2px solid $miku;
+
   padding: 0% 10% 0% 9%;
 
 
   ::marker {
-    color: red;
+    display: none;
   }
 }
 .toolboxcard-list > li {
   display: list-item;
-  list-style-type: "🔧";
+
 
   overflow: hidden;
   white-space: nowrap;

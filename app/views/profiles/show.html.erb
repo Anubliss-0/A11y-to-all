@@ -6,7 +6,7 @@
 
   <div class="profile-banner-text">
     <h1><%= @profile.name %></h1>
-    <h3>@<%= @profile.user_name %>  </h3>
+    <h3><%= @profile.user_name %>  </h3>
     <div>
       <p class= "points"><i class="fa-solid fa-award"></i>  <%= @profile.score %>  points</p>
 
@@ -45,13 +45,19 @@
     </div>
   </div>
 </div>
+<div class="prof-buttons">
 
+<% if policy(@profile).edit? %>
+        <%= link_to "Update Profile", edit_profile_path(@profile), class: "button1"%>
+      <% end %>
 
+</div>
 
 <div class="profile-lists grey-bg">
+<div class="list-containers">
   <% if @lists != [] %>
-    <h2>@<%= @profile.user_name %>'s tools:</h2>
-    <div style="display: flex">
+    <h2><%= @profile.user_name %>'s tools:</h2>
+    <div class="scrollbarz" style="display: flex">
       <div class="prof-scroll-list">
       <% @tools.each do |tool| %>
           <div class= "toolbox-card "style="background-color: none;">
@@ -65,10 +71,12 @@
         <p class="mikulink" style= "margin: 5px 0px 0px 2ch">See tool</p>
         <% end %>
       </div>
+      <div class="spacer">&nbsp</div>
       <% end %>
     </div>
     </div>
   <% end %>
+  </div>
 </div>
 
 <div class="profile-banner">
@@ -76,7 +84,7 @@
 
 <div class="profile-lists">
   <% if @lists != [] %>
-    <h2>@<%= @profile.user_name %>'s toolboxes:</h2>
+    <h2><%= @profile.user_name %>'s toolboxes:</h2>
     <div style="display: flex">
       <div class ="prof-scroll-list">
         <% @lists.each do |list| %>
@@ -85,34 +93,35 @@
               <h4><%= link_to list.title, list %></h4>
               <%# <% end %>
               <div class="toolboxcard-list">
-                <% list.bookmarks.each do |bookmark| %>
-                  <li><%= bookmark.tool.title %></li>
+                <% list.bookmarks[0..5].each do |bookmark| %>
+                  <li><i class="fa-solid fa-wrench"></i><%= bookmark.tool.title %></li>
                 <% end %>
               </div>
+              <% if list.bookmarks.length > 6 %>
+                <%= link_to "see more...", list %>
+              <% end %>
           <%= link_to list_path(list) do %>
           <p class="mikulink" style= "margin: 5px 0px 0px 2ch">See toolbox</p>
           <% end %>
         </div>
+        <div class="spacer">&nbsp</div>
         <% end %>
       </div>
     </div>
   <% end %>
 </div>
 
-
-
-
-
-
-
-
-
-      <% if policy(@profile).edit? %>
-        <%= link_to "Update Profile", edit_profile_path(@profile)%>
-      <% end %>
-
+    <div class="deletecontainer">
       <% if policy(@profile).destroy? %>
-        <%= link_to "Delete Profile", @profile, data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}%>
+        <%= link_to "Delete Profile", @profile, data:{turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "button2"%>
       <% end %>
+    </div>
+
+
+
+
+
+
+
 
   </div>
