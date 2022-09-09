@@ -62,7 +62,12 @@
 
 .profile-lists{
   margin: 0 auto;
-  width: 90%;
+  width: 70%;
+  overflow-x: scroll;
+  margin-top: 5%;
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.438);
+  border-radius: 29px;
+
   h2 {
     padding-top: 10px;
     padding-left: 10px;
@@ -87,11 +92,74 @@
 }
 
 .prof-scroll-list {
-  overflow-x: scroll;
-  display: flex,
+  display: flex;
+
+
+  .toolbox-card {
+    min-width: 25%;
+
+
+    .toolboxcard-list {
+      padding: 0px 10px;
+      list-style: none;
+    }
+  }
 }
 
 .profile-banner-buttons {
   display: flex;
   margin-bottom: 10px;
+}
+
+.spacer {
+  height: 70%;
+  width: 1px;
+  border: 1px solid $miku;
+}
+
+.list-containers {
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #8f54a0 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #8f54a0;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
+}
+
+.prof-buttons {
+  display: flex;
+  margin: 25px;
+
+  .button1 {
+    margin: 0px;
+    margin-right: 10px;
+  }
+}
+
+.deletecontainer {
+  display: flex;
+  justify-content: end;
+  margin-top: 1.25rem;
+  margin-bottom: 1rem;
+
+  .button2 {
+    background-color: rgb(226, 109, 109);
+    color: black;
+    border: 2px solid black;
+  }
 }
